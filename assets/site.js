@@ -125,7 +125,8 @@
   /* ── Hero parallax & fade ─────────────────────────────── */
   const heroText = $('.hero__text');
   const heroRender = $('.hero__render');
-  if (heroText && !reduceMotion) {
+  const wideScreen = window.matchMedia('(min-width: 834px)').matches;
+  if (heroText && !reduceMotion && wideScreen) {
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
