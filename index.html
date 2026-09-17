@@ -2,2023 +2,701 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Davenee James | Analytics & Power BI Portfolio</title>
-  <meta name="description" content="Power BI dashboards, demos, and analytics work by Davenee James." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Davenee James | Enterprise Analytics for Higher Education</title>
+  <meta name="description" content="Davenee James — Enterprise Analytics Specialist at the University of Central Florida and higher-ed analytics consultant. Power BI, PostgreSQL, IPEDS, and executive dashboards." />
+  <meta property="og:title" content="Davenee James | Enterprise Analytics for Higher Education" />
+  <meta property="og:description" content="Power BI dashboards, PostgreSQL pipelines, and IPEDS reporting for colleges and universities." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#000000" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --near-black: #1a1915;
-      --white: #ffffff;
-      --blue: #0075de;
-      --blue-pressed: #0062be;
-      --warm-gray: #615d59;
-      --warm-gray-light: #a39e98;
-      --warm-black: #31302e;
-      --border: rgba(0,0,0,0.1);
-      --border-subtle: rgba(0,0,0,0.05);
-      --success: #0f7b55;
-      --bg: #ffffff;
-      --bg-subtle: #f6f5f4;
-      --code-keyword: #ff7b72;
-      --code-function: #d2a8ff;
-      --code-string: #a5d6ff;
-      --code-comment: #8b949e;
-      --code-number: #79c0ff;
-      --ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-      --shadow-card: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
-      --shadow-card-hover: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.06), 0 20px 48px rgba(0,0,0,0.10);
-      --shadow-elevated: 0 0 0 1px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06), 0 32px 80px rgba(0,0,0,0.14);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--near-black);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    @media (max-width: 768px) { .container { padding: 0 20px; } }
-
-    /* ─── HEADER ─── */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,0);
-      transition: background 0.5s var(--ease-apple), box-shadow 0.5s var(--ease-apple);
-    }
-    header.scrolled {
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-    }
-
-    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .logo {
-      display: flex; align-items: center; gap: 10px;
-      opacity: 0; transform: translateY(-12px);
-      transition: opacity 0.6s var(--ease-smooth) 0.1s, transform 0.6s var(--ease-smooth) 0.1s;
-    }
-    .logo.visible { opacity: 1; transform: translateY(0); }
-    .logo-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; font-weight: 700; color: white; letter-spacing: -0.3px;
-      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
-    }
-    .logo:hover .logo-icon {
-      transform: scale(1.08) rotate(-4deg);
-      box-shadow: 0 4px 14px rgba(0,117,222,0.3);
-    }
-    .logo-text { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: -0.2px; color: var(--near-black); }
-
-    nav { display: flex; align-items: center; gap: 4px; }
-    nav a {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 6px;
-      color: var(--warm-gray); transition: color 0.2s ease, background 0.2s ease;
-      opacity: 0; transform: translateY(-12px);
-    }
-    nav a.visible { opacity: 1; transform: translateY(0); transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth), color 0.2s ease, background 0.2s ease; }
-    nav a:hover { color: var(--near-black); background: var(--bg-subtle); }
-    nav a[href$=".pdf"] { border: 1px solid var(--border); color: var(--near-black); border-radius: 4px; }
-    nav a[href$=".pdf"]:hover { background: var(--blue); border-color: var(--blue); color: white; }
-
-    @media (max-width: 900px) { nav { gap: 2px; } nav a { font-size: 13px; padding: 6px 10px; } }
-    @media (max-width: 600px) { .logo-text { display: none; } }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
-      background: var(--bg);
-    }
-
-    .hero-content {
-      display: grid; grid-template-columns: 1fr 400px; gap: 64px; align-items: center;
-      padding: 120px 0 80px; position: relative; z-index: 1;
-    }
-    @media (max-width: 1024px) { .hero-content { grid-template-columns: 1fr; gap: 48px; } }
-
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
-      background: rgba(15,123,85,0.08); border: 1px solid rgba(15,123,85,0.2);
-      border-radius: 9999px;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; font-weight: 500; color: var(--success); margin-bottom: 20px;
-      opacity: 0; transform: translateY(16px);
-      transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-    }
-    .hero-badge.visible { opacity: 1; transform: translateY(0); }
-    .hero-badge::before {
-      content: ''; width: 6px; height: 6px; background: var(--success); border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-    .hero h1 {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(38px, 5.5vw, 64px); font-weight: 700;
-      letter-spacing: -2.125px; line-height: 1.08; margin-bottom: 24px; color: var(--near-black);
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.1s, transform 0.7s var(--ease-smooth) 0.1s;
-    }
-    .hero h1.visible { opacity: 1; transform: translateY(0); }
-    .hero h1 span { color: var(--blue); }
-
-    .hero-desc {
-      font-size: 17px; color: var(--warm-gray); max-width: 500px;
-      line-height: 1.7; margin-bottom: 36px;
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.2s, transform 0.7s var(--ease-smooth) 0.2s;
-    }
-    .hero-desc.visible { opacity: 1; transform: translateY(0); }
-
-    .hero-actions {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.3s, transform 0.7s var(--ease-smooth) 0.3s;
-    }
-    .hero-actions.visible { opacity: 1; transform: translateY(0); }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 500; border-radius: 4px;
-      border: 1px solid var(--border); background: transparent; color: var(--near-black);
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s var(--ease-spring);
-    }
-    .btn:hover { background: var(--bg-subtle); transform: translateY(-1px); }
-    .btn:active { transform: translateY(0) scale(0.98); }
-    .btn-primary { background: var(--blue); border-color: var(--blue); color: white; }
-    .btn-primary:hover { background: var(--blue-pressed); border-color: var(--blue-pressed); box-shadow: 0 4px 16px rgba(0,117,222,0.22); }
-    .btn-white { background: white; border-color: rgba(0,0,0,0.15); color: var(--blue); }
-    .btn-white:hover { background: rgba(255,255,255,0.95); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-
-    /* ─── PROFILE CARD ─── */
-    .profile-card {
-      background: white; border-radius: 16px;
-      box-shadow: var(--shadow-card);
-      padding: 32px;
-      opacity: 0; transform: translateX(40px) scale(0.97);
-      transition: opacity 0.8s var(--ease-smooth) 0.2s, transform 0.8s var(--ease-smooth) 0.2s, box-shadow 0.3s ease;
-    }
-    .profile-card.visible { opacity: 1; transform: translateX(0) scale(1); }
-    .profile-card:hover { box-shadow: var(--shadow-card-hover); }
-    .profile-header {
-      display: flex; gap: 20px; align-items: center; margin-bottom: 24px;
-      padding-bottom: 24px; border-bottom: 1px solid var(--border);
-    }
-    .profile-avatar {
-      width: 80px; height: 80px; object-fit: cover;
-      border-radius: 50%; box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
-      transition: transform 0.3s var(--ease-spring);
-    }
-    .profile-card:hover .profile-avatar { transform: scale(1.04); }
-    .profile-info h3 { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 4px; }
-    .profile-info p { font-size: 13px; color: var(--warm-gray); line-height: 1.5; }
-    .profile-meta { display: flex; flex-direction: column; }
-    .meta-item {
-      display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
-      padding: 14px 0; border-bottom: 1px solid var(--border);
-    }
-    .meta-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .meta-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; color: var(--warm-gray-light); white-space: nowrap; }
-    .meta-value { font-size: 13px; color: var(--warm-gray); text-align: right; line-height: 1.4; }
-
-    /* ─── SECTIONS ─── */
-    .section { padding: 80px 0; border-top: 1px solid var(--border); }
-    .section-header { margin-bottom: 48px; }
-
-    .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-left {
-      opacity: 0; transform: translateX(-40px);
-      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
-    }
-    .reveal-left.visible { opacity: 1; transform: translateX(0); }
-    .reveal-right {
-      opacity: 0; transform: translateX(40px);
-      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
-    }
-    .reveal-right.visible { opacity: 1; transform: translateX(0); }
-
-    .stagger-children > * {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
-    }
-    .stagger-children.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
-    .stagger-children.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.07s; }
-    .stagger-children.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.14s; }
-    .stagger-children.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.21s; }
-    .stagger-children.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:0.28s; }
-    .stagger-children.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:0.35s; }
-    .stagger-children.visible > *:nth-child(7) { opacity:1; transform:translateY(0); transition-delay:0.42s; }
-    .stagger-children.visible > *:nth-child(8) { opacity:1; transform:translateY(0); transition-delay:0.49s; }
-
-    .section-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 12px;
-    }
-    .section-heading {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -1.5px;
-      color: var(--near-black); line-height: 1.1;
-    }
-    .section-desc { font-size: 17px; color: var(--warm-gray); max-width: 600px; margin-top: 16px; line-height: 1.7; }
-
-    /* ─── SEARCH / FILTERS ─── */
-    .controls {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 16px; margin-bottom: 32px; flex-wrap: wrap;
-    }
-    .search-box {
-      display: flex; align-items: center; gap: 10px; padding: 10px 16px;
-      background: white; border: 1px solid var(--border); border-radius: 6px; min-width: 280px;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-    .search-box:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,117,222,0.1); }
-    .search-box svg { width: 16px; height: 16px; color: var(--warm-gray-light); flex-shrink: 0; }
-    .search-box input { flex: 1; background: transparent; border: none; outline: none; color: var(--near-black); font-family: 'Inter', sans-serif; font-size: 14px; }
-    .search-box input::placeholder { color: var(--warm-gray-light); }
-
-    .filter-tabs { display: flex; gap: 4px; }
-    .filter-tabs button {
-      padding: 8px 18px; background: transparent; border: 1px solid var(--border); border-radius: 4px;
-      color: var(--warm-gray); font-family: 'Inter', sans-serif;
-      font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;
-    }
-    .filter-tabs button:hover { background: var(--bg-subtle); color: var(--near-black); }
-    .filter-tabs button.active { background: var(--blue); border-color: var(--blue); color: white; }
-
-    @media (max-width: 768px) { .search-box { min-width: 100%; } .controls { flex-direction: column; align-items: stretch; } }
-
-    /* ─── DASHBOARD GRID ─── */
-    .dashboard-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 16px; background: transparent;
-    }
-    @media (max-width: 1200px) { .dashboard-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 900px)  { .dashboard-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px)  { .dashboard-grid { grid-template-columns: 1fr; } }
-
-    .dashboard-card {
-      background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      display: flex; flex-direction: column; overflow: hidden;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-      cursor: pointer;
-      opacity: 0; transform: translateY(24px) scale(0.98);
-      contain: layout paint;
-    }
-    .dashboard-card.card-visible { opacity: 1; transform: translateY(0) scale(1); }
-    .dashboard-card:hover {
-      box-shadow: var(--shadow-card-hover);
-      transform: translateY(-4px);
-    }
-    .card-image { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--bg-subtle); }
-    .card-image img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.5s var(--ease-apple);
-    }
-    .dashboard-card:hover .card-image img { transform: scale(1.05); }
-    .card-image::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.4) 100%);
-      pointer-events: none;
-    }
-    .card-tags { position: absolute; bottom: 10px; left: 10px; display: flex; gap: 6px; z-index: 1; }
-    .tag {
-      padding: 4px 10px; background: rgba(255,255,255,0.9); border-radius: 9999px;
-      font-family: 'Inter', sans-serif;
-      font-size: 11px; font-weight: 600; color: var(--near-black);
-      backdrop-filter: blur(4px);
-    }
-    .tag-live { background: var(--blue); color: white; }
-    .card-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
-    .card-body h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 6px; color: var(--near-black); }
-    .card-body p { font-size: 12px; color: var(--warm-gray); line-height: 1.55; flex: 1; margin-bottom: 14px; }
-    .card-actions { display: flex; gap: 8px; }
-    .card-btn {
-      flex: 1; padding: 8px 12px; background: transparent; border: 1px solid var(--border); border-radius: 4px;
-      color: var(--near-black); font-family: 'Inter', sans-serif;
-      font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; text-align: center;
-    }
-    .card-btn:hover { background: var(--bg-subtle); transform: translateY(-1px); }
-    .card-btn-primary { background: var(--blue); border-color: var(--blue); color: white; }
-    .card-btn-primary:hover { background: var(--blue-pressed); border-color: var(--blue-pressed); }
-
-    /* ─── SQL SECTION ─── */
-    .sql-showcase { background: var(--bg-subtle); }
-    .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    @media (max-width: 1024px) { .showcase-grid { grid-template-columns: 1fr; } }
-    .showcase-content h3 { font-family: 'Inter', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; color: var(--near-black); }
-    .showcase-content p { font-size: 15px; color: var(--warm-gray); line-height: 1.75; margin-bottom: 16px; }
-
-    .showcase-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
-    .stat-box {
-      background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      padding: 20px; text-align: center;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .stat-box:hover {
-      box-shadow: var(--shadow-card-hover);
-      transform: translateY(-3px);
-    }
-    .stat-value {
-      font-family: 'Inter', sans-serif;
-      font-size: 36px; font-weight: 700; color: var(--blue); letter-spacing: -1px; display: block;
-    }
-    .stat-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: var(--warm-gray); margin-top: 4px; }
-
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-    .tech-tag {
-      padding: 5px 12px; background: rgba(0,117,222,0.07); border: 1px solid rgba(0,117,222,0.15);
-      border-radius: 9999px; font-family: 'Inter', sans-serif;
-      font-size: 12px; font-weight: 500; color: var(--blue); transition: background 0.2s ease;
-    }
-    .tech-tag:hover { background: rgba(0,117,222,0.14); }
-
-    /* SQL Toggle */
-    .sql-toggle { display: flex; gap: 4px; margin-bottom: 32px; width: fit-content; }
-    .sql-toggle button {
-      padding: 9px 20px; background: white; border: 1px solid var(--border); border-radius: 4px;
-      color: var(--warm-gray); font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;
-    }
-    .sql-toggle button:hover { color: var(--near-black); background: var(--bg-subtle); }
-    .sql-toggle button.active { color: white; background: var(--blue); border-color: var(--blue); }
-    .sql-toggle button.active::after { display: none; }
-
-    .sql-panel { display: none; }
-    .sql-panel.active { display: block; animation: panelFadeIn 0.4s var(--ease-smooth); }
-    @keyframes panelFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .code-container { background: #1e1e2e; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-elevated); }
-    .code-header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 20px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .code-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.55); }
-    .code-lang {
-      font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      color: var(--blue); padding: 4px 10px;
-      background: rgba(0,117,222,0.12); border: 1px solid rgba(0,117,222,0.25); border-radius: 4px;
-    }
-    .code-block { padding: 20px; overflow-x: auto; max-height: 520px; overflow-y: auto; }
-    .code-block pre { font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.65; color: #e6edf3; margin: 0; white-space: pre; }
-    .code-block .keyword  { color: var(--code-keyword); }
-    .code-block .function { color: var(--code-function); }
-    .code-block .string   { color: var(--code-string); }
-    .code-block .comment  { color: var(--code-comment); font-style: italic; }
-    .code-block .number   { color: var(--code-number); }
-
-    /* ─── PROCESS STEPS ─── */
-    .process-section { margin-top: 60px; }
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; background: transparent; }
-    @media (max-width: 900px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .process-grid { grid-template-columns: 1fr; } }
-    .process-step {
-      background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      padding: 28px 24px; position: relative;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .process-step:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
-    .step-number {
-      font-family: 'Inter', sans-serif; font-size: 52px; font-weight: 700;
-      color: rgba(0,117,222,0.07); position: absolute; top: 12px; right: 16px; line-height: 1;
-      transition: color 0.3s ease;
-    }
-    .process-step:hover .step-number { color: rgba(0,117,222,0.13); }
-    .process-step h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--blue); }
-    .process-step p { font-size: 13px; color: var(--warm-gray); line-height: 1.6; }
-
-    /* ─── CONTACT ─── */
-    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
-    .contact-card {
-      background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      padding: 36px; text-align: center;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .contact-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-6px); }
-    .contact-icon { font-size: 30px; margin-bottom: 16px; display: block; transition: transform 0.3s var(--ease-spring); }
-    .contact-card:hover .contact-icon { transform: scale(1.15) rotate(-5deg); }
-    .contact-card h4 { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 10px; color: var(--near-black); letter-spacing: -0.4px; }
-    .contact-card p { font-size: 14px; color: var(--warm-gray); line-height: 1.6; margin-bottom: 24px; }
-
-    /* ─── FOOTER ─── */
-    footer { padding: 36px 0; border-top: 1px solid var(--border); background: white; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-copy { font-size: 13px; color: var(--warm-gray); }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--warm-gray); transition: color 0.2s ease; }
-    .footer-links a:hover { color: var(--near-black); }
-    .back-to-top {
-      display: flex; align-items: center; gap: 6px;
-      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--blue);
-      cursor: pointer; transition: transform 0.2s ease;
-    }
-    .back-to-top:hover { transform: translateY(-2px); }
-
-    /* ─── MODAL ─── */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(28,28,30,0); backdrop-filter: blur(0px);
-      display: none; align-items: center; justify-content: center; padding: 40px; z-index: 2000;
-      transition: background 0.35s ease, backdrop-filter 0.35s ease;
-    }
-    .modal-overlay.open { background: rgba(28,28,30,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-    .modal {
-      width: 100%; max-width: 860px; background: white; border-radius: 16px;
-      box-shadow: var(--shadow-elevated);
-      transform: scale(0.94) translateY(16px); opacity: 0;
-      transition: transform 0.4s var(--ease-smooth), opacity 0.4s var(--ease-smooth);
-      overflow: hidden;
-    }
-    .modal-overlay.open .modal { transform: scale(1) translateY(0); opacity: 1; }
-    .modal-header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 24px; border-bottom: 1px solid var(--border);
-    }
-    .modal-title { font-family: 'Inter', sans-serif; font-size: 17px; font-weight: 600; letter-spacing: -0.3px; color: var(--near-black); }
-    .modal-meta { font-size: 13px; color: var(--warm-gray); margin-top: 3px; }
-    .modal-close {
-      width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-      background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 50%;
-      color: var(--warm-gray); font-size: 16px; cursor: pointer; transition: all 0.2s ease;
-    }
-    .modal-close:hover { background: var(--border); color: var(--near-black); transform: rotate(90deg); }
-    .modal-body { padding: 24px; }
-    .modal-image { width: 100%; margin-bottom: 20px; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-card); }
-    .modal-image img { width: 100%; display: block; transition: transform 0.4s var(--ease-smooth); }
-    .modal-image:hover img { transform: scale(1.02); }
-    .modal-actions { display: flex; gap: 12px; }
-
-    /* ─── FEATURED ─── */
-    .featured-highlight {
-      background: var(--bg-subtle); border: 1px solid var(--border);
-      border-radius: 10px; padding: 18px 24px; margin-bottom: 32px; transition: box-shadow 0.3s ease;
-    }
-    .featured-highlight:hover { box-shadow: var(--shadow-card); }
-    .featured-highlight h3 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--near-black); letter-spacing: -0.2px; }
-
-    .empty-state {
-      grid-column: 1 / -1; padding: 64px 40px; text-align: center;
-      background: white; border-radius: 12px; box-shadow: var(--shadow-card);
-    }
-    .empty-state h4 { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
-    .empty-state p { color: var(--warm-gray); margin-bottom: 24px; font-size: 15px; }
-
-    /* ─── SKILLS MATRIX ─── */
-    .skills-section { background: var(--bg-subtle); }
-    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    @media (max-width: 900px) { .skills-layout { grid-template-columns: 1fr; gap: 40px; } }
-
-    .skill-category { margin-bottom: 36px; }
-    .skill-category:last-child { margin-bottom: 0; }
-    .skill-category-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
-    }
-    .skill-category-label::after { content: ''; flex: 1; height: 1px; background: rgba(0,117,222,0.15); }
-
-    .skill-row { margin-bottom: 16px; }
-    .skill-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-    .skill-name { font-size: 14px; font-weight: 500; color: var(--near-black); }
-    .skill-level { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; color: var(--warm-gray); }
-    .skill-bar { height: 4px; background: rgba(0,117,222,0.1); border-radius: 4px; position: relative; overflow: hidden; }
-    .skill-fill {
-      position: absolute; left: 0; top: 0; height: 100%;
-      background: linear-gradient(90deg, var(--blue) 0%, rgba(0,117,222,0.55) 100%);
-      border-radius: 4px; width: 0%; transition: width 1.2s var(--ease-smooth);
-    }
-
-    /* Specialty badges */
-    .specialty-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 8px; }
-    .specialty-badge {
-      padding: 16px; background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .specialty-badge:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
-    .specialty-badge-icon { font-size: 22px; margin-bottom: 10px; display: block; }
-    .specialty-badge-name { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--near-black); display: block; margin-bottom: 6px; letter-spacing: -0.2px; }
-    .specialty-badge-desc { font-size: 12px; color: var(--warm-gray); line-height: 1.5; }
-
-    /* ─── END-TO-END PIPELINE ─── */
-    .pipeline-section { background: var(--bg); }
-    .pipeline-intro { max-width: 680px; margin-bottom: 56px; }
-    .pipeline-intro p { font-size: 17px; color: var(--warm-gray); line-height: 1.75; margin-top: 16px; }
-
-    .pipeline-track { position: relative; }
-    .pipeline-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
-    @media (max-width: 900px) { .pipeline-steps { grid-template-columns: 1fr; gap: 12px; } }
-
-    .pipeline-line {
-      position: absolute; top: 36px; left: 10%; right: 10%; height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(0,117,222,0.35) 20%, rgba(0,117,222,0.5) 50%, rgba(0,117,222,0.35) 80%, transparent 100%);
-      z-index: 0; transform: scaleX(0); transform-origin: left;
-      transition: transform 1.4s var(--ease-smooth);
-    }
-    .pipeline-line.animated { transform: scaleX(1); }
-    @media (max-width: 900px) { .pipeline-line { display: none; } }
-
-    .pipeline-step {
-      position: relative; z-index: 1; padding: 0 12px; text-align: center;
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
-    }
-    .pipeline-step.step-in { opacity: 1; transform: translateY(0); }
-
-    .pipeline-node {
-      width: 72px; height: 72px; margin: 0 auto 20px;
-      background: white; border-radius: 16px;
-      box-shadow: var(--shadow-card);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; position: relative;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .pipeline-step:hover .pipeline-node { box-shadow: var(--shadow-card-hover); transform: scale(1.08); }
-    .pipeline-node::after { display: none; }
-
-    .pipeline-step-num {
-      position: absolute; top: -8px; right: -8px;
-      width: 22px; height: 22px; background: var(--blue); border-radius: 50%;
-      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
-      display: flex; align-items: center; justify-content: center; color: white;
-    }
-    .pipeline-step-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--near-black); margin-bottom: 8px; letter-spacing: -0.2px; }
-    .pipeline-step-tools { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-bottom: 10px; }
-    .pipeline-tool {
-      font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 600;
-      padding: 3px 9px; background: rgba(0,117,222,0.07); border: 1px solid rgba(0,117,222,0.18);
-      border-radius: 9999px; color: var(--blue);
-    }
-    .pipeline-step-desc { font-size: 12px; color: var(--warm-gray); line-height: 1.5; }
-
-    @media (max-width: 900px) {
-      .pipeline-step { padding: 20px; text-align: left; background: white; border-radius: 12px; box-shadow: var(--shadow-card); display: flex; align-items: flex-start; gap: 16px; }
-      .pipeline-node { width: 52px; height: 52px; font-size: 22px; flex-shrink: 0; margin: 0; }
-      .pipeline-step-title { margin-top: 2px; }
-    }
-
-    /* Use case chips */
-    .use-case-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 48px; justify-content: center; }
-    .use-case-chip {
-      padding: 9px 18px; background: white; border-radius: 9999px;
-      box-shadow: var(--shadow-card);
-      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--near-black);
-      transition: box-shadow 0.2s ease, transform 0.2s var(--ease-spring);
-    }
-    .use-case-chip:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-2px); }
-    .use-case-chip span { color: var(--blue); margin-right: 4px; }
-
-    /* ─── FREELANCE CTA ─── */
-    .freelance-section { background: var(--bg-subtle); }
-    .freelance-inner {
-      display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
-      padding: 72px 0;
-    }
-    @media (max-width: 768px) { .freelance-inner { grid-template-columns: 1fr; gap: 36px; } }
-
-    .freelance-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-      color: var(--warm-gray); margin-bottom: 16px;
-    }
-    .freelance-tag::before { content: ''; width: 6px; height: 6px; background: var(--success); border-radius: 50%; animation: pulse 2s infinite; }
-    .freelance-heading {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(28px, 4vw, 48px); font-weight: 700;
-      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; color: var(--near-black);
-    }
-    .freelance-heading span { color: var(--warm-gray); }
-    .freelance-body { font-size: 16px; color: var(--warm-gray); max-width: 560px; line-height: 1.75; margin-bottom: 28px; }
-    .freelance-services { display: flex; flex-wrap: wrap; gap: 8px; }
-    .freelance-service {
-      padding: 6px 14px; background: white; border: 1px solid var(--border);
-      border-radius: 9999px; font-family: 'Inter', sans-serif;
-      font-size: 12px; font-weight: 500; color: var(--warm-black);
-    }
-    .freelance-cta { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-    .cta-availability { text-align: center; font-family: 'Inter', sans-serif; font-size: 12px; color: var(--warm-gray); letter-spacing: 0.3px; }
-    .cta-dot { display: inline-block; width: 6px; height: 6px; background: var(--success); border-radius: 50%; margin-right: 6px; animation: pulse 2s infinite; }
-
-    /* ─── IMPACT STATS STRIP ─── */
-    .impact-stats-section { padding: 64px 0; background: var(--bg-subtle); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .impact-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-    .impact-stat {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 24px 20px; text-align: center; border-right: 1px solid var(--border);
-    }
-    .impact-stat:last-child { border-right: none; }
-    .impact-value {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(40px, 5vw, 64px); font-weight: 700; letter-spacing: -2.125px;
-      color: var(--near-black); line-height: 1;
-    }
-    .impact-label { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; color: var(--warm-gray); margin-top: 8px; }
-    @media (max-width: 768px) {
-      .impact-stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .impact-stat:nth-child(2) { border-right: none; }
-      .impact-stat:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
-      .impact-stat:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
-    }
-    @media (max-width: 480px) {
-      .impact-stats-grid { grid-template-columns: 1fr; }
-      .impact-stat { border-right: none !important; border-top: 1px solid var(--border); }
-      .impact-stat:first-child { border-top: none; }
-    }
-
-    /* ─── QUERY-U FEATURED PROJECT ─── */
-    .queryu-section { background: var(--bg-subtle); }
-    .queryu-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 16px; padding: 56px;
-      display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center;
-      box-shadow: var(--shadow-card);
-    }
-    @media (max-width: 900px) { .queryu-card { grid-template-columns: 1fr; padding: 32px; gap: 32px; } }
-
-    .queryu-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 5px 12px; background: rgba(0,117,222,0.07); border: 1px solid rgba(0,117,222,0.15); border-radius: 9999px;
-      font-family: 'Inter', sans-serif;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 20px;
-    }
-    .queryu-heading {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(28px, 3.5vw, 40px); font-weight: 700;
-      letter-spacing: -1.5px; line-height: 1.1; color: var(--near-black); margin-bottom: 20px;
-    }
-    .queryu-heading em { font-style: normal; color: var(--blue); }
-    .queryu-body { font-size: 16px; color: var(--warm-gray); line-height: 1.7; margin-bottom: 14px; }
-    .queryu-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
-    .queryu-stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-      margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border);
-    }
-    .queryu-stat-value {
-      font-family: 'Inter', sans-serif;
-      font-size: 28px; font-weight: 700; color: var(--near-black);
-      letter-spacing: -1px; display: block; line-height: 1;
-    }
-    .queryu-stat-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px; font-weight: 500; color: var(--warm-gray);
-      margin-top: 6px; display: block; letter-spacing: 0.3px; text-transform: uppercase;
-    }
-
-    .queryu-editor {
-      background: #1e1e2e; border-radius: 12px; overflow: hidden;
-      box-shadow: var(--shadow-elevated);
-    }
-    .queryu-editor-header {
-      display: flex; align-items: center; gap: 8px;
-      padding: 12px 16px; background: rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .queryu-editor-dot { width: 11px; height: 11px; border-radius: 50%; }
-    .queryu-editor-dot.r { background: #ff6058; }
-    .queryu-editor-dot.y { background: #febc2e; }
-    .queryu-editor-dot.g { background: #27c83f; }
-    .queryu-editor-title {
-      margin-left: 8px; font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: rgba(255,255,255,0.55);
-    }
-    .queryu-editor-code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12.5px; line-height: 1.7; color: #e6edf3;
-      padding: 22px 24px; margin: 0; white-space: pre; overflow-x: auto;
-    }
-    .queryu-editor-code .comment { color: var(--code-comment); font-style: italic; }
-    .queryu-editor-code .keyword { color: var(--code-keyword); }
-    .queryu-editor-code .function { color: var(--code-function); }
-    .queryu-editor-code .number { color: var(--code-number); }
-    .queryu-result {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 24px; background: rgba(15,123,85,0.12);
-      border-top: 1px solid rgba(15,123,85,0.22);
-    }
-    .queryu-result-status {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px; font-weight: 600; color: #4ade80;
-    }
-    .queryu-result-meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: rgba(255,255,255,0.55);
-    }
-
-    /* ─── AI-AUGMENTED WORKFLOW ─── */
-    .workflow-section { background: var(--bg); }
-    .workflow-top {
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: end;
-      margin-bottom: 48px;
-    }
-    @media (max-width: 900px) { .workflow-top { grid-template-columns: 1fr; gap: 28px; } }
-    .workflow-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 5px 12px; background: rgba(0,117,222,0.07); border: 1px solid rgba(0,117,222,0.15); border-radius: 9999px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 16px;
-    }
-    .workflow-heading {
-      font-size: clamp(28px, 3.6vw, 42px); font-weight: 700;
-      letter-spacing: -1.5px; line-height: 1.1; color: var(--near-black); margin-bottom: 18px;
-    }
-    .workflow-heading em { font-style: normal; color: var(--blue); }
-    .workflow-body { font-size: 16px; color: var(--warm-gray); line-height: 1.75; }
-    .workflow-terminal {
-      background: #1e1e2e; border-radius: 12px; overflow: hidden;
-      box-shadow: var(--shadow-card);
-    }
-    .workflow-terminal-header {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 16px; background: rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .workflow-terminal-header .queryu-editor-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .workflow-terminal-title {
-      margin-left: 8px; font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: rgba(255,255,255,0.55);
-    }
-    .workflow-terminal pre {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px; line-height: 1.7; color: #e6edf3;
-      padding: 18px 22px; margin: 0; white-space: pre; overflow-x: auto;
-    }
-    .workflow-terminal .sha { color: #79c0ff; }
-    .workflow-terminal .branch { color: #d2a8ff; }
-    .workflow-terminal .added { color: #4ade80; }
-    .workflow-terminal .dim { color: rgba(255,255,255,0.45); }
-
-    .workflow-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-    }
-    @media (max-width: 960px) { .workflow-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px) { .workflow-grid { grid-template-columns: 1fr; } }
-    .workflow-card {
-      background: white; border: 1px solid var(--border); border-radius: 14px;
-      padding: 24px; transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
-    }
-    .workflow-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
-    .workflow-card-icon {
-      width: 38px; height: 38px; border-radius: 9px;
-      background: rgba(0,117,222,0.08); color: var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; margin-bottom: 14px;
-    }
-    .workflow-card h4 {
-      font-size: 15px; font-weight: 600; color: var(--near-black);
-      letter-spacing: -0.2px; margin-bottom: 8px;
-    }
-    .workflow-card p { font-size: 13.5px; color: var(--warm-gray); line-height: 1.6; }
-    .workflow-pull {
-      display: flex; align-items: center; gap: 10px; margin-top: 28px; padding: 14px 18px;
-      background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 10px;
-      font-size: 13.5px; color: var(--warm-black);
-    }
-    .workflow-pull strong { color: var(--near-black); font-weight: 600; }
-
-    /* ─── PAGE LOAD OVERLAY ─── */
-    #page-loader {
-      position: fixed; inset: 0; background: var(--bg); z-index: 99999;
-      display: flex; align-items: center; justify-content: center;
-      transition: opacity 0.6s var(--ease-smooth);
-    }
-    #page-loader.done { opacity: 0; pointer-events: none; }
-    .loader-inner { text-align: center; }
-    .loader-logo {
-      font-family: 'Inter', sans-serif; font-size: 48px; font-weight: 700;
-      color: var(--blue); letter-spacing: -3px;
-    }
-    .loader-bar {
-      width: 120px; height: 2px; background: rgba(0,0,0,0.08);
-      margin: 16px auto 0; overflow: hidden; border-radius: 2px;
-    }
-    .loader-progress {
-      height: 100%; width: 0%; background: var(--blue); border-radius: 4px;
-      animation: loadProgress 0.8s var(--ease-smooth) forwards;
-    }
-    @keyframes loadProgress {
-      from { width: 0%; }
-      to   { width: 100%; }
-    }
-
-    /* ─── REDUCED MOTION ─── */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-      .reveal, .reveal-left, .reveal-right, .stagger-children > *,
-      .hero-badge, .hero h1, .hero-desc, .hero-actions,
-      .profile-card, .logo, nav a, .dashboard-card, .pipeline-step {
-        opacity: 1 !important; transform: none !important;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
-
 <body>
 
-  <!-- Page Loader -->
-  <div id="page-loader">
-    <div class="loader-inner">
-      <div class="loader-logo">DJ</div>
-      <div class="loader-bar"><div class="loader-progress"></div></div>
+  <!-- ═══ Global nav ═══ -->
+  <header class="gnav">
+    <div class="gnav__inner">
+      <a href="#top" class="gnav__logo" aria-label="Davenee James — home"><span class="gnav__mark">DJ</span><span>Davenee James</span></a>
+      <ul class="gnav__links">
+        <li><a href="#top" aria-current="page">Portfolio</a></li>
+        <li><a href="#dashboards">Dashboards</a></li>
+        <li><a href="#sql">SQL</a></li>
+        <li><a href="#queryu">Query-U</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="consulting/">Consulting</a></li>
+        <li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="gnav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="gnav__menu" id="mobileMenu" aria-label="Mobile">
+    <ul>
+      <li><a href="#dashboards">Dashboards</a></li>
+      <li><a href="#sql">SQL</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#queryu">Query-U</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="consulting/">Consulting</a></li>
+      <li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ═══ Sub nav ═══ -->
+  <div class="snav">
+    <div class="snav__inner">
+      <a class="snav__title" href="#top">Portfolio <small>Davenee James</small></a>
+      <ul class="snav__links">
+        <li><a href="#dashboards">Dashboards</a></li>
+        <li><a href="#sql">SQL</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li class="snav__cta"><a class="btn btn--sm" href="#hire">Work with me</a></li>
+      </ul>
     </div>
   </div>
 
-  <header id="site-header">
-    <div class="container header-inner">
-      <a href="#" class="logo" id="nav-logo">
-        <div class="logo-icon">DJ</div>
-        <div class="logo-text">DAVENEE JAMES</div>
-      </a>
-      <nav>
-        <a href="#dashboards" style="transition-delay:0.15s">Dashboards</a>
-        <a href="#sql"        style="transition-delay:0.22s">SQL</a>
-        <a href="#queryu"     style="transition-delay:0.24s">Query-U</a>
-        <a href="#workflow"   style="transition-delay:0.25s">Workflow</a>
-        <a href="#skills"     style="transition-delay:0.26s">Skills</a>
-        <a href="consulting/" style="transition-delay:0.28s">Consulting</a>
-        <a href="#contact"    style="transition-delay:0.29s">Contact</a>
-        <a href="Resume_Davenee_James.pdf" target="_blank" style="transition-delay:0.36s">Resume</a>
-      </nav>
-    </div>
-  </header>
+  <main id="top">
 
-  <section class="hero" id="top">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-badge" id="hero-badge">Open to New Opportunities</div>
-          <h1 id="hero-h1">DATA-DRIVEN <span>INSIGHTS</span><br/>FOR INSTITUTIONAL SUCCESS</h1>
-          <p class="hero-desc" id="hero-desc">
-            Data Analyst &amp; BI Developer with 3+ years in higher education institutional research.
-            I specialize in PostgreSQL, Power BI, and IPEDS compliance reporting — translating complex
-            enterprise data into executive-ready dashboards that drive real decisions.
-            Every query version-controlled in GitHub, every workflow AI-augmented with Claude — FERPA-safe by design.
-          </p>
-          <div class="hero-actions" id="hero-actions">
-            <a href="#dashboards" class="btn btn-primary">Explore Dashboards</a>
-            <a href="mailto:daveneejames@gmail.com" class="btn">Contact Me</a>
-          </div>
-        </div>
-
-        <div class="profile-card" id="profile-card">
-          <div class="profile-header">
-            <img src="https://i.imgur.com/1veEFe5.jpeg" alt="Davenee James" class="profile-avatar">
-            <div class="profile-info">
-              <h3>DAVENEE JAMES</h3>
-              <p>Enterprise Analytics Specialist II<br/>University of Central Florida</p>
-            </div>
-          </div>
-          <div class="profile-meta">
-            <div class="meta-item">
-              <span class="meta-label">Tools</span>
-              <span class="meta-value">Power BI • PostgreSQL • DAX • Power Query</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Focus</span>
-              <span class="meta-value">Institutional Research • IPEDS • People Analytics</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Location</span>
-              <span class="meta-value">Orlando, FL</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       IMPACT STATS
-  ════════════════════════════════════════════════════ -->
-  <section class="impact-stats-section reveal">
-    <div class="container">
-      <div class="impact-stats-grid">
-        <div class="impact-stat">
-          <span class="impact-value" data-target="10" data-suffix="+">0+</span>
-          <span class="impact-label">Enterprise Dashboards Built</span>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-value" data-target="15" data-suffix="+">0+</span>
-          <span class="impact-label">Departments Served</span>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-value" data-target="300" data-suffix="+">0+</span>
-          <span class="impact-label">DB Tables Queried</span>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-value" data-target="3" data-suffix="+">0+</span>
-          <span class="impact-label">Years in Institutional Research</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="dashboards">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">Portfolio</div>
-        <h2 class="section-heading">DASHBOARDS</h2>
-      </div>
-
-      <div class="featured-highlight reveal">
-        <h3>🎯 END-TO-END ANALYTICS: FROM RAW DATA TO EXECUTIVE INSIGHTS</h3>
-      </div>
-
-      <div class="controls reveal">
-        <div class="search-box">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-          </svg>
-          <input type="search" id="search" placeholder="Search dashboards..." />
-        </div>
-        <div class="filter-tabs">
-          <button class="active" data-filter="all">All</button>
-          <button data-filter="live">Live</button>
+    <!-- ═══ Hero (white) ═══ -->
+    <section class="hero tile--canvas">
+      <div class="wrap hero__text">
+        <img class="hero__avatar" src="https://i.imgur.com/1veEFe5.jpeg" alt="Davenee James" data-reveal="scale" width="76" height="76">
+        <p class="hero__eyebrow" data-reveal style="--d:80ms"><strong>Davenee James</strong> · Enterprise Analytics Specialist II, University of Central Florida</p>
+        <h1 class="t-hero split">Institutional data, made decisive.</h1>
+        <p class="hero__lead t-lead" data-reveal style="--d:320ms">Power BI, PostgreSQL, and federal reporting for higher education — built inside the institution, designed for the boardroom.</p>
+        <div class="hero__cta cta-row" data-reveal style="--d:440ms">
+          <a class="btn" href="#dashboards">See the dashboards</a>
+          <a class="link" href="#hire">Open for consulting</a>
         </div>
       </div>
 
-      <div class="dashboard-grid stagger-children" id="grid"></div>
-    </div>
-  </section>
-
-  <section class="section sql-showcase" id="sql">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">Technical Deep Dive</div>
-        <h2 class="section-heading">SQL & DATA ENGINEERING</h2>
-        <p class="section-desc">
-          Beyond dashboards, I write production SQL that powers institutional analytics.
-          Toggle between examples to see how I build complex queries for different analytical needs.
-        </p>
-      </div>
-
-      <div class="sql-toggle reveal">
-        <button class="active" data-sql="retention">Cohort Retention</button>
-        <button data-sql="employees">Current Employees</button>
-      </div>
-
-      <!-- RETENTION ANALYSIS PANEL -->
-      <div class="sql-panel active" id="panel-retention">
-        <div class="showcase-grid">
-          <div class="showcase-content reveal-left">
-            <h3>FTIC COHORT RETENTION ANALYSIS</h3>
-            <p>
-              Tracking First-Time-in-College (FTIC) student retention is critical for university accreditation
-              and strategic planning. I developed a comprehensive SQL view that tracks cohorts across
-              multiple years, calculating 1-year through 4-year retention rates that feed directly into executive dashboards.
-            </p>
-            <p>
-              The query uses CTEs to first identify students in federal cohort groups, then tracks their return status
-              across subsequent fall terms. It handles complex business logic including active credit verification
-              and enrollment status checks.
-            </p>
-            <div class="showcase-stats stagger-children">
-              <div class="stat-box">
-                <span class="stat-value" data-target="4">0</span>
-                <div class="stat-label">Cohort Years</div>
-              </div>
-              <div class="stat-box">
-                <span class="stat-value" data-target="4">0</span>
-                <div class="stat-label">Retention Points</div>
-              </div>
-              <div class="stat-box">
-                <span class="stat-value" data-target="8">0</span>
-                <div class="stat-label">Cohort Groups</div>
+      <div class="hero__render" data-reveal="scale" style="--d:520ms">
+        <div class="device" aria-hidden="true">
+          <div class="device__lid">
+            <div class="device__screen">
+              <div class="dash">
+                <div class="dash__bar">
+                  <div class="dash__title">FTIC Retention &amp; Graduation <span>Fall 2026 census</span></div>
+                  <div class="dash__pills"><span class="dash__pill dash__pill--on">All cohorts</span><span class="dash__pill">Gender</span><span class="dash__pill">Race / Ethnicity</span></div>
+                </div>
+                <div class="dash__kpis">
+                  <div class="kpi"><div class="kpi__l">Fall-to-fall retention</div><div class="kpi__v"><span data-count="78.4" data-suffix="%">0%</span></div><div class="kpi__d">+2.1 pts YoY</div></div>
+                  <div class="kpi"><div class="kpi__l">FTIC headcount</div><div class="kpi__v"><span data-count="3214">0</span></div><div class="kpi__d">+4.8% YoY</div></div>
+                  <div class="kpi"><div class="kpi__l">6-year graduation</div><div class="kpi__v"><span data-count="61.2" data-suffix="%">0%</span></div><div class="kpi__d">+1.4 pts YoY</div></div>
+                  <div class="kpi"><div class="kpi__l">Credit hours (FFTE)</div><div class="kpi__v"><span data-count="46810">0</span></div><div class="kpi__d">+3.2% YoY</div></div>
+                </div>
+                <div class="dash__charts">
+                  <div class="chart">
+                    <div class="chart__t"><b>Retention by cohort</b> · 1-year vs 2-year</div>
+                    <div class="bars">
+                      <i style="--h:62%;--i:0"></i><i style="--h:55%;--i:1"></i>
+                      <i style="--h:70%;--i:2"></i><i style="--h:60%;--i:3"></i>
+                      <i style="--h:74%;--i:4"></i><i style="--h:64%;--i:5"></i>
+                      <i style="--h:80%;--i:6"></i><i style="--h:69%;--i:7"></i>
+                      <i style="--h:86%;--i:8"></i><i style="--h:72%;--i:9"></i>
+                    </div>
+                    <div class="bars-x"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
+                  </div>
+                  <div class="chart">
+                    <div class="chart__t"><b>Enrollment trend</b> · headcount</div>
+                    <div class="line">
+                      <svg viewBox="0 0 300 120" preserveAspectRatio="none">
+                        <path class="area" d="M0,92 L50,84 L100,88 L150,66 L200,58 L250,40 L300,28 L300,120 L0,120 Z"/>
+                        <path d="M0,92 L50,84 L100,88 L150,66 L200,58 L250,40 L300,28"/>
+                        <circle cx="300" cy="28" r="4"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="tech-tags stagger-children">
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">CTEs</span>
-              <span class="tech-tag">CASE Logic</span>
-              <span class="tech-tag">Power BI</span>
-              <span class="tech-tag">IPEDS</span>
-            </div>
           </div>
+          <div class="device__base"></div>
+          <div class="device__foot"></div>
+        </div>
+      </div>
+    </section>
 
-          <div class="code-container reveal-right">
-            <div class="code-header">
-              <span class="code-title">vw_cohort_retention_analysis.sql</span>
-              <span class="code-lang">PostgreSQL</span>
-            </div>
-            <div class="code-block">
-              <pre><span class="comment">-- FTIC Cohort Retention Analysis View</span>
-<span class="comment">-- Tracks student retention across 4 years by federal cohort</span>
+    <!-- ═══ Numbers (black) ═══ -->
+    <section class="tile tile--dark">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <h2 class="t-display split">Built inside the institution.</h2>
+          <p class="t-lead muted" data-reveal style="--d:200ms">Three years in institutional research, now at enterprise scale.</p>
+        </div>
+        <div class="stats" data-stagger>
+          <div class="stat"><div class="stat__v"><span data-count="22" data-suffix="+">0+</span></div><div class="stat__l">Argos reports migrated to Power BI</div></div>
+          <div class="stat"><div class="stat__v"><span data-count="300" data-suffix="+">0+</span></div><div class="stat__l">Colleague ODS tables modeled</div></div>
+          <div class="stat"><div class="stat__v"><span data-count="15" data-suffix="+">0+</span></div><div class="stat__l">Departments under BI governance</div></div>
+          <div class="stat"><div class="stat__v"><span data-count="5">0</span></div><div class="stat__l">IPEDS surveys authored end to end</div></div>
+        </div>
+        <div class="ticker" aria-hidden="true">
+          <div class="ticker__track">
+            <span>Power BI</span><span>PostgreSQL</span><span>DAX</span><span>Power Query</span><span>Microsoft Fabric</span><span>Ellucian Colleague</span><span>Argos</span><span>IPEDS</span><span>SACSCOC</span><span>Workday</span><span>Huron</span><span>Git &amp; GitHub</span><span>Claude</span><span>TMDL</span><span>Star schema</span>
+            <span>Power BI</span><span>PostgreSQL</span><span>DAX</span><span>Power Query</span><span>Microsoft Fabric</span><span>Ellucian Colleague</span><span>Argos</span><span>IPEDS</span><span>SACSCOC</span><span>Workday</span><span>Huron</span><span>Git &amp; GitHub</span><span>Claude</span><span>TMDL</span><span>Star schema</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<span class="keyword">WITH</span> cohort_base <span class="keyword">AS</span> (
-  <span class="keyword">SELECT DISTINCT</span>
-    ost.sttr_student <span class="keyword">AS</span> studentid,
-    <span class="function">LEFT</span>(sal.sta_fed_cohort_group, <span class="number">2</span>)::<span class="keyword">integer</span> <span class="keyword">AS</span> cohortterm,
+    <!-- ═══ Dashboards (parchment) ═══ -->
+    <section class="tile tile--parchment" id="dashboards">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Portfolio</p>
+          <h2 class="t-display split">Dashboards.</h2>
+          <p class="t-lead" data-reveal style="--d:200ms">Live Power BI reports, from raw SIS data to executive insight.</p>
+        </div>
+        <div class="controls" data-reveal style="--d:120ms">
+          <label class="search"><span class="sr-only">Search dashboards</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+            <input type="search" id="dashSearch" placeholder="Search dashboards" autocomplete="off">
+          </label>
+          <div class="chips" id="dashChips">
+            <button class="chip" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" data-filter="Retention" aria-pressed="false">Retention</button>
+            <button class="chip" data-filter="Enrollment" aria-pressed="false">Enrollment</button>
+            <button class="chip" data-filter="Admissions" aria-pressed="false">Admissions</button>
+            <button class="chip" data-filter="HR" aria-pressed="false">People</button>
+          </div>
+        </div>
+        <div class="dash-grid" id="dashGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ SQL (dark tile) ═══ -->
+    <section class="tile tile--tile1" id="sql">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Technical deep dive</p>
+          <h2 class="t-display split">Production SQL.</h2>
+          <p class="t-lead muted" data-reveal style="--d:200ms">The views behind the dashboards — CTE by CTE.</p>
+          <div class="cta-row chips" data-tabs="#sqlPanels" data-reveal style="--d:300ms">
+            <button class="chip" data-tab="retention" aria-pressed="true">Cohort retention</button>
+            <button class="chip" data-tab="employees" aria-pressed="false">Employee roster</button>
+          </div>
+        </div>
+
+        <div id="sqlPanels">
+          <!-- Retention -->
+          <div class="panel active" id="panel-retention">
+            <div class="showcase">
+              <div class="showcase__copy" data-reveal="left">
+                <h3 class="t-title">FTIC cohort retention</h3>
+                <p>Tracking First-Time-in-College retention is critical for accreditation and strategic planning. This view follows federal cohort groups across subsequent fall terms and produces 1-, 3-, and 4-year retention flags that feed the executive dashboard directly.</p>
+                <p>Cohort definition first, returns second, derived flags last. Active-credit verification and enrollment status checks are applied at each fall checkpoint so the numbers survive an audit.</p>
+                <div class="mini-stats" data-stagger>
+                  <div class="mini-stat"><div class="mini-stat__v" data-count="4">0</div><div class="mini-stat__l">Cohort years</div></div>
+                  <div class="mini-stat"><div class="mini-stat__v" data-count="8">0</div><div class="mini-stat__l">Cohort groups</div></div>
+                  <div class="mini-stat"><div class="mini-stat__v" data-count="3">0</div><div class="mini-stat__l">Retention points</div></div>
+                </div>
+                <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">CTEs</span><span class="tag">CASE logic</span><span class="tag">Power BI</span><span class="tag">IPEDS</span></div>
+              </div>
+              <div class="code" data-type data-reveal="right">
+                <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>vw_cohort_retention_analysis.sql</span><span class="code__lang">PostgreSQL</span></div>
+<pre><span class="cm">-- FTIC Cohort Retention Analysis View</span>
+<span class="cm">-- Tracks student retention across 4 years by federal cohort</span>
+
+<span class="kw">WITH</span> cohort_base <span class="kw">AS</span> (
+  <span class="kw">SELECT DISTINCT</span>
+    ost.sttr_student <span class="kw">AS</span> studentid,
+    <span class="fn">LEFT</span>(sal.sta_fed_cohort_group, <span class="num">2</span>)::<span class="kw">integer</span> <span class="kw">AS</span> cohortterm,
     pnc.gender,
-    xie.ipeds_ethnicity <span class="keyword">AS</span> raceethnicity,
-    pnc.first_name <span class="keyword">AS</span> firstname,
-    pnc.last_name <span class="keyword">AS</span> lastname
-  <span class="keyword">FROM</span> dbo.ods_student_terms ost
-  <span class="keyword">JOIN</span> dbo.spt_student_acad_levels sal
-    <span class="keyword">ON</span> sal.sta_student = ost.sttr_student
-  <span class="keyword">JOIN</span> dbo.spt_person_non_corp pnc
-    <span class="keyword">ON</span> pnc.id = ost.sttr_student
-  <span class="keyword">JOIN</span> dbo.x_ipeds_ethnicity xie
-    <span class="keyword">ON</span> xie.id = ost.sttr_student
-  <span class="keyword">WHERE</span> sal.sta_fed_cohort_group <span class="keyword">IN</span> (
-    <span class="string">'21FF'</span>, <span class="string">'21FP'</span>, <span class="string">'22FF'</span>, <span class="string">'22FP'</span>,
-    <span class="string">'23FF'</span>, <span class="string">'23FP'</span>, <span class="string">'24FF'</span>, <span class="string">'24FP'</span>
+    xie.ipeds_ethnicity <span class="kw">AS</span> raceethnicity,
+    pnc.first_name <span class="kw">AS</span> firstname,
+    pnc.last_name <span class="kw">AS</span> lastname
+  <span class="kw">FROM</span> dbo.ods_student_terms ost
+  <span class="kw">JOIN</span> dbo.spt_student_acad_levels sal
+    <span class="kw">ON</span> sal.sta_student = ost.sttr_student
+  <span class="kw">JOIN</span> dbo.spt_person_non_corp pnc
+    <span class="kw">ON</span> pnc.id = ost.sttr_student
+  <span class="kw">JOIN</span> dbo.x_ipeds_ethnicity xie
+    <span class="kw">ON</span> xie.id = ost.sttr_student
+  <span class="kw">WHERE</span> sal.sta_fed_cohort_group <span class="kw">IN</span> (
+    <span class="str">'21FF'</span>, <span class="str">'21FP'</span>, <span class="str">'22FF'</span>, <span class="str">'22FP'</span>,
+    <span class="str">'23FF'</span>, <span class="str">'23FP'</span>, <span class="str">'24FF'</span>, <span class="str">'24FP'</span>
   )
 ),
 
-returns_by_term <span class="keyword">AS</span> (
-  <span class="keyword">SELECT</span> sttr_student, sttr_term
-  <span class="keyword">FROM</span> dbo.ods_student_terms
-  <span class="keyword">WHERE</span> sttr_term <span class="keyword">IN</span> (
-    <span class="string">'2022FA'</span>, <span class="string">'2023FA'</span>, <span class="string">'2024FA'</span>, <span class="string">'2025FA'</span>
+returns_by_term <span class="kw">AS</span> (
+  <span class="kw">SELECT</span> sttr_student, sttr_term
+  <span class="kw">FROM</span> dbo.ods_student_terms
+  <span class="kw">WHERE</span> sttr_term <span class="kw">IN</span> (
+    <span class="str">'2022FA'</span>, <span class="str">'2023FA'</span>, <span class="str">'2024FA'</span>, <span class="str">'2025FA'</span>
   )
-  <span class="keyword">AND</span> sttr_current_status <span class="keyword">IN</span> (<span class="string">'R'</span>, <span class="string">'T'</span>)
-  <span class="keyword">AND</span> x_sttr_active_cred > <span class="number">0</span>
-  <span class="keyword">GROUP BY</span> sttr_student, sttr_term
+  <span class="kw">AND</span> sttr_current_status <span class="kw">IN</span> (<span class="str">'R'</span>, <span class="str">'T'</span>)
+  <span class="kw">AND</span> x_sttr_active_cred &gt; <span class="num">0</span>
+  <span class="kw">GROUP BY</span> sttr_student, sttr_term
 )
 
-<span class="keyword">SELECT</span>
+<span class="kw">SELECT</span>
   c.studentid,
   c.cohortterm,
-  <span class="function">CONCAT</span>(<span class="string">'20'</span>, c.cohortterm, <span class="string">'-'</span>, <span class="string">'20'</span>, c.cohortterm + <span class="number">1</span>)
-    <span class="keyword">AS</span> academicyear,
+  <span class="fn">CONCAT</span>(<span class="str">'20'</span>, c.cohortterm, <span class="str">'-'</span>, <span class="str">'20'</span>, c.cohortterm + <span class="num">1</span>)
+    <span class="kw">AS</span> academicyear,
   c.gender,
   c.raceethnicity,
-  <span class="keyword">CASE</span> c.cohortterm
-    <span class="keyword">WHEN</span> <span class="number">21</span> <span class="keyword">THEN CASE WHEN</span> r22.sttr_student <span class="keyword">IS NOT NULL</span>
-      <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>
-    <span class="keyword">WHEN</span> <span class="number">22</span> <span class="keyword">THEN CASE WHEN</span> r23.sttr_student <span class="keyword">IS NOT NULL</span>
-      <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>
-    <span class="keyword">WHEN</span> <span class="number">23</span> <span class="keyword">THEN CASE WHEN</span> r24.sttr_student <span class="keyword">IS NOT NULL</span>
-      <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>
-    <span class="keyword">WHEN</span> <span class="number">24</span> <span class="keyword">THEN CASE WHEN</span> r25.sttr_student <span class="keyword">IS NOT NULL</span>
-      <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>
-  <span class="keyword">END AS</span> oneyearretention,
-  <span class="keyword">CASE</span> c.cohortterm
-    <span class="keyword">WHEN</span> <span class="number">21</span> <span class="keyword">THEN CASE WHEN</span> r24.sttr_student <span class="keyword">IS NOT NULL</span>
-      <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>
-    <span class="keyword">WHEN</span> <span class="number">22</span> <span class="keyword">THEN CASE WHEN</span> r25.sttr_student <span class="keyword">IS NOT NULL</span>
-      <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>
-  <span class="keyword">END AS</span> threeyearretention,
-  <span class="keyword">CASE WHEN</span> c.cohortterm = <span class="number">21</span>
-    <span class="keyword">AND</span> r25.sttr_student <span class="keyword">IS NOT NULL</span>
-    <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">ELSE</span> <span class="number">0</span>
-  <span class="keyword">END AS</span> fouryearretention
-<span class="keyword">FROM</span> cohort_base c
-<span class="keyword">LEFT JOIN</span> returns_by_term r22
-  <span class="keyword">ON</span> r22.sttr_student = c.studentid <span class="keyword">AND</span> r22.sttr_term = <span class="string">'2022FA'</span>
-<span class="keyword">LEFT JOIN</span> returns_by_term r23
-  <span class="keyword">ON</span> r23.sttr_student = c.studentid <span class="keyword">AND</span> r23.sttr_term = <span class="string">'2023FA'</span>
-<span class="keyword">LEFT JOIN</span> returns_by_term r24
-  <span class="keyword">ON</span> r24.sttr_student = c.studentid <span class="keyword">AND</span> r24.sttr_term = <span class="string">'2024FA'</span>
-<span class="keyword">LEFT JOIN</span> returns_by_term r25
-  <span class="keyword">ON</span> r25.sttr_student = c.studentid <span class="keyword">AND</span> r25.sttr_term = <span class="string">'2025FA'</span>
-<span class="keyword">ORDER BY</span> c.cohortterm, c.lastname, c.firstname;</pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CURRENT EMPLOYEES PANEL -->
-      <div class="sql-panel" id="panel-employees">
-        <div class="showcase-grid">
-          <div class="showcase-content reveal-left">
-            <h3>CURRENT EMPLOYEES ROSTER VIEW</h3>
-            <p>
-              This comprehensive HR analytics view pulls from multiple source tables to create a unified
-              employee roster with demographics, compensation, and organizational data. It powers our
-              Staff Demographics dashboard and supports workforce planning initiatives.
-            </p>
-            <p>
-              Demonstrates advanced SQL including multi-level CTEs for salary retrieval with fallback logic,
-              extensive CASE statements for job title standardization (80+ position variations), and
-              window functions for deduplication.
-            </p>
-            <div class="showcase-stats stagger-children">
-              <div class="stat-box">
-                <span class="stat-value" data-target="80">0</span>
-                <div class="stat-label">Title Mappings</div>
+  <span class="kw">CASE</span> c.cohortterm
+    <span class="kw">WHEN</span> <span class="num">21</span> <span class="kw">THEN CASE WHEN</span> r22.sttr_student <span class="kw">IS NOT NULL</span>
+      <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>
+    <span class="kw">WHEN</span> <span class="num">22</span> <span class="kw">THEN CASE WHEN</span> r23.sttr_student <span class="kw">IS NOT NULL</span>
+      <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>
+    <span class="kw">WHEN</span> <span class="num">23</span> <span class="kw">THEN CASE WHEN</span> r24.sttr_student <span class="kw">IS NOT NULL</span>
+      <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>
+    <span class="kw">WHEN</span> <span class="num">24</span> <span class="kw">THEN CASE WHEN</span> r25.sttr_student <span class="kw">IS NOT NULL</span>
+      <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>
+  <span class="kw">END AS</span> oneyearretention,
+  <span class="kw">CASE</span> c.cohortterm
+    <span class="kw">WHEN</span> <span class="num">21</span> <span class="kw">THEN CASE WHEN</span> r24.sttr_student <span class="kw">IS NOT NULL</span>
+      <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>
+    <span class="kw">WHEN</span> <span class="num">22</span> <span class="kw">THEN CASE WHEN</span> r25.sttr_student <span class="kw">IS NOT NULL</span>
+      <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span> <span class="kw">END</span>
+  <span class="kw">END AS</span> threeyearretention,
+  <span class="kw">CASE WHEN</span> c.cohortterm = <span class="num">21</span>
+    <span class="kw">AND</span> r25.sttr_student <span class="kw">IS NOT NULL</span>
+    <span class="kw">THEN</span> <span class="num">1</span> <span class="kw">ELSE</span> <span class="num">0</span>
+  <span class="kw">END AS</span> fouryearretention
+<span class="kw">FROM</span> cohort_base c
+<span class="kw">LEFT JOIN</span> returns_by_term r22
+  <span class="kw">ON</span> r22.sttr_student = c.studentid <span class="kw">AND</span> r22.sttr_term = <span class="str">'2022FA'</span>
+<span class="kw">LEFT JOIN</span> returns_by_term r23
+  <span class="kw">ON</span> r23.sttr_student = c.studentid <span class="kw">AND</span> r23.sttr_term = <span class="str">'2023FA'</span>
+<span class="kw">LEFT JOIN</span> returns_by_term r24
+  <span class="kw">ON</span> r24.sttr_student = c.studentid <span class="kw">AND</span> r24.sttr_term = <span class="str">'2024FA'</span>
+<span class="kw">LEFT JOIN</span> returns_by_term r25
+  <span class="kw">ON</span> r25.sttr_student = c.studentid <span class="kw">AND</span> r25.sttr_term = <span class="str">'2025FA'</span>
+<span class="kw">ORDER BY</span> c.cohortterm, c.lastname, c.firstname;</pre>
               </div>
-              <div class="stat-box">
-                <span class="stat-value" data-target="6">0</span>
-                <div class="stat-label">CTEs Used</div>
-              </div>
-              <div class="stat-box">
-                <span class="stat-value" data-target="21">0</span>
-                <div class="stat-label">Output Columns</div>
-              </div>
-            </div>
-            <div class="tech-tags stagger-children">
-              <span class="tech-tag">PostgreSQL</span>
-              <span class="tech-tag">Window Functions</span>
-              <span class="tech-tag">Regex Patterns</span>
-              <span class="tech-tag">COALESCE</span>
-              <span class="tech-tag">HR Analytics</span>
             </div>
           </div>
 
-          <div class="code-container reveal-right">
-            <div class="code-header">
-              <span class="code-title">vw_current_employees.sql</span>
-              <span class="code-lang">PostgreSQL</span>
-            </div>
-            <div class="code-block">
-              <pre><span class="comment">-- Current Employees Roster View</span>
-<span class="comment">-- Comprehensive HR data with salary, demographics, and org structure</span>
+          <!-- Employees -->
+          <div class="panel" id="panel-employees">
+            <div class="showcase">
+              <div class="showcase__copy" data-reveal="left">
+                <h3 class="t-title">Current employee roster</h3>
+                <p>A unified HR view pulling demographics, compensation, and organizational data from multiple source tables. It powers the Staff Demographics dashboard and supports workforce planning.</p>
+                <p>Multi-level CTEs retrieve salary with fallback logic, extensive CASE statements standardize more than 80 position-title variations, and window functions handle deduplication.</p>
+                <div class="mini-stats" data-stagger>
+                  <div class="mini-stat"><div class="mini-stat__v" data-count="80" data-suffix="+">0+</div><div class="mini-stat__l">Title mappings</div></div>
+                  <div class="mini-stat"><div class="mini-stat__v" data-count="6">0</div><div class="mini-stat__l">CTEs</div></div>
+                  <div class="mini-stat"><div class="mini-stat__v" data-count="21">0</div><div class="mini-stat__l">Output columns</div></div>
+                </div>
+                <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Window functions</span><span class="tag">Regex</span><span class="tag">COALESCE</span><span class="tag">HR analytics</span></div>
+              </div>
+              <div class="code" data-type data-reveal="right">
+                <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>vw_current_employees.sql</span><span class="code__lang">PostgreSQL</span></div>
+<pre><span class="cm">-- Current Employees Roster View</span>
+<span class="cm">-- Comprehensive HR data with salary, demographics, and org structure</span>
 
-<span class="keyword">WITH</span> base <span class="keyword">AS</span> (
-  <span class="keyword">SELECT</span>
-    <span class="function">BTRIM</span>(sp.ppwg_hrp_id::<span class="keyword">text</span>) <span class="keyword">AS</span> key_hrp,
+<span class="kw">WITH</span> base <span class="kw">AS</span> (
+  <span class="kw">SELECT</span>
+    <span class="fn">BTRIM</span>(sp.ppwg_hrp_id::<span class="kw">text</span>) <span class="kw">AS</span> key_hrp,
     sp.ppwg_base_et,
     sp.ppwg_start_date,
     sp.ppwg_end_date,
-    sp.ppwg_annualized_amt::<span class="keyword">numeric</span> <span class="keyword">AS</span> annualized_amt
-  <span class="keyword">FROM</span> dbo.spt_perposwg sp
-  <span class="keyword">WHERE</span> sp.ppwg_base_et::<span class="keyword">text</span> = <span class="keyword">ANY</span> (
-    <span class="keyword">ARRAY</span>[<span class="string">'REGU'</span>::<span class="keyword">text</span>, <span class="string">'PARS'</span>::<span class="keyword">text</span>]
+    sp.ppwg_annualized_amt::<span class="kw">numeric</span> <span class="kw">AS</span> annualized_amt
+  <span class="kw">FROM</span> dbo.spt_perposwg sp
+  <span class="kw">WHERE</span> sp.ppwg_base_et::<span class="kw">text</span> = <span class="kw">ANY</span> (
+    <span class="kw">ARRAY</span>[<span class="str">'REGU'</span>::<span class="kw">text</span>, <span class="str">'PARS'</span>::<span class="kw">text</span>]
   )
 ),
 
-ranked_with_salary <span class="keyword">AS</span> (
-  <span class="keyword">SELECT</span>
+ranked_with_salary <span class="kw">AS</span> (
+  <span class="kw">SELECT</span>
     b.key_hrp,
     b.annualized_amt,
     b.ppwg_start_date,
     b.ppwg_end_date,
-    <span class="function">ROW_NUMBER</span>() <span class="keyword">OVER</span> (
-      <span class="keyword">PARTITION BY</span> b.key_hrp
-      <span class="keyword">ORDER BY</span>
-        (b.ppwg_end_date <span class="keyword">IS NULL</span>) <span class="keyword">DESC</span>,
-        b.ppwg_start_date <span class="keyword">DESC</span>,
-        b.annualized_amt <span class="keyword">DESC</span>
-    ) <span class="keyword">AS</span> rn
-  <span class="keyword">FROM</span> base b
-  <span class="keyword">WHERE</span> b.annualized_amt <span class="keyword">IS NOT NULL</span>
-    <span class="keyword">AND</span> b.annualized_amt > <span class="number">0</span>::<span class="keyword">numeric</span>
+    <span class="fn">ROW_NUMBER</span>() <span class="kw">OVER</span> (
+      <span class="kw">PARTITION BY</span> b.key_hrp
+      <span class="kw">ORDER BY</span>
+        (b.ppwg_end_date <span class="kw">IS NULL</span>) <span class="kw">DESC</span>,
+        b.ppwg_start_date <span class="kw">DESC</span>,
+        b.annualized_amt <span class="kw">DESC</span>
+    ) <span class="kw">AS</span> rn
+  <span class="kw">FROM</span> base b
+  <span class="kw">WHERE</span> b.annualized_amt <span class="kw">IS NOT NULL</span>
+    <span class="kw">AND</span> b.annualized_amt &gt; <span class="num">0</span>::<span class="kw">numeric</span>
 ),
 
-ranked_data <span class="keyword">AS</span> (
-  <span class="keyword">SELECT</span>
+ranked_data <span class="kw">AS</span> (
+  <span class="kw">SELECT</span>
     hrper.hrper_id,
     person.last_name,
     person.first_name,
-    hrper.hrp_effect_employ_date <span class="keyword">AS</span> hired_date,
-    <span class="keyword">CASE</span>
-      <span class="keyword">WHEN</span> hrper.position_desc::<span class="keyword">text</span> ~~* <span class="string">'%President%'</span>
-        <span class="keyword">AND</span> hrper.position_desc::<span class="keyword">text</span> !~~* <span class="string">'%VP%'</span>
-        <span class="keyword">THEN</span> <span class="string">'President'</span>::<span class="keyword">text</span>
-      <span class="keyword">WHEN</span> hrper.position_desc::<span class="keyword">text</span> ~* <span class="string">'^Prof[,.]?\s*(Bus|Business)\s*Admin'</span>
-        <span class="keyword">THEN</span> <span class="string">'Professor of Business Administration'</span>::<span class="keyword">text</span>
-      <span class="comment">-- ... 75+ additional CASE conditions ...</span>
-      <span class="keyword">ELSE</span> <span class="function">INITCAP</span>(hrper.position_desc::<span class="keyword">text</span>)
-    <span class="keyword">END AS</span> position_desc_standardized,
-    <span class="keyword">CASE</span> person.gender
-      <span class="keyword">WHEN</span> <span class="string">'M'</span> <span class="keyword">THEN</span> <span class="string">'Male'</span>
-      <span class="keyword">WHEN</span> <span class="string">'F'</span> <span class="keyword">THEN</span> <span class="string">'Female'</span>
-      <span class="keyword">ELSE</span> <span class="string">'Not Specified'</span>
-    <span class="keyword">END AS</span> gender,
-    <span class="keyword">CASE</span>
-      <span class="keyword">WHEN</span> person.age >= <span class="number">79</span> <span class="keyword">THEN</span> <span class="string">'Silent Generation'</span>
-      <span class="keyword">WHEN</span> person.age >= <span class="number">60</span> <span class="keyword">THEN</span> <span class="string">'Baby Boomer'</span>
-      <span class="keyword">WHEN</span> person.age >= <span class="number">44</span> <span class="keyword">THEN</span> <span class="string">'Generation X'</span>
-      <span class="keyword">WHEN</span> person.age >= <span class="number">28</span> <span class="keyword">THEN</span> <span class="string">'Millennial'</span>
-      <span class="keyword">WHEN</span> person.age >= <span class="number">12</span> <span class="keyword">THEN</span> <span class="string">'Generation Z'</span>
-      <span class="keyword">ELSE</span> <span class="string">'Generation Alpha'</span>
-    <span class="keyword">END AS</span> generation_label,
-    <span class="function">COALESCE</span>(perstat.perstat_former_service_years, <span class="number">0</span>::<span class="keyword">numeric</span>)
-      + <span class="function">COALESCE</span>(hrper.hrp_service_years, <span class="number">0</span>::<span class="keyword">numeric</span>)
-      <span class="keyword">AS</span> total_service_years,
+    hrper.hrp_effect_employ_date <span class="kw">AS</span> hired_date,
+    <span class="kw">CASE</span>
+      <span class="kw">WHEN</span> hrper.position_desc::<span class="kw">text</span> ~~* <span class="str">'%President%'</span>
+        <span class="kw">AND</span> hrper.position_desc::<span class="kw">text</span> !~~* <span class="str">'%VP%'</span>
+        <span class="kw">THEN</span> <span class="str">'President'</span>::<span class="kw">text</span>
+      <span class="kw">WHEN</span> hrper.position_desc::<span class="kw">text</span> ~* <span class="str">'^Prof[,.]?\s*(Bus|Business)\s*Admin'</span>
+        <span class="kw">THEN</span> <span class="str">'Professor of Business Administration'</span>::<span class="kw">text</span>
+      <span class="cm">-- ... 75+ additional CASE conditions ...</span>
+      <span class="kw">ELSE</span> <span class="fn">INITCAP</span>(hrper.position_desc::<span class="kw">text</span>)
+    <span class="kw">END AS</span> position_desc_standardized,
+    <span class="kw">CASE</span> person.gender
+      <span class="kw">WHEN</span> <span class="str">'M'</span> <span class="kw">THEN</span> <span class="str">'Male'</span>
+      <span class="kw">WHEN</span> <span class="str">'F'</span> <span class="kw">THEN</span> <span class="str">'Female'</span>
+      <span class="kw">ELSE</span> <span class="str">'Not Specified'</span>
+    <span class="kw">END AS</span> gender,
+    <span class="kw">CASE</span>
+      <span class="kw">WHEN</span> person.age &gt;= <span class="num">79</span> <span class="kw">THEN</span> <span class="str">'Silent Generation'</span>
+      <span class="kw">WHEN</span> person.age &gt;= <span class="num">60</span> <span class="kw">THEN</span> <span class="str">'Baby Boomer'</span>
+      <span class="kw">WHEN</span> person.age &gt;= <span class="num">44</span> <span class="kw">THEN</span> <span class="str">'Generation X'</span>
+      <span class="kw">WHEN</span> person.age &gt;= <span class="num">28</span> <span class="kw">THEN</span> <span class="str">'Millennial'</span>
+      <span class="kw">WHEN</span> person.age &gt;= <span class="num">12</span> <span class="kw">THEN</span> <span class="str">'Generation Z'</span>
+      <span class="kw">ELSE</span> <span class="str">'Generation Alpha'</span>
+    <span class="kw">END AS</span> generation_label,
+    <span class="fn">COALESCE</span>(perstat.perstat_former_service_years, <span class="num">0</span>::<span class="kw">numeric</span>)
+      + <span class="fn">COALESCE</span>(hrper.hrp_service_years, <span class="num">0</span>::<span class="kw">numeric</span>)
+      <span class="kw">AS</span> total_service_years,
     pc.salary,
-    <span class="function">ROW_NUMBER</span>() <span class="keyword">OVER</span> (
-      <span class="keyword">PARTITION BY</span> hrper.hrper_id
-      <span class="keyword">ORDER BY</span>
-        <span class="keyword">CASE WHEN</span> perstat.perstat_former_service_years <span class="keyword">IS NOT NULL</span>
-          <span class="keyword">THEN</span> <span class="number">0</span> <span class="keyword">ELSE</span> <span class="number">1</span> <span class="keyword">END</span>
-    ) <span class="keyword">AS</span> rn
-  <span class="keyword">FROM</span> dbo.ods_hrper hrper
-  <span class="keyword">JOIN</span> dbo.ods_person person <span class="keyword">ON</span> hrper.hrper_id = person.id
-  <span class="keyword">LEFT JOIN</span> dbo.ods_depts d <span class="keyword">ON</span> d.depts_id = hrper.hrp_pri_dept_sort
-  <span class="keyword">LEFT JOIN</span> dbo.spt_perstat perstat <span class="keyword">ON</span> hrper.hrper_id = perstat.perstat_hrp_id
-  <span class="keyword">LEFT JOIN</span> ranked_with_salary pc <span class="keyword">ON</span> pc.key_hrp = hrper.hrper_id
-  <span class="keyword">WHERE</span> (hrper.hrp_current_status <> <span class="keyword">ALL</span> (<span class="keyword">ARRAY</span>[<span class="string">'ST'</span>,<span class="string">'TE'</span>,<span class="string">'TM'</span>]))
-    <span class="keyword">AND</span> (hrper.hrp_effect_term_date > <span class="function">CURRENT_DATE</span>
-      <span class="keyword">OR</span> hrper.hrp_effect_term_date <span class="keyword">IS NULL</span>)
+    <span class="fn">ROW_NUMBER</span>() <span class="kw">OVER</span> (
+      <span class="kw">PARTITION BY</span> hrper.hrper_id
+      <span class="kw">ORDER BY</span>
+        <span class="kw">CASE WHEN</span> perstat.perstat_former_service_years <span class="kw">IS NOT NULL</span>
+          <span class="kw">THEN</span> <span class="num">0</span> <span class="kw">ELSE</span> <span class="num">1</span> <span class="kw">END</span>
+    ) <span class="kw">AS</span> rn
+  <span class="kw">FROM</span> dbo.ods_hrper hrper
+  <span class="kw">JOIN</span> dbo.ods_person person <span class="kw">ON</span> hrper.hrper_id = person.id
+  <span class="kw">LEFT JOIN</span> dbo.ods_depts d <span class="kw">ON</span> d.depts_id = hrper.hrp_pri_dept_sort
+  <span class="kw">LEFT JOIN</span> dbo.spt_perstat perstat <span class="kw">ON</span> hrper.hrper_id = perstat.perstat_hrp_id
+  <span class="kw">LEFT JOIN</span> ranked_with_salary pc <span class="kw">ON</span> pc.key_hrp = hrper.hrper_id
+  <span class="kw">WHERE</span> (hrper.hrp_current_status &lt;&gt; <span class="kw">ALL</span> (<span class="kw">ARRAY</span>[<span class="str">'ST'</span>,<span class="str">'TE'</span>,<span class="str">'TM'</span>]))
+    <span class="kw">AND</span> (hrper.hrp_effect_term_date &gt; <span class="fn">CURRENT_DATE</span>
+      <span class="kw">OR</span> hrper.hrp_effect_term_date <span class="kw">IS NULL</span>)
 )
 
-<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> ranked_data
-<span class="keyword">WHERE</span> rn = <span class="number">1</span>
-<span class="keyword">ORDER BY</span> last_name, first_name;</pre>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> ranked_data
+<span class="kw">WHERE</span> rn = <span class="num">1</span>
+<span class="kw">ORDER BY</span> last_name, first_name;</pre>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="process-section">
-        <div class="section-header reveal">
-          <h3 class="section-heading">FROM SQL TO INSIGHT</h3>
-        </div>
-        <div class="process-grid stagger-children">
-          <div class="process-step">
-            <span class="step-number">01</span>
-            <h4>DATA EXTRACTION</h4>
-            <p>Query student information system to identify FTIC cohorts by federal cohort group codes (FF/FP suffixes).</p>
+    <!-- ═══ Pipeline story (white) ═══ -->
+    <section class="tile tile--canvas" id="pipeline">
+      <div class="wrap wrap--grid">
+        <div class="story">
+          <div class="story__stage">
+            <p class="eyebrow" data-reveal>How I work</p>
+            <h2 class="t-display split">From source system to boardroom.</h2>
+            <p data-reveal style="--d:200ms">Every dashboard starts in a database and ends in an executive meeting. I own the whole journey — scroll to follow one report through the pipeline.</p>
+            <div class="stage" data-reveal="scale" style="--d:300ms" aria-hidden="true">
+              <div class="stage__panel on">
+                <div class="stage__art"><div class="art-table"><i></i><i></i><i></i><i></i><i></i></div></div>
+                <div class="stage__num">01</div><div class="stage__label">Colleague · Workday · Huron</div>
+              </div>
+              <div class="stage__panel">
+                <div class="stage__art"><div class="art-code"><i style="--w:70%"></i><i style="--w:92%"></i><i style="--w:58%"></i><i style="--w:84%"></i><i style="--w:46%"></i></div></div>
+                <div class="stage__num">02</div><div class="stage__label">Governed PostgreSQL views</div>
+              </div>
+              <div class="stage__panel">
+                <div class="stage__art"><div class="art-flow"><b>ODS</b><s></s><b class="on">M</b><s></s><b>Model</b></div></div>
+                <div class="stage__num">03</div><div class="stage__label">Power Query shaping</div>
+              </div>
+              <div class="stage__panel">
+                <div class="stage__art"><div class="art-star"><svg viewBox="0 0 220 160"><line x1="27" y1="17" x2="110" y2="80"/><line x1="193" y1="17" x2="110" y2="80"/><line x1="27" y1="143" x2="110" y2="80"/><line x1="193" y1="143" x2="110" y2="80"/></svg><b>Term</b><b>Student</b><b>Program</b><b>Cohort</b><b class="c">Fact</b></div></div>
+                <div class="stage__num">04</div><div class="stage__label">Star schema &amp; DAX</div>
+              </div>
+              <div class="stage__panel">
+                <div class="stage__art"><div class="art-bars"><i style="--h:45%;--i:0"></i><i style="--h:62%;--i:1"></i><i style="--h:58%;--i:2"></i><i style="--h:78%;--i:3"></i><i style="--h:70%;--i:4"></i><i style="--h:92%;--i:5"></i></div></div>
+                <div class="stage__num">05</div><div class="stage__label">Executive dashboard</div>
+              </div>
+            </div>
           </div>
-          <div class="process-step">
-            <span class="step-number">02</span>
-            <h4>TRANSFORMATION</h4>
-            <p>Apply business rules to verify active enrollment status and credit thresholds at each fall checkpoint.</p>
-          </div>
-          <div class="process-step">
-            <span class="step-number">03</span>
-            <h4>MODELING</h4>
-            <p>Build Power BI data model with relationships between cohorts, demographics, and retention flags.</p>
-          </div>
-          <div class="process-step">
-            <span class="step-number">04</span>
-            <h4>VISUALIZATION</h4>
-            <p>Create interactive dashboards with drill-through by cohort year, gender, and race/ethnicity.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       FEATURED PROJECT: QUERY-U
-  ════════════════════════════════════════════════════ -->
-  <section class="section queryu-section" id="queryu">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">Side Project</div>
-        <h2 class="section-heading">I BUILT A SQL LEARNING PLATFORM</h2>
-      </div>
-      <div class="queryu-card reveal">
-        <div class="queryu-content">
-          <div class="queryu-tag">Live · query-u.com</div>
-          <h3 class="queryu-heading">A SQL platform <em>graded by results</em>, not syntax.</h3>
-          <p class="queryu-body">
-            QueryU is an interactive SQL learning platform built for the way analysts actually work.
-            You write PostgreSQL against a realistic university dataset — students, courses, enrollments,
-            grades, financial aid — and queries are graded by the rows they return, not character-for-character
-            text matching. Any valid SQL that produces the right result passes, and your style stays your own.
-          </p>
-          <p class="queryu-body">
-            The first 30 challenges are free. Upgrade to Pro for the full set of 65, plus streaks,
-            badges, AI hints, and speed bonuses.
-          </p>
-          <div class="queryu-actions">
-            <a href="https://query-u.com" target="_blank" rel="noopener" class="btn btn-primary">Visit Query-U.com →</a>
-            <a href="https://query-u.com" target="_blank" rel="noopener" class="btn">Try a Free Challenge</a>
-          </div>
-          <div class="queryu-stats">
-            <div class="queryu-stat">
-              <span class="queryu-stat-value">65</span>
-              <span class="queryu-stat-label">Challenges</span>
+          <div class="steps">
+            <div class="step on">
+              <div class="step__num">STEP 01</div>
+              <h3>Source system</h3>
+              <div class="tags"><span class="tag">Colleague ODS</span><span class="tag">Workday</span><span class="tag">Huron</span><span class="tag">PostgreSQL</span></div>
+              <p>Student, HR, and finance data lives in the ERP — Ellucian Colleague exposed through PostgreSQL views, or Workday and Huron feeding Microsoft Fabric. The first job is knowing where the truth actually lives.</p>
             </div>
-            <div class="queryu-stat">
-              <span class="queryu-stat-value">30</span>
-              <span class="queryu-stat-label">Free to Start</span>
+            <div class="step">
+              <div class="step__num">STEP 02</div>
+              <h3>SQL engineering</h3>
+              <div class="tags"><span class="tag">CTEs</span><span class="tag">Views</span><span class="tag">CASE</span><span class="tag">Window functions</span></div>
+              <p>Business rules become governed views: cohort logic, census snapshots, status filters, title standardization, race/ethnicity classification. One CTE, one job — readable by the next analyst.</p>
             </div>
-            <div class="queryu-stat">
-              <span class="queryu-stat-value">5</span>
-              <span class="queryu-stat-label">Realistic Tables</span>
+            <div class="step">
+              <div class="step__num">STEP 03</div>
+              <h3>Power Query</h3>
+              <div class="tags"><span class="tag">M language</span><span class="tag">Import &amp; DirectQuery</span></div>
+              <p>Power Query connects to the warehouse, applies final shaping, and structures the load so the semantic model stays a clean star schema instead of a pile of flat tables.</p>
             </div>
-          </div>
-        </div>
-        <div class="queryu-visual">
-          <div class="queryu-editor">
-            <div class="queryu-editor-header">
-              <span class="queryu-editor-dot r"></span>
-              <span class="queryu-editor-dot y"></span>
-              <span class="queryu-editor-dot g"></span>
-              <span class="queryu-editor-title">Challenge 14 · Top majors by enrollment</span>
+            <div class="step">
+              <div class="step__num">STEP 04</div>
+              <h3>Semantic model &amp; DAX</h3>
+              <div class="tags"><span class="tag">Star schema</span><span class="tag">Measures</span><span class="tag">Time intelligence</span><span class="tag">TMDL</span></div>
+              <p>DAX measures calculate retention rates, headcount, FFTE, demographic shares, and year-over-year deltas that hold up across every slicer. Definitions live once, in the model, under version control.</p>
             </div>
-            <pre class="queryu-editor-code"><span class="comment">-- Return the 5 majors with the most students</span>
-<span class="keyword">SELECT</span> major, <span class="function">COUNT</span>(*) <span class="keyword">AS</span> students
-<span class="keyword">FROM</span> enrollments
-<span class="keyword">GROUP BY</span> major
-<span class="keyword">ORDER BY</span> students <span class="keyword">DESC</span>
-<span class="keyword">LIMIT</span> <span class="number">5</span>;</pre>
-            <div class="queryu-result">
-              <span class="queryu-result-status">✓ Passed</span>
-              <span class="queryu-result-meta">5 rows · 12 ms · +50 XP</span>
+            <div class="step">
+              <div class="step__num">STEP 05</div>
+              <h3>Executive dashboard</h3>
+              <div class="tags"><span class="tag">Power BI</span><span class="tag">Drill-through</span><span class="tag">Scheduled refresh</span></div>
+              <p>Executive-facing reports with drill-through, cross-filtering, and scheduled refresh — so leadership opens a page that is already current and already answers the follow-up question.</p>
+              <div class="use-cases" style="margin-top:18px"><span class="tag">FTIC cohort retention</span><span class="tag">Transfer outcomes</span><span class="tag">Staff demographics &amp; salary</span><span class="tag">Enrollment census</span><span class="tag">IPEDS submissions</span><span class="tag">Admissions funnel</span></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       AI-AUGMENTED WORKFLOW
-  ════════════════════════════════════════════════════ -->
-  <section class="section workflow-section" id="workflow">
-    <div class="container">
-      <div class="workflow-top reveal">
-        <div>
-          <div class="workflow-tag">How I Work in 2026</div>
-          <h2 class="workflow-heading">INSTITUTIONAL MEMORY,<br/><em>version-controlled.</em></h2>
-          <p class="workflow-body">
-            Every SQL query, IPEDS submission, and dashboard definition lives in a private GitHub repo —
-            paired with Claude as a FERPA-safe analyst. Claude sees the <strong>schema</strong>, never the rows.
-            Each query is reviewed, committed, and reusable next year, next analyst, next audit.
-          </p>
-        </div>
-        <div class="workflow-terminal">
-          <div class="workflow-terminal-header">
-            <span class="queryu-editor-dot r"></span>
-            <span class="queryu-editor-dot y"></span>
-            <span class="queryu-editor-dot g"></span>
-            <span class="workflow-terminal-title">ir-warehouse · git log</span>
+    <!-- ═══ Query-U (black product tile) ═══ -->
+    <section class="tile tile--dark product" id="queryu">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Side project · query-u.com</p>
+          <h2 class="t-display split">Query-U.</h2>
+          <p class="t-lead muted" data-reveal style="--d:200ms">A SQL learning platform graded by results, not syntax.</p>
+          <div class="cta-row" data-reveal style="--d:320ms">
+            <a class="btn" href="https://query-u.com" target="_blank" rel="noopener">Try a free challenge</a>
+            <a class="link" href="https://query-u.com" target="_blank" rel="noopener">Visit query-u.com</a>
           </div>
+        </div>
+        <div class="product__render" data-reveal="scale">
+          <div class="code" aria-hidden="true">
+            <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>Challenge 14 · Top majors by enrollment</span><span class="code__lang">PostgreSQL</span></div>
+<pre><span class="cm">-- Return the 5 majors with the most students</span>
+<span class="kw">SELECT</span> major, <span class="fn">COUNT</span>(*) <span class="kw">AS</span> students
+<span class="kw">FROM</span> enrollments
+<span class="kw">GROUP BY</span> major
+<span class="kw">ORDER BY</span> students <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> <span class="num">5</span>;</pre>
+            <div class="code__result"><span class="ok">✓ Passed</span><span class="dim">5 rows · 12 ms · +50 XP</span></div>
+          </div>
+        </div>
+        <p class="t-body muted" data-reveal style="max-width:640px;margin:32px auto 0">You write PostgreSQL against a realistic university dataset — students, courses, enrollments, grades, financial aid — and queries are graded by the rows they return. Any valid SQL that produces the right result passes, and your style stays your own. The first 30 challenges are free; Pro unlocks all 65, plus streaks, badges, AI hints, and speed bonuses.</p>
+        <div class="product__stats" data-stagger>
+          <div class="stat"><div class="stat__v"><span data-count="65">0</span></div><div class="stat__l">Challenges</div></div>
+          <div class="stat"><div class="stat__v"><span data-count="30">0</span></div><div class="stat__l">Free to start</div></div>
+          <div class="stat"><div class="stat__v"><span data-count="5">0</span></div><div class="stat__l">Realistic tables</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Experience (parchment) ═══ -->
+    <section class="tile tile--parchment" id="experience">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Experience</p>
+          <h2 class="t-display split">Two institutions. One data model.</h2>
+          <p class="t-lead" data-reveal style="--d:200ms">Enterprise analytics at UCF by day. Consulting for the university that trained me.</p>
+        </div>
+        <div class="xp">
+          <article class="card" data-reveal="left">
+            <span class="xp__badge">Current · since July 2026</span>
+            <h3 class="xp__role">Enterprise Analytics Specialist II</h3>
+            <div class="xp__org">University of Central Florida</div>
+            <div class="xp__meta">Analytics &amp; Integrated Planning, Office of the Provost · Orlando, FL</div>
+            <ul>
+              <li>Transitioning legacy paginated reporting from AURORA and PARIS into modern Power BI dashboards — leading wireframing and design sessions with functional stakeholders.</li>
+              <li>Turning source-of-truth systems (Huron, Workday) into governed star-schema semantic models in Microsoft Fabric, version-controlled in Git and reviewed by pull request.</li>
+              <li>Delivering recurring and ad-hoc analyses for university leadership, and training end users on the reporting they own.</li>
+            </ul>
+          </article>
+          <div class="xp__side">
+            <article class="card" data-reveal="right">
+              <span class="xp__badge">Consulting client · 2024–present</span>
+              <h3 class="xp__role">Analytics Consultant, formerly Data Analyst &amp; BI Developer</h3>
+              <div class="xp__org">Southwestern Adventist University</div>
+              <div class="xp__meta">Office of Institutional Research &amp; Effectiveness · Keene, TX</div>
+              <ul>
+                <li>Led migration of 22+ production Registrar reports from Ellucian Argos to governed Power BI semantic models.</li>
+                <li>Built the PostgreSQL reporting layer on the Colleague ODS: admissions funnel, census/FFTE, retention and graduation cohorts, financial aid, faculty workload.</li>
+                <li>Authored IPEDS submissions (Fall Enrollment, Graduation Rates, ACTS, Human Resources, 12-Month Enrollment) and resolved a critical submission that averted a federal penalty.</li>
+                <li>Continuing as an outside consultant on IR analytics after joining UCF.</li>
+              </ul>
+            </article>
+            <article class="card" data-reveal="right" style="--d:120ms">
+              <h3 class="xp__role">Education &amp; certification</h3>
+              <ul>
+                <li>Bachelor of Arts — Southwestern Adventist University, 2024</li>
+                <li>Microsoft Certified: Power BI Data Analyst Associate (PL-300) — in progress</li>
+              </ul>
+              <div class="card__actions"><a class="link link--sm" href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Full résumé (PDF)</a></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Workflow (dark tile) ═══ -->
+    <section class="tile tile--tile1" id="workflow">
+      <div class="wrap wrap--grid">
+        <div class="workflow">
+          <div class="workflow__copy">
+            <p class="eyebrow" data-reveal>How I work in 2026</p>
+            <h2 class="t-display split">Institutional memory, version-controlled.</h2>
+            <p data-reveal style="--d:200ms">Every SQL query, IPEDS submission, and dashboard definition lives in a private GitHub repo — paired with Claude as a FERPA-safe analyst. Claude sees the <strong>schema</strong>, never the rows. Each query is reviewed, committed, and reusable next year, next analyst, next audit.</p>
+          </div>
+          <div class="code" data-type data-reveal="right">
+            <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>ir-warehouse · git log</span><span class="code__lang">main</span></div>
 <pre><span class="sha">a3f1c20</span> <span class="branch">(main)</span> Add FTIC fall-to-fall retention CTE
 <span class="sha">8b2e4d9</span> Refactor IPEDS race/ethnicity rollup view
 <span class="sha">1c9a07f</span> Document headcount vs. FTE definitions
 <span class="dim">───────────────────────────────────────────</span>
-<span class="added">+ schema/students.sql</span>      <span class="dim">(columns only)</span>
-<span class="added">+ queries/retention.sql</span>    <span class="dim">claude-paired</span>
-<span class="added">+ docs/decisions.md</span>        <span class="dim">why, not what</span></pre>
-        </div>
-      </div>
-
-      <div class="workflow-grid reveal">
-        <div class="workflow-card">
-          <div class="workflow-card-icon">🔒</div>
-          <h4>FERPA-Safe AI Pairing</h4>
-          <p>Claude reviews table and column names — never student rows. Sensitive data stays inside the warehouse; the schema travels to the model.</p>
-        </div>
-        <div class="workflow-card">
-          <div class="workflow-card-icon">🌿</div>
-          <h4>Version-Controlled SQL</h4>
-          <p>Every query lives in Git. Branches for experiments, PRs for review, history for audits. Nothing is a one-off in a notebook again.</p>
-        </div>
-        <div class="workflow-card">
-          <div class="workflow-card-icon">🧠</div>
-          <h4>Institutional Memory</h4>
-          <p>Metric definitions, edge cases, and "why we did it this way" captured in markdown next to the code. The next analyst onboards in days, not months.</p>
-        </div>
-        <div class="workflow-card">
-          <div class="workflow-card-icon">🔁</div>
-          <h4>Reproducible Reporting</h4>
-          <p>IPEDS submissions and exec dashboards trace back to a commit SHA. Re-run last year's numbers exactly. Defend every figure.</p>
-        </div>
-      </div>
-
-      <div class="workflow-pull reveal">
-        <span style="font-size:18px">💡</span>
-        <span><strong>The result:</strong> faster turnarounds, fewer "where did this number come from?" emails, and a knowledge base that compounds instead of evaporating.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       SKILLS & TOOLS MATRIX
-  ════════════════════════════════════════════════════ -->
-  <section class="section skills-section" id="skills">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">Capabilities</div>
-        <h2 class="section-heading">SKILLS & TOOLS</h2>
-        <p class="section-desc">
-          A full-stack analytics skillset — from raw SQL queries against enterprise SIS/HCM systems
-          to polished executive-ready Power BI dashboards.
-        </p>
-      </div>
-
-      <div class="skills-layout">
-        <!-- Left: proficiency bars -->
-        <div class="reveal-left">
-          <div class="skill-category">
-            <div class="skill-category-label">Business Intelligence</div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Power BI Desktop</span><span class="skill-level">Expert</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">DAX (Measures & Calculated Columns)</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Power Query / M Language</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Data Modeling (Star Schema)</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-label">Data Engineering & Query</div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">PostgreSQL / T-SQL</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">CTEs, Window Functions, Regex</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="87"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Views & Stored Procedures</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-label">Reporting & Analysis</div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Excel (Pivot, XLOOKUP, Power Pivot)</span><span class="skill-level">Expert</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="93"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">IPEDS Federal Reporting</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="84"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Ellucian Colleague / Datatel</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="76"></div></div>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-label">Tools & Platforms</div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Power Automate</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Tableau</span><span class="skill-level">Proficient</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Git &amp; GitHub (branching, PRs, code review)</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-            </div>
-            <div class="skill-row">
-              <div class="skill-meta"><span class="skill-name">Claude / AI-Pair Analytics</span><span class="skill-level">Advanced</span></div>
-              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-            </div>
+<span class="add">+ schema/students.sql</span>      <span class="dim">(columns only)</span>
+<span class="add">+ queries/retention.sql</span>    <span class="dim">claude-paired</span>
+<span class="add">+ docs/decisions.md</span>        <span class="dim">why, not what</span></pre>
           </div>
         </div>
+        <div class="grid grid--4" data-stagger>
+          <div class="card"><div class="card__icon">🔒</div><h4>FERPA-safe AI pairing</h4><p>Claude reviews table and column names — never student rows. Sensitive data stays inside the warehouse; only the schema travels to the model.</p></div>
+          <div class="card"><div class="card__icon">🌿</div><h4>Version-controlled SQL</h4><p>Every query lives in Git. Branches for experiments, PRs for review, history for audits. Nothing is a one-off in a notebook again.</p></div>
+          <div class="card"><div class="card__icon">🧠</div><h4>Institutional memory</h4><p>Metric definitions, edge cases, and “why we did it this way” captured in markdown next to the code. The next analyst onboards in days.</p></div>
+          <div class="card"><div class="card__icon">🔁</div><h4>Reproducible reporting</h4><p>IPEDS submissions and executive dashboards trace back to a commit SHA. Re-run last year's numbers exactly. Defend every figure.</p></div>
+        </div>
+        <div class="pull" data-reveal><span style="font-size:20px">💡</span><span><strong>The result:</strong> faster turnarounds, fewer “where did this number come from?” emails, and a knowledge base that compounds instead of evaporating.</span></div>
+      </div>
+    </section>
 
-        <!-- Right: specialty badges -->
-        <div class="reveal-right">
-          <div class="skill-category-label" style="margin-bottom:20px">Domain Specialties</div>
-          <div class="specialty-grid">
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">🎓</span>
-              <span class="specialty-badge-name">Institutional Research</span>
-              <span class="specialty-badge-desc">Enrollment reporting, cohort analysis, accreditation data, IPEDS compliance</span>
+    <!-- ═══ Skills (white) ═══ -->
+    <section class="tile tile--canvas" id="skills">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Capabilities</p>
+          <h2 class="t-display split">Skills &amp; tools.</h2>
+          <p class="t-lead" data-reveal style="--d:200ms">Full-stack analytics — from the ERP to the executive summary.</p>
+        </div>
+        <div class="skills">
+          <div data-reveal="left">
+            <div class="skill-cat">
+              <div class="skill-cat__l">Business intelligence</div>
+              <div class="skill"><div class="skill__meta"><span>Power BI Desktop &amp; Service</span><span>Expert</span></div><div class="skill__track"><div class="skill__fill" data-width="95"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>DAX (measures &amp; calculated columns)</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="88"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Power Query / M</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="82"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Star-schema data modeling</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="86"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Microsoft Fabric (Warehouse, semantic models, TMDL)</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="76"></div></div></div>
             </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">👥</span>
-              <span class="specialty-badge-name">People Analytics</span>
-              <span class="specialty-badge-desc">Workforce demographics, compensation modeling, retention & attrition</span>
+            <div class="skill-cat">
+              <div class="skill-cat__l">Data engineering &amp; query</div>
+              <div class="skill"><div class="skill__meta"><span>PostgreSQL / SQL Server</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="90"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>CTEs, window functions, regex</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="87"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Ellucian Colleague ODS</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="84"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Ellucian Argos (parameter-driven DataBlocks)</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="82"></div></div></div>
             </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">📊</span>
-              <span class="specialty-badge-name">Student Success</span>
-              <span class="specialty-badge-desc">Retention tracking, graduation rates, FTIC & transfer cohort benchmarking</span>
+            <div class="skill-cat">
+              <div class="skill-cat__l">Reporting &amp; compliance</div>
+              <div class="skill"><div class="skill__meta"><span>IPEDS federal reporting</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="86"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>SACSCOC accreditation reporting</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="76"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Excel (Power Pivot, XLOOKUP, pivots)</span><span>Expert</span></div><div class="skill__track"><div class="skill__fill" data-width="93"></div></div></div>
             </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">🔗</span>
-              <span class="specialty-badge-name">Data Integration</span>
-              <span class="specialty-badge-desc">SIS-to-BI pipelines, multi-system joins, scheduled refresh architecture</span>
+            <div class="skill-cat">
+              <div class="skill-cat__l">Tools &amp; platforms</div>
+              <div class="skill"><div class="skill__meta"><span>Git &amp; GitHub (PRs, code review, protected branches)</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="88"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Claude / AI-paired analytics</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="90"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Power Automate, SharePoint, Smartsheet</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="78"></div></div></div>
+              <div class="skill"><div class="skill__meta"><span>Tableau</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="72"></div></div></div>
             </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">📐</span>
-              <span class="specialty-badge-name">Dashboard UX</span>
-              <span class="specialty-badge-desc">Executive-ready layouts, drill-through design, cross-filter logic</span>
-            </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">📋</span>
-              <span class="specialty-badge-name">Federal Compliance</span>
-              <span class="specialty-badge-desc">IPEDS, Title IV reporting, race/ethnicity classification standards</span>
-            </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">🏛️</span>
-              <span class="specialty-badge-name">Data Governance</span>
-              <span class="specialty-badge-desc">Naming standards, metric definitions, documentation, lineage &amp; data quality</span>
-            </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">🤖</span>
-              <span class="specialty-badge-name">AI-Augmented Analytics</span>
-              <span class="specialty-badge-desc">Claude-paired SQL development with FERPA-safe schema-only context &amp; Git-versioned queries</span>
-            </div>
-            <div class="specialty-badge">
-              <span class="specialty-badge-icon">🏆</span>
-              <span class="specialty-badge-name">PBI Data Analyst Associate</span>
-              <span class="specialty-badge-desc">Microsoft certification in progress — Power BI, DAX, semantic models &amp; service</span>
+          </div>
+          <div>
+            <div class="skill-cat__l" data-reveal>Domain specialties</div>
+            <div class="specialties" data-stagger>
+              <div class="card card--flat"><div class="card__icon">🎓</div><h4>Institutional research</h4><p>Enrollment census, cohort analysis, accreditation data, IPEDS compliance.</p></div>
+              <div class="card card--flat"><div class="card__icon">📊</div><h4>Student success</h4><p>Retention and persistence, graduation rates, FTIC and transfer cohort benchmarking.</p></div>
+              <div class="card card--flat"><div class="card__icon">👥</div><h4>People analytics</h4><p>Workforce demographics, compensation modeling, retention and attrition.</p></div>
+              <div class="card card--flat"><div class="card__icon">🔗</div><h4>Data integration</h4><p>SIS-to-BI pipelines, multi-system joins, scheduled refresh architecture.</p></div>
+              <div class="card card--flat"><div class="card__icon">📐</div><h4>Dashboard UX</h4><p>Executive-ready layouts, drill-through design, cross-filter logic, custom JSON themes.</p></div>
+              <div class="card card--flat"><div class="card__icon">📋</div><h4>Federal compliance</h4><p>IPEDS, Title IV eligibility, race/ethnicity classification standards.</p></div>
+              <div class="card card--flat"><div class="card__icon">🏛️</div><h4>Data governance</h4><p>Naming standards, metric definitions, workspace governance, lineage and data quality.</p></div>
+              <div class="card card--flat"><div class="card__icon">🤖</div><h4>AI-augmented analytics</h4><p>Claude-paired SQL development with schema-only context and Git-versioned queries.</p></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       END-TO-END PIPELINE
-  ════════════════════════════════════════════════════ -->
-  <section class="section pipeline-section" id="pipeline">
-    <div class="container">
-      <div class="pipeline-intro reveal">
-        <div class="section-title">How I Work</div>
-        <h2 class="section-heading">END-TO-END PIPELINE</h2>
-        <p>
-          Every dashboard I build starts in a database and ends in an executive meeting room.
-          I own the full data journey — from writing the SQL that extracts raw SIS data
-          to designing the Power BI report that makes it actionable for leadership.
-        </p>
-      </div>
-
-      <div class="pipeline-track reveal" id="pipeline-track">
-        <div class="pipeline-line" id="pipeline-line"></div>
-        <div class="pipeline-steps">
-
-          <div class="pipeline-step" style="transition-delay:0s">
-            <div class="pipeline-node">
-              🗄️
-              <span class="pipeline-step-num">1</span>
-            </div>
-            <div class="pipeline-step-title">Source System</div>
-            <div class="pipeline-step-tools">
-              <span class="pipeline-tool">Colleague</span>
-              <span class="pipeline-tool">PostgreSQL</span>
-            </div>
-            <div class="pipeline-step-desc">Student & HR data lives in Ellucian Colleague, exposed via PostgreSQL views in a departmental ODS schema.</div>
+    <!-- ═══ Consulting CTA (black) ═══ -->
+    <section class="tile tile--dark product" id="hire">
+      <div class="wrap">
+        <div class="tile-head" style="margin-bottom:0">
+          <p class="eyebrow" data-reveal>Consulting</p>
+          <h2 class="t-hero split">Open for consulting.</h2>
+          <p class="t-lead muted" data-reveal style="--d:200ms">Currently partnering with Southwestern Adventist University on institutional research analytics — and taking on new higher-ed engagements.</p>
+          <div class="cta-row" data-reveal style="--d:320ms">
+            <a class="btn btn--lg" href="mailto:daveneejames@gmail.com?subject=Consulting%20Inquiry%20%E2%80%94%20Higher%20Ed%20Analytics">Start a conversation</a>
+            <a class="link" href="consulting/">See services &amp; engagement models</a>
           </div>
-
-          <div class="pipeline-step" style="transition-delay:0.15s">
-            <div class="pipeline-node">
-              ✍️
-              <span class="pipeline-step-num">2</span>
-            </div>
-            <div class="pipeline-step-title">SQL Engineering</div>
-            <div class="pipeline-step-tools">
-              <span class="pipeline-tool">CTEs</span>
-              <span class="pipeline-tool">Views</span>
-              <span class="pipeline-tool">CASE</span>
-            </div>
-            <div class="pipeline-step-desc">Custom SQL views apply business rules — cohort logic, status filters, title standardization, and demographic classification.</div>
+          <div class="services" data-stagger>
+            <span class="tag">Power BI</span><span class="tag">PostgreSQL</span><span class="tag">Microsoft Fabric</span><span class="tag">Argos → Power BI migration</span><span class="tag">IPEDS</span><span class="tag">Institutional research</span><span class="tag">People analytics</span><span class="tag">Custom tooling</span>
           </div>
-
-          <div class="pipeline-step" style="transition-delay:0.30s">
-            <div class="pipeline-node">
-              ⚡
-              <span class="pipeline-step-num">3</span>
-            </div>
-            <div class="pipeline-step-title">Power Query</div>
-            <div class="pipeline-step-tools">
-              <span class="pipeline-tool">M Language</span>
-              <span class="pipeline-tool">DirectQuery</span>
-            </div>
-            <div class="pipeline-step-desc">Power Query connects to PostgreSQL, applies final shaping, and structures the load for star-schema modeling.</div>
-          </div>
-
-          <div class="pipeline-step" style="transition-delay:0.45s">
-            <div class="pipeline-node">
-              🧮
-              <span class="pipeline-step-num">4</span>
-            </div>
-            <div class="pipeline-step-title">DAX Modeling</div>
-            <div class="pipeline-step-tools">
-              <span class="pipeline-tool">Measures</span>
-              <span class="pipeline-tool">Time Intel</span>
-            </div>
-            <div class="pipeline-step-desc">DAX measures calculate retention rates, headcount, demographic percentages, and YoY comparisons across slicers.</div>
-          </div>
-
-          <div class="pipeline-step" style="transition-delay:0.60s">
-            <div class="pipeline-node">
-              📊
-              <span class="pipeline-step-num">5</span>
-            </div>
-            <div class="pipeline-step-title">Dashboard</div>
-            <div class="pipeline-step-tools">
-              <span class="pipeline-tool">Power BI</span>
-              <span class="pipeline-tool">Drill-through</span>
-            </div>
-            <div class="pipeline-step-desc">Executive-facing reports with drill-through, cross-filtering, and scheduled auto-refresh for always-current insights.</div>
-          </div>
-
-        </div>
-
-        <div class="use-case-strip stagger-children" style="margin-top:48px">
-          <div class="use-case-chip"><span>→</span> FTIC Cohort Retention</div>
-          <div class="use-case-chip"><span>→</span> Transfer Student Outcomes</div>
-          <div class="use-case-chip"><span>→</span> Staff Demographics & Salary</div>
-          <div class="use-case-chip"><span>→</span> Enrollment Snapshots</div>
-          <div class="use-case-chip"><span>→</span> IPEDS Federal Submissions</div>
-          <div class="use-case-chip"><span>→</span> Admissions Funnel Analysis</div>
+          <div class="availability" data-reveal><i></i>Accepting new engagements</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       FREELANCE / CONSULTING CTA
-  ════════════════════════════════════════════════════ -->
-  <section class="freelance-section" id="hire">
-    <div class="container">
-      <div class="freelance-inner reveal">
-        <div>
-          <div class="freelance-tag">Open to New Opportunities</div>
-          <h2 class="freelance-heading">LET'S BUILD SOMETHING<br/><span>TOGETHER</span></h2>
-          <p class="freelance-body">
-            I'm actively seeking full-time Data Analyst or BI Developer roles where I can bring
-            my SQL-to-Power-BI expertise to a new team. With 3+ years driving institutional decisions
-            through data at the university level, I'm ready to tackle complex data challenges and
-            deliver clear, actionable insights for your organization.
-          </p>
-          <div class="freelance-services">
-            <span class="freelance-service">GitHub</span>
-            <span class="freelance-service">MSSQL</span>
-            <span class="freelance-service">PostgreSQL</span>
-            <span class="freelance-service">Supabase</span>
-            <span class="freelance-service">Power BI</span>
-            <span class="freelance-service">IPEDS</span>
-            <span class="freelance-service">Institutional Research</span>
-            <span class="freelance-service">People Analytics</span>
-            <span class="freelance-service">Custom Tooling</span>
-          </div>
+    <!-- ═══ Contact (white) ═══ -->
+    <section class="tile tile--canvas" id="contact">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Get in touch</p>
+          <h2 class="t-display split">Say hello.</h2>
         </div>
-        <div class="freelance-cta">
-          <a href="mailto:daveneejames@gmail.com?subject=Job%20Opportunity" class="btn btn-white" style="white-space:nowrap;">
-            Get in Touch
-          </a>
-          <div class="cta-availability">
-            <span class="cta-dot"></span>Actively interviewing
-          </div>
+        <div class="grid grid--3" data-stagger>
+          <div class="card card--flat"><div class="card__icon">✉️</div><h4>Email</h4><p>Best for project inquiries, dashboard requests, and collaboration.</p><div class="card__actions"><a class="link link--sm" href="mailto:daveneejames@gmail.com">daveneejames@gmail.com</a></div></div>
+          <div class="card card--flat"><div class="card__icon">💼</div><h4>LinkedIn</h4><p>Connect for updates, portfolio posts, and analytics content.</p><div class="card__actions"><a class="link link--sm" href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">View profile</a></div></div>
+          <div class="card card--flat"><div class="card__icon">📄</div><h4>Résumé</h4><p>Full experience, skills, and project background.</p><div class="card__actions"><a class="link link--sm" href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Download PDF</a></div></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">Get in Touch</div>
-        <h2 class="section-heading">CONTACT</h2>
+  <!-- ═══ Footer (parchment) ═══ -->
+  <footer class="footer">
+    <div class="wrap wrap--grid">
+      <div class="footer__cols">
+        <div><h4>Portfolio</h4><ul><li><a href="#dashboards">Dashboards</a></li><li><a href="#sql">SQL</a></li><li><a href="#pipeline">Pipeline</a></li><li><a href="#queryu">Query-U</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li></ul></div>
+        <div><h4>Consulting</h4><ul><li><a href="consulting/#services">Services</a></li><li><a href="consulting/#process">Process</a></li><li><a href="consulting/#engagement">Engagement models</a></li><li><a href="consulting/#contact">Book a discovery call</a></li></ul></div>
+        <div><h4>Connect</h4><ul><li><a href="mailto:daveneejames@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://query-u.com" target="_blank" rel="noopener">query-u.com</a></li><li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li></ul></div>
       </div>
-      <div class="contact-grid stagger-children">
-        <div class="contact-card">
-          <span class="contact-icon">✉</span>
-          <h4>EMAIL</h4>
-          <p>Best for project inquiries, dashboard requests, and collaboration opportunities.</p>
-          <a href="mailto:daveneejames@gmail.com" class="btn btn-primary">Send Email</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">in</span>
-          <h4>LINKEDIN</h4>
-          <p>Connect for updates, portfolio posts, and analytics content.</p>
-          <a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" class="btn">View Profile</a>
-        </div>
-        <div class="contact-card">
-          <span class="contact-icon">📄</span>
-          <h4>RESUME</h4>
-          <p>Full experience, skills, and project background.</p>
-          <a href="Resume_Davenee_James.pdf" target="_blank" class="btn">Download</a>
-        </div>
+      <div class="footer__legal">
+        <span>© <span data-year>2026</span> Davenee James. Orlando, FL.</span>
+        <span>Built with PostgreSQL, Power BI, and a lot of CTEs. <a href="#top">Back to top ↑</a></span>
       </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container footer-inner reveal">
-      <span class="footer-copy">© <span id="year"></span> Davenee James. All rights reserved.</span>
-      <div class="footer-links">
-        <a href="#dashboards">Dashboards</a>
-        <a href="#sql">SQL</a>
-        <a href="https://query-u.com" target="_blank" rel="noopener">Query-U</a>
-        <a href="#skills">Skills</a>
-        <a href="consulting/">Consulting</a>
-        <a href="#contact">Contact</a>
-        <a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank">LinkedIn</a>
-      </div>
-      <a href="#top" class="back-to-top">Back to top ↑</a>
     </div>
   </footer>
 
-  <!-- Modal -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <div>
-          <div class="modal-title" id="modalTitle">Dashboard</div>
-          <div class="modal-meta" id="modalMeta">Preview</div>
-        </div>
-        <button class="modal-close" id="modalClose">✕</button>
+  <!-- ═══ Modal ═══ -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal__panel">
+      <div class="modal__head">
+        <div><div class="modal__title" id="modalTitle">Dashboard</div><div class="modal__meta" id="modalMeta">Preview</div></div>
+        <button class="icon-btn" id="modalClose" aria-label="Close preview"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
       </div>
-      <div class="modal-body">
-        <div class="modal-image"><img id="modalImg" alt="Dashboard preview" /></div>
-        <div class="modal-actions" id="modalLinks"></div>
+      <div class="modal__body">
+        <div class="modal__img"><img id="modalImg" alt="" /></div>
+        <div class="modal__actions">
+          <a class="btn" id="modalOpen" href="#" target="_blank" rel="noopener">Open in Power BI</a>
+          <button class="link" id="modalCopy" type="button">Copy link</button>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // ── DATA ──────────────────────────────────────────────
-    const dashboards = [
-      { type:"live", title:"Admissions",                      desc:"Admissions funnel from inquiry to enrolled — application volume, conversion rates, and yield by term, program, and demographic segment.", img:"https://i.imgur.com/oPSbGSf.jpeg", link:"https://app.powerbi.com/view?r=eyJrIjoiZWM4NjE3YzUtYjFkMC00YWRhLWI5YjgtZGQ4NWE4YWVmMTE0IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=550a06fec2304cf2c866", tags:["Admissions","Funnel"] },
-      { type:"live", title:"Student Enrollment",              desc:"Enrollment snapshot and historical trends — headcount, credit hours, and term-over-term comparisons across academic levels.", img:"https://i.imgur.com/At6JQGz.jpeg", link:"https://app.powerbi.com/view?r=eyJrIjoiZjUwOTIxODUtN2JiZC00MjY4LTkxODYtZDk0NDg3YTE0YWRhIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=d52863f95ceafde2f21b", tags:["Enrollment","Trends"] },
-      { type:"live", title:"FTIC Retention & Graduation",     desc:"End-to-end cohort tracking built from PostgreSQL views. Tracks 1-4 year retention and 4-6 year graduation rates for FTIC students with demographic breakdowns for IPEDS compliance.", img:"https://i.imgur.com/H0ZCDsO.jpeg", link:"https://app.powerbi.com/view?r=eyJrIjoiNWYwZjQ5MGMtNjQ3Mi00YWViLTk2ZWUtNDM4YTZlNWQ5ZDRmIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=2a1bb021fcb7fbe62e5e", tags:["Retention","IPEDS"] },
-      { type:"live", title:"Transfer Retention & Graduation", desc:"Comprehensive transfer student analytics powered by custom SQL. Monitors retention patterns and graduation outcomes for transfer cohorts.", img:"https://i.imgur.com/nOPP8U1.jpeg", link:"https://app.powerbi.com/view?r=eyJrIjoiMDhlODQ3N2QtMDg0OS00NTIyLWE0N2QtNzRhNmJiYWUyM2Y2IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=c7c1bdca804e92fb095a", tags:["Transfer","Graduation"] },
-      { type:"live", title:"Staff Demographics",              desc:"Workforce composition, representation, and trends across departments, roles, and demographic dimensions.", img:"https://i.imgur.com/ZEs6riH.jpeg", link:"https://app.powerbi.com/view?r=eyJrIjoiZTFkZTZlYzgtNTZkZS00MWEzLThjZTAtOTZhN2ZjNTQ5NjdkIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=dd73a8fef780406b2ebf", tags:["HR","Demographics"] }
+    window.DASHBOARDS = [
+      { title: "Admissions", desc: "Admissions funnel from inquiry to enrolled — application volume, conversion rates, and yield by term, program, and demographic segment.", img: "https://i.imgur.com/oPSbGSf.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiZWM4NjE3YzUtYjFkMC00YWRhLWI5YjgtZGQ4NWE4YWVmMTE0IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=550a06fec2304cf2c866", tags: ["Admissions", "Funnel"] },
+      { title: "Student Enrollment", desc: "Enrollment snapshot and historical trends — headcount, credit hours, and term-over-term comparisons across academic levels.", img: "https://i.imgur.com/At6JQGz.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiZjUwOTIxODUtN2JiZC00MjY4LTkxODYtZDk0NDg3YTE0YWRhIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=d52863f95ceafde2f21b", tags: ["Enrollment", "Trends"] },
+      { title: "FTIC Retention & Graduation", desc: "End-to-end cohort tracking built from PostgreSQL views. 1–4 year retention and 4–6 year graduation rates for FTIC students with demographic breakdowns for IPEDS.", img: "https://i.imgur.com/H0ZCDsO.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiNWYwZjQ5MGMtNjQ3Mi00YWViLTk2ZWUtNDM4YTZlNWQ5ZDRmIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=2a1bb021fcb7fbe62e5e", tags: ["Retention", "IPEDS"] },
+      { title: "Transfer Retention & Graduation", desc: "Transfer student analytics powered by custom SQL. Monitors retention patterns and graduation outcomes for transfer cohorts.", img: "https://i.imgur.com/nOPP8U1.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiMDhlODQ3N2QtMDg0OS00NTIyLWE0N2QtNzRhNmJiYWUyM2Y2IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=c7c1bdca804e92fb095a", tags: ["Retention", "Transfer", "Graduation"] },
+      { title: "Staff Demographics", desc: "Workforce composition, representation, and trends across departments, roles, and demographic dimensions.", img: "https://i.imgur.com/ZEs6riH.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiZTFkZTZlYzgtNTZkZS00MWEzLThjZTAtOTZhN2ZjNTQ5NjdkIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=dd73a8fef780406b2ebf", tags: ["HR", "Demographics"] }
     ];
-
-    // ── PAGE LOADER ───────────────────────────────────────
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('page-loader').classList.add('done');
-        triggerHeroAnimations();
-      }, 900);
-    });
-
-    // ── HERO ANIMATIONS ───────────────────────────────────
-    function triggerHeroAnimations() {
-      const logo    = document.getElementById('nav-logo');
-      const navLinks = document.querySelectorAll('nav a');
-      const badge   = document.getElementById('hero-badge');
-      const h1      = document.getElementById('hero-h1');
-      const desc    = document.getElementById('hero-desc');
-      const actions = document.getElementById('hero-actions');
-      const card    = document.getElementById('profile-card');
-
-      logo.classList.add('visible');
-      navLinks.forEach(a => a.classList.add('visible'));
-      setTimeout(() => badge.classList.add('visible'),   200);
-      setTimeout(() => h1.classList.add('visible'),      350);
-      setTimeout(() => desc.classList.add('visible'),    500);
-      setTimeout(() => actions.classList.add('visible'), 650);
-      setTimeout(() => card.classList.add('visible'),    400);
-    }
-
-    // ── SCROLL HEADER ─────────────────────────────────────
-    const header = document.getElementById('site-header');
-    let scrolledState = false;
-    let scrollTicking = false;
-    window.addEventListener('scroll', () => {
-      if (scrollTicking) return;
-      scrollTicking = true;
-      requestAnimationFrame(() => {
-        const shouldScroll = window.scrollY > 60;
-        if (shouldScroll !== scrolledState) {
-          scrolledState = shouldScroll;
-          header.classList.toggle('scrolled', shouldScroll);
-        }
-        scrollTicking = false;
-      });
-    }, { passive: true });
-
-    // ── INTERSECTION OBSERVER ─────────────────────────────
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children').forEach(el => {
-      revealObserver.observe(el);
-    });
-
-    // Counter animation observer (dedicated, fires once per element)
-    const statObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          statObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.stat-value[data-target], .impact-value[data-target]').forEach(el => statObserver.observe(el));
-
-    // ── COUNTER ANIMATION ─────────────────────────────────
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.target, 10);
-      if (!target || el.dataset.animated) return;
-      el.dataset.animated = 'true';
-      const suffix = el.dataset.suffix || '';
-      const duration = 1200;
-      const start = performance.now();
-      function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        // Ease-out cubic
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(eased * target) + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = target + suffix;
-      }
-      requestAnimationFrame(tick);
-    }
-
-    // ── DASHBOARD GRID ────────────────────────────────────
-    let activeFilter = "all";
-    const grid = document.getElementById("grid");
-    const search = document.getElementById("search");
-    const filterBtns = document.querySelectorAll(".filter-tabs button");
-    const modalOverlay = document.getElementById("modalOverlay");
-    const modalClose = document.getElementById("modalClose");
-
-    function escapeAttr(str) { return String(str).replace(/"/g, "&quot;"); }
-    function matches(d, q) {
-      if (!q) return true;
-      return (d.title + " " + d.desc + " " + d.tags.join(" ")).toLowerCase().includes(q.toLowerCase());
-    }
-    function filterData() {
-      const q = search.value.trim();
-      return dashboards.filter(d => activeFilter === "all" || d.type === activeFilter).filter(d => matches(d, q));
-    }
-
-    function cardHTML(d, idx) {
-      const typeTag = d.type === "live" ? "Live" : "Demo";
-      return `<article class="dashboard-card" style="transition-delay:${idx * 0.07}s" data-type="${d.type}">
-        <div class="card-image">
-          <img loading="lazy" src="${d.img}" alt="${d.title}">
-          <div class="card-tags">
-            <span class="tag ${d.type === 'live' ? 'tag-live' : ''}">${typeTag}</span>
-            ${d.tags.slice(0,1).map(t => `<span class="tag">${t}</span>`).join('')}
-          </div>
-        </div>
-        <div class="card-body">
-          <h4>${d.title}</h4>
-          <p>${d.desc}</p>
-          <div class="card-actions">
-            <a class="card-btn card-btn-primary" href="${d.link}" target="_blank">Open</a>
-            <button class="card-btn" data-preview="1"
-              data-title="${escapeAttr(d.title)}"
-              data-type="${d.type}"
-              data-img="${escapeAttr(d.img)}"
-              data-link="${escapeAttr(d.link)}">Preview</button>
-          </div>
-        </div>
-      </article>`;
-    }
-
-    function render() {
-      const items = filterData();
-      if (!items.length) {
-        grid.innerHTML = `<div class="empty-state"><h4>No Results Found</h4><p>Try a different keyword or reset filters.</p><button class="btn btn-primary" onclick="resetFilters()">Reset</button></div>`;
-        return;
-      }
-      grid.innerHTML = items.map((d, i) => cardHTML(d, i)).join('');
-      // Animate cards in
-      setTimeout(() => {
-        grid.querySelectorAll('.dashboard-card').forEach((card, i) => {
-          setTimeout(() => card.classList.add('card-visible'), i * 70);
-        });
-      }, 10);
-      // Preview buttons
-      grid.querySelectorAll('button[data-preview="1"]').forEach(btn => {
-        btn.addEventListener('click', () => openModal({
-          title: btn.dataset.title, type: btn.dataset.type,
-          img: btn.dataset.img, link: btn.dataset.link
-        }));
-      });
-    }
-
-    function openModal({ title, type, img, link }) {
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalMeta').textContent = (type === "live" ? "Live Dashboard" : "Demo Dashboard") + " • Preview";
-      document.getElementById('modalImg').src = img;
-      document.getElementById('modalLinks').innerHTML =
-        `<a class="btn btn-primary" href="${link}" target="_blank">Open in Power BI</a>
-         <button class="btn" id="copyLinkBtn">Copy Link</button>`;
-      modalOverlay.style.display = "flex";
-      requestAnimationFrame(() => modalOverlay.classList.add('open'));
-      document.getElementById('copyLinkBtn').addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(link);
-          document.getElementById('copyLinkBtn').textContent = 'Copied ✓';
-          setTimeout(() => document.getElementById('copyLinkBtn').textContent = 'Copy Link', 1400);
-        } catch(e) {}
-      });
-    }
-
-    function closeModal() {
-      modalOverlay.classList.remove('open');
-      setTimeout(() => {
-        modalOverlay.style.display = "none";
-        document.getElementById('modalImg').src = "";
-      }, 400);
-    }
-
-    function resetFilters() {
-      search.value = ""; activeFilter = "all";
-      filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
-      render();
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.filter;
-        render();
-      });
-    });
-    search.addEventListener('input', render);
-
-    // ── SQL TOGGLE ────────────────────────────────────────
-    document.querySelectorAll('.sql-toggle button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.sql-toggle button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.sql-panel').forEach(p => p.classList.remove('active'));
-        const panel = document.getElementById('panel-' + btn.dataset.sql);
-        panel.classList.add('active');
-        // Re-trigger reveal animations inside new panel
-        panel.querySelectorAll('.reveal-left, .reveal-right, .stagger-children').forEach(el => {
-          el.classList.remove('visible');
-          setTimeout(() => revealObserver.observe(el), 50);
-        });
-        // Reset and re-animate counters
-        panel.querySelectorAll('.stat-value[data-target]').forEach(el => {
-          delete el.dataset.animated;
-          el.textContent = '0';
-        });
-      });
-    });
-
-    // ── SKILL BARS ────────────────────────────────────────
-    const skillObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.skill-fill[data-width]').forEach(bar => {
-            const w = bar.dataset.width;
-            // small delay per bar for a cascade effect
-            const idx = [...entry.target.querySelectorAll('.skill-fill')].indexOf(bar);
-            setTimeout(() => { bar.style.width = w + '%'; }, idx * 80);
-          });
-          skillObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.skill-category').forEach(el => skillObserver.observe(el));
-
-    // ── PIPELINE ANIMATION ────────────────────────────────
-    const pipelineObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Animate the connecting line first
-          const line = document.getElementById('pipeline-line');
-          if (line) line.classList.add('animated');
-          // Then stagger each step in
-          document.querySelectorAll('.pipeline-step').forEach((step, i) => {
-            setTimeout(() => step.classList.add('step-in'), i * 160);
-          });
-          pipelineObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-    const pipelineTrack = document.getElementById('pipeline-track');
-    if (pipelineTrack) pipelineObserver.observe(pipelineTrack);
-
-    // ── MISC ──────────────────────────────────────────────
-    document.getElementById('year').textContent = new Date().getFullYear();
-    render();
   </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>

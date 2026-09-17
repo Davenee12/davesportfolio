@@ -2,709 +2,277 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DJ Analytics Consulting | Higher Education Data, Dashboards & Development</title>
-  <meta name="description" content="Consulting for higher education institutions — Power BI dashboards, PostgreSQL data engineering, and custom analytics development. By Davenee James." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Davenee James Consulting | Higher Education Analytics, Dashboards &amp; Development</title>
+  <meta name="description" content="Analytics consulting for colleges and universities — Power BI dashboards, PostgreSQL data engineering, Argos-to-Power BI migration, and custom analytics tooling. Led by Davenee James." />
+  <meta property="og:title" content="Davenee James Consulting | Higher Education Analytics" />
+  <meta property="og:description" content="Power BI, PostgreSQL, and IPEDS-aware analytics consulting for higher education." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#000000" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --near-black: #1a1915;
-      --white: #ffffff;
-      --blue: #0075de;
-      --blue-pressed: #0062be;
-      --warm-gray: #615d59;
-      --warm-gray-light: #a39e98;
-      --warm-black: #31302e;
-      --border: rgba(0,0,0,0.1);
-      --border-subtle: rgba(0,0,0,0.05);
-      --success: #0f7b55;
-      --bg: #ffffff;
-      --bg-subtle: #f6f5f4;
-      --ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-      --shadow-card: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
-      --shadow-card-hover: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.06), 0 20px 48px rgba(0,0,0,0.10);
-      --shadow-elevated: 0 0 0 1px rgba(0,0,0,0.08), 0 8px 16px rgba(0,0,0,0.06), 0 32px 80px rgba(0,0,0,0.14);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--near-black);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-    @media (max-width: 768px) { .container { padding: 0 20px; } }
-
-    /* ─── HEADER ─── */
-    header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(255,255,255,0);
-      transition: background 0.5s var(--ease-apple), box-shadow 0.5s var(--ease-apple);
-    }
-    header.scrolled {
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(0,0,0,0.08);
-    }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .logo { display: flex; align-items: center; gap: 10px; }
-    .logo-icon {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700; color: white; letter-spacing: -0.3px;
-      transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
-    }
-    .logo:hover .logo-icon {
-      transform: scale(1.08) rotate(-4deg);
-      box-shadow: 0 4px 14px rgba(0,117,222,0.3);
-    }
-    .logo-text-group { display: flex; flex-direction: column; line-height: 1.1; }
-    .logo-text { font-size: 14px; font-weight: 600; letter-spacing: -0.2px; color: var(--near-black); }
-    .logo-sub { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--blue); }
-
-    nav { display: flex; align-items: center; gap: 4px; }
-    nav a {
-      font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 6px;
-      color: var(--warm-gray); transition: color 0.2s ease, background 0.2s ease;
-    }
-    nav a:hover { color: var(--near-black); background: var(--bg-subtle); }
-    nav a.cta { background: var(--blue); color: white; }
-    nav a.cta:hover { background: var(--blue-pressed); color: white; }
-    nav a.back { border: 1px solid var(--border); color: var(--near-black); border-radius: 4px; }
-    nav a.back:hover { background: var(--bg-subtle); }
-
-    @media (max-width: 900px) { nav { gap: 2px; } nav a { font-size: 13px; padding: 6px 10px; } }
-    @media (max-width: 600px) { .logo-text-group { display: none; } nav a.back { display: none; } }
-
-    /* ─── HERO ─── */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
-      background: var(--bg);
-    }
-    .hero-grid-bg {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(0,117,222,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,117,222,0.04) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-    }
-    .hero-content {
-      padding: 140px 0 80px; position: relative; z-index: 1; max-width: 880px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
-      background: rgba(15,123,85,0.08); border: 1px solid rgba(15,123,85,0.2);
-      border-radius: 9999px;
-      font-size: 13px; font-weight: 500; color: var(--success); margin-bottom: 24px;
-      opacity: 0; transform: translateY(16px);
-      transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
-    }
-    .hero-badge.visible { opacity: 1; transform: translateY(0); }
-    .hero-badge::before {
-      content: ''; width: 6px; height: 6px; background: var(--success); border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
-    .hero h1 {
-      font-size: clamp(40px, 6vw, 72px); font-weight: 700;
-      letter-spacing: -2.25px; line-height: 1.05; margin-bottom: 24px; color: var(--near-black);
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.1s, transform 0.7s var(--ease-smooth) 0.1s;
-    }
-    .hero h1.visible { opacity: 1; transform: translateY(0); }
-    .hero h1 span { color: var(--blue); }
-    .hero-desc {
-      font-size: 18px; color: var(--warm-gray); max-width: 640px;
-      line-height: 1.7; margin-bottom: 36px;
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.2s, transform 0.7s var(--ease-smooth) 0.2s;
-    }
-    .hero-desc.visible { opacity: 1; transform: translateY(0); }
-    .hero-actions {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.3s, transform 0.7s var(--ease-smooth) 0.3s;
-    }
-    .hero-actions.visible { opacity: 1; transform: translateY(0); }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px;
-      font-size: 14px; font-weight: 500; border-radius: 4px;
-      border: 1px solid var(--border); background: transparent; color: var(--near-black);
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s var(--ease-spring);
-    }
-    .btn:hover { background: var(--bg-subtle); transform: translateY(-1px); }
-    .btn:active { transform: translateY(0) scale(0.98); }
-    .btn-primary { background: var(--blue); border-color: var(--blue); color: white; }
-    .btn-primary:hover { background: var(--blue-pressed); border-color: var(--blue-pressed); box-shadow: 0 4px 16px rgba(0,117,222,0.22); }
-
-    .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 32px; margin-top: 56px;
-      padding-top: 28px; border-top: 1px solid var(--border);
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-smooth) 0.4s, transform 0.7s var(--ease-smooth) 0.4s;
-    }
-    .hero-meta.visible { opacity: 1; transform: translateY(0); }
-    .hero-meta-item .label { font-size: 11px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase; color: var(--warm-gray-light); margin-bottom: 4px; }
-    .hero-meta-item .value { font-size: 14px; color: var(--near-black); font-weight: 500; }
-
-    /* ─── SECTIONS ─── */
-    .section { padding: 96px 0; border-top: 1px solid var(--border); }
-    .section-header { margin-bottom: 56px; max-width: 720px; }
-    .section-title {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 12px;
-    }
-    .section-heading {
-      font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -1.5px;
-      color: var(--near-black); line-height: 1.1;
-    }
-    .section-desc { font-size: 17px; color: var(--warm-gray); max-width: 640px; margin-top: 16px; line-height: 1.7; }
-
-    .reveal {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .stagger-children > * {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
-    }
-    .stagger-children.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:0s; }
-    .stagger-children.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:0.08s; }
-    .stagger-children.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:0.16s; }
-    .stagger-children.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:0.24s; }
-
-    /* ─── SERVICES ─── */
-    .services-section { background: var(--bg-subtle); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 900px) { .services-grid { grid-template-columns: 1fr; } }
-    .service-card {
-      background: white; border-radius: 16px;
-      box-shadow: var(--shadow-card);
-      padding: 36px 32px;
-      display: flex; flex-direction: column;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .service-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
-    .service-icon {
-      width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(0,117,222,0.1); color: var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; font-weight: 700; margin-bottom: 20px;
-    }
-    .service-card h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 12px; color: var(--near-black); }
-    .service-card p { font-size: 14px; color: var(--warm-gray); line-height: 1.7; margin-bottom: 20px; flex: 1; }
-    .service-list { list-style: none; padding: 0; margin: 0 0 24px 0; }
-    .service-list li {
-      font-size: 13px; color: var(--warm-black); padding: 6px 0;
-      padding-left: 22px; position: relative; line-height: 1.5;
-    }
-    .service-list li::before {
-      content: ''; position: absolute; left: 0; top: 12px;
-      width: 12px; height: 2px; background: var(--blue); border-radius: 2px;
-    }
-    .service-tag {
-      display: inline-block; align-self: flex-start;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.4px; text-transform: uppercase;
-      color: var(--blue); padding: 4px 10px;
-      background: rgba(0,117,222,0.08); border-radius: 9999px;
-    }
-
-    /* ─── PROCESS ─── */
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    @media (max-width: 900px) { .process-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .process-grid { grid-template-columns: 1fr; } }
-    .process-step {
-      background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      padding: 28px 24px; position: relative;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .process-step:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
-    .step-number {
-      font-size: 52px; font-weight: 700;
-      color: rgba(0,117,222,0.07); position: absolute; top: 12px; right: 16px; line-height: 1;
-      transition: color 0.3s ease;
-    }
-    .process-step:hover .step-number { color: rgba(0,117,222,0.13); }
-    .process-step h4 { font-size: 14px; font-weight: 600; margin-bottom: 10px; color: var(--blue); }
-    .process-step p { font-size: 13px; color: var(--warm-gray); line-height: 1.6; }
-
-    /* ─── ENGAGEMENT MODELS ─── */
-    .engagement-section { background: var(--bg-subtle); }
-    .engagement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    @media (max-width: 900px) { .engagement-grid { grid-template-columns: 1fr; } }
-    .engagement-card {
-      background: white; border-radius: 16px;
-      box-shadow: var(--shadow-card);
-      padding: 32px;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-      position: relative; overflow: hidden;
-    }
-    .engagement-card:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-4px); }
-    .engagement-card.featured { border: 2px solid var(--blue); }
-    .engagement-card.featured::before {
-      content: 'MOST COMMON'; position: absolute; top: 14px; right: 14px;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.6px; color: white;
-      background: var(--blue); padding: 4px 10px; border-radius: 4px;
-    }
-    .engagement-card h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px; color: var(--near-black); }
-    .engagement-card .scope { font-size: 12px; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 16px; display: block; }
-    .engagement-card p { font-size: 14px; color: var(--warm-gray); line-height: 1.7; margin-bottom: 20px; }
-    .engagement-card ul { list-style: none; padding: 0; }
-    .engagement-card ul li {
-      font-size: 13px; color: var(--warm-black); padding: 5px 0;
-      padding-left: 20px; position: relative; line-height: 1.5;
-    }
-    .engagement-card ul li::before {
-      content: '✓'; position: absolute; left: 0; top: 4px;
-      color: var(--success); font-weight: 700; font-size: 13px;
-    }
-
-    /* ─── WHY HIGHER ED ─── */
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    @media (max-width: 1024px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
-    .why-text h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 16px; color: var(--near-black); }
-    .why-text p { font-size: 15px; color: var(--warm-gray); line-height: 1.8; margin-bottom: 16px; }
-    .why-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .why-stat {
-      background: white; border-radius: 12px;
-      box-shadow: var(--shadow-card);
-      padding: 24px;
-      transition: box-shadow 0.3s ease, transform 0.3s var(--ease-spring);
-    }
-    .why-stat:hover { box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
-    .why-stat .value {
-      font-size: 32px; font-weight: 700; color: var(--blue); letter-spacing: -1px; display: block; line-height: 1.1;
-    }
-    .why-stat .label { font-size: 12px; font-weight: 600; color: var(--warm-gray); margin-top: 8px; line-height: 1.4; }
-
-    /* ─── CTA ─── */
-    .cta-section {
-      background: var(--near-black); color: white; padding: 96px 0;
-      position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at top right, rgba(0,117,222,0.25) 0%, transparent 50%);
-    }
-    .cta-inner {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center;
-    }
-    @media (max-width: 900px) { .cta-inner { grid-template-columns: 1fr; gap: 32px; } }
-    .cta-tag {
-      display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
-      text-transform: uppercase; color: rgba(255,255,255,0.6);
-      padding: 6px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 9999px;
-      margin-bottom: 20px;
-    }
-    .cta-heading {
-      font-size: clamp(32px, 4vw, 48px); font-weight: 700;
-      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px;
-    }
-    .cta-heading span { color: var(--blue); }
-    .cta-body { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 28px; max-width: 540px; }
-    .cta-services { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
-    .cta-service {
-      padding: 5px 12px; border: 1px solid rgba(255,255,255,0.15); border-radius: 9999px;
-      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.7);
-    }
-    .cta-actions {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 16px; padding: 32px;
-    }
-    .cta-actions h4 { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; }
-    .cta-actions p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.6; }
-    .btn-white { background: white; border-color: white; color: var(--blue); width: 100%; justify-content: center; }
-    .btn-white:hover { background: rgba(255,255,255,0.92); }
-    .btn-ghost { background: transparent; border-color: rgba(255,255,255,0.2); color: white; width: 100%; justify-content: center; margin-top: 10px; }
-    .btn-ghost:hover { background: rgba(255,255,255,0.08); }
-    .cta-availability {
-      display: flex; align-items: center; gap: 8px; margin-top: 18px;
-      font-size: 12px; color: rgba(255,255,255,0.6);
-    }
-    .cta-dot { width: 8px; height: 8px; background: #2dd4bf; border-radius: 50%; animation: pulse 2s infinite; }
-
-    /* ─── FOOTER ─── */
-    footer { padding: 36px 0; border-top: 1px solid var(--border); background: white; }
-    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-copy { font-size: 13px; color: var(--warm-gray); }
-    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
-    .footer-links a { font-size: 13px; font-weight: 500; color: var(--warm-gray); transition: color 0.2s ease; }
-    .footer-links a:hover { color: var(--near-black); }
-    .back-to-top {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 13px; font-weight: 600; color: var(--blue);
-      cursor: pointer; transition: transform 0.2s ease;
-    }
-    .back-to-top:hover { transform: translateY(-2px); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-  <header id="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <div class="logo-icon">DJ</div>
-        <div class="logo-text-group">
-          <span class="logo-text">DAVENEE JAMES</span>
-          <span class="logo-sub">Consulting</span>
-        </div>
-      </a>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#engagement">Engagement</a>
-        <a href="/" class="back">Portfolio</a>
-        <a href="#contact" class="cta">Book a Call</a>
-      </nav>
+  <!-- ═══ Global nav ═══ -->
+  <header class="gnav">
+    <div class="gnav__inner">
+      <a href="../" class="gnav__logo" aria-label="Davenee James — portfolio"><span class="gnav__mark">DJ</span><span>Davenee James</span></a>
+      <ul class="gnav__links">
+        <li><a href="../">Portfolio</a></li>
+        <li><a href="../#dashboards">Dashboards</a></li>
+        <li><a href="../#sql">SQL</a></li>
+        <li><a href="../#queryu">Query-U</a></li>
+        <li><a href="../#experience">Experience</a></li>
+        <li><a href="./" aria-current="page">Consulting</a></li>
+        <li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="gnav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
     </div>
   </header>
+  <nav class="gnav__menu" id="mobileMenu" aria-label="Mobile">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#engagement">Engagement</a></li>
+      <li><a href="#why">Why higher ed</a></li>
+      <li><a href="#contact">Book a call</a></li>
+      <li><a href="../">Portfolio</a></li>
+      <li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
+    </ul>
+  </nav>
 
-  <section class="hero" id="top">
-    <div class="hero-grid-bg"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge" id="hero-badge">Now booking Fall 2026 engagements</div>
-        <h1 id="hero-h1">
-          Data, dashboards &amp; development<br/>
-          built for <span>higher education.</span>
-        </h1>
-        <p class="hero-desc" id="hero-desc">
-          A consulting practice helping colleges and universities turn institutional data into
-          decisions. Power BI dashboards, PostgreSQL pipelines, and custom analytics tooling —
-          designed by an analyst who has lived inside the system. FERPA-safe by design,
-          IPEDS-aware from day one.
-        </p>
-        <div class="hero-actions" id="hero-actions">
-          <a href="#contact" class="btn btn-primary">Start a project</a>
-          <a href="#services" class="btn">See services</a>
-        </div>
-        <div class="hero-meta" id="hero-meta">
-          <div class="hero-meta-item">
-            <div class="label">Practice Lead</div>
-            <div class="value">Davenee James</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="label">Focus</div>
-            <div class="value">Higher Ed Institutional Analytics</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="label">Stack</div>
-            <div class="value">Power BI · PostgreSQL · DAX · Python</div>
-          </div>
-          <div class="hero-meta-item">
-            <div class="label">Based in</div>
-            <div class="value">Orlando, FL</div>
-          </div>
-        </div>
-      </div>
+
+  <!-- ═══ Sub nav ═══ -->
+  <div class="snav">
+    <div class="snav__inner">
+      <a class="snav__title" href="#top">Consulting <small>Higher education analytics</small></a>
+      <ul class="snav__links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#engagement">Engagement</a></li>
+        <li><a href="#why">Why higher ed</a></li>
+        <li class="snav__cta"><a class="btn btn--sm" href="#contact">Book a call</a></li>
+      </ul>
     </div>
-  </section>
+  </div>
 
-  <!-- ═══════════════════════════════════════════════════
-       SERVICES
-  ════════════════════════════════════════════════════ -->
-  <section class="section services-section" id="services">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">What we do</div>
-        <h2 class="section-heading">Three practices, one outcome:<br/>institutions that act on their data.</h2>
-        <p class="section-desc">
-          Most higher-ed analytics work fails at the seams — the SQL doesn't match the dashboard,
-          the dashboard doesn't match the meeting, the meeting doesn't change anything. We work
-          end-to-end so the seams disappear.
-        </p>
-      </div>
+  <main id="top">
 
-      <div class="services-grid stagger-children">
-        <div class="service-card">
-          <div class="service-icon">▦</div>
-          <span class="service-tag">Dashboards</span>
-          <h3 style="margin-top:14px;">Executive-Ready BI</h3>
-          <p>
-            Power BI dashboards that survive contact with cabinet meetings. Built from your
-            real data warehouse, not slide decks. Versioned, documented, and handed off cleanly.
-          </p>
-          <ul class="service-list">
-            <li>Enrollment, retention & FTIC cohort dashboards</li>
-            <li>IPEDS-aligned reporting surfaces</li>
-            <li>People analytics & HR dashboards</li>
-            <li>Row-level security & FERPA-safe design</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">⌗</div>
-          <span class="service-tag">SQL & Data</span>
-          <h3 style="margin-top:14px;">Data Engineering</h3>
-          <p>
-            The pipeline behind the dashboard. PostgreSQL models, semantic layers, and
-            documented query libraries your IR team can actually maintain after we leave.
-          </p>
-          <ul class="service-list">
-            <li>SIS data modeling (Banner, Jenzabar, PowerCampus)</li>
-            <li>Cohort & longitudinal query frameworks</li>
-            <li>Reusable view libraries in Git</li>
-            <li>ETL & Power Query refactoring</li>
-          </ul>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">{ }</div>
-          <span class="service-tag">Development</span>
-          <h3 style="margin-top:14px;">Custom Analytics Tools</h3>
-          <p>
-            When a dashboard isn't enough. Internal web tools, data apps, and AI-augmented
-            workflows tailored to how your institution actually operates.
-          </p>
-          <ul class="service-list">
-            <li>Internal data tools & lightweight web apps</li>
-            <li>Claude / LLM-powered analyst workflows</li>
-            <li>Embedded analytics & portal integrations</li>
-            <li>Automation of recurring compliance reports</li>
-          </ul>
+    <!-- ═══ Hero (white) ═══ -->
+    <section class="hero hero--consulting tile--canvas">
+      <div class="wrap hero__text">
+        <p class="hero__eyebrow" data-reveal><strong>Davenee James Consulting</strong> · Now accepting new engagements</p>
+        <h1 class="t-hero split">Analytics built for higher education.</h1>
+        <p class="hero__lead t-lead" data-reveal style="--d:320ms">Power BI dashboards, PostgreSQL pipelines, and custom analytics tooling — designed by an analyst who has lived inside the system. FERPA-safe by design, IPEDS-aware from day one.</p>
+        <div class="hero__cta cta-row" data-reveal style="--d:440ms">
+          <a class="btn" href="#contact">Start a project</a>
+          <a class="link" href="#services">See services</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       PROCESS
-  ════════════════════════════════════════════════════ -->
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">How we work</div>
-        <h2 class="section-heading">A four-phase engagement,<br/>shaped around your academic calendar.</h2>
-        <p class="section-desc">
-          Higher ed runs on terms, not sprints. Our process respects census dates, board cycles,
-          and reporting deadlines — and produces artifacts your team owns at the end.
-        </p>
-      </div>
-
-      <div class="process-grid stagger-children">
-        <div class="process-step">
-          <span class="step-number">01</span>
-          <h4>DISCOVER</h4>
-          <p>Stakeholder interviews, data inventory, and a clear scoping doc. We map what exists, what's broken, and what the board actually wants to see.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-number">02</span>
-          <h4>MODEL</h4>
-          <p>SQL models in Git, semantic layer documented, FERPA review baked in. Every metric defined once, used everywhere.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-number">03</span>
-          <h4>BUILD</h4>
-          <p>Dashboards, tools, or both — iterated weekly with your IR team in the loop. No black-box deliverables.</p>
-        </div>
-        <div class="process-step">
-          <span class="step-number">04</span>
-          <h4>HANDOFF</h4>
-          <p>Documentation, training, and a 30-day support runway. Your team owns it. We're a phone call away when you need us.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       ENGAGEMENT MODELS
-  ════════════════════════════════════════════════════ -->
-  <section class="section engagement-section" id="engagement">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-title">Engagement models</div>
-        <h2 class="section-heading">Three ways to work together.</h2>
-        <p class="section-desc">
-          Whether you need a single dashboard shipped or a long-term embedded analytics partner,
-          there's a model that fits. All pricing is fixed-scope or monthly retainer — no surprises.
-        </p>
-      </div>
-
-      <div class="engagement-grid stagger-children">
-        <div class="engagement-card">
-          <span class="scope">Project</span>
-          <h4>Fixed-Scope Build</h4>
-          <p>A defined deliverable with a clear start and end. Best for one specific dashboard, data model, or internal tool.</p>
-          <ul>
-            <li>2–6 week timeline</li>
-            <li>Fixed-fee pricing</li>
-            <li>Full handoff documentation</li>
-            <li>30-day support window</li>
-          </ul>
-        </div>
-
-        <div class="engagement-card featured">
-          <span class="scope">Retainer</span>
-          <h4>Embedded Analyst</h4>
-          <p>Ongoing partnership where we act as fractional analytics leadership — supporting your IR office across a term or full year.</p>
-          <ul>
-            <li>Monthly retainer</li>
-            <li>Standing weekly cadence</li>
-            <li>Multiple dashboards & ad-hoc requests</li>
-            <li>IPEDS season surge capacity</li>
-          </ul>
-        </div>
-
-        <div class="engagement-card">
-          <span class="scope">Advisory</span>
-          <h4>Strategic Review</h4>
-          <p>Audit, recommend, advise. For institutions standing up an analytics function or rethinking the one they have.</p>
-          <ul>
-            <li>Data architecture review</li>
-            <li>Tooling & vendor evaluation</li>
-            <li>Hiring & team structure guidance</li>
-            <li>Written roadmap deliverable</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════
-       WHY HIGHER ED
-  ════════════════════════════════════════════════════ -->
-  <section class="section" id="why">
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-text reveal">
-          <div class="section-title">Why higher ed only</div>
-          <h2 class="section-heading" style="margin-bottom:24px;">A consultancy that knows<br/>your data model already.</h2>
-          <p>
-            Most analytics consultancies treat higher education as a vertical to tack on.
-            We do the opposite. Every engagement we take is for a college, university, or
-            higher-ed adjacent organization — because the difference between a generic
-            BI shop and one that already knows what FTIC, FTE, and IPEDS Part E mean
-            is measured in months of wasted ramp-up.
-          </p>
-          <p>
-            That means faster discovery, fewer misunderstood requirements, and dashboards
-            that map to how institutional research actually thinks.
-          </p>
-        </div>
-        <div class="why-stats stagger-children">
-          <div class="why-stat">
-            <span class="value">3+ yrs</span>
-            <span class="label">Inside university institutional research</span>
+      <div class="hero__render" data-reveal="scale" style="--d:520ms">
+        <div class="device" aria-hidden="true">
+          <div class="device__lid">
+            <div class="device__screen">
+              <div class="dash">
+                <div class="dash__bar">
+                  <div class="dash__title">Enrollment Census <span>Fall 2026 · day 10</span></div>
+                  <div class="dash__pills"><span class="dash__pill dash__pill--on">University</span><span class="dash__pill">By college</span><span class="dash__pill">By level</span></div>
+                </div>
+                <div class="dash__kpis">
+                  <div class="kpi"><div class="kpi__l">Headcount</div><div class="kpi__v"><span data-count="9842">0</span></div><div class="kpi__d">+3.1% YoY</div></div>
+                  <div class="kpi"><div class="kpi__l">FFTE</div><div class="kpi__v"><span data-count="8115">0</span></div><div class="kpi__d">+2.6% YoY</div></div>
+                  <div class="kpi"><div class="kpi__l">New FTIC</div><div class="kpi__v"><span data-count="1637">0</span></div><div class="kpi__d">+5.4% YoY</div></div>
+                  <div class="kpi"><div class="kpi__l">Net tuition impact</div><div class="kpi__v"><span data-count="2.4" data-prefix="$" data-suffix="M">$0M</span></div><div class="kpi__d">retention-driven</div></div>
+                </div>
+                <div class="dash__charts">
+                  <div class="chart">
+                    <div class="chart__t"><b>Headcount by term</b> · fall census</div>
+                    <div class="bars">
+                      <i style="--h:58%;--i:0"></i><i style="--h:62%;--i:1"></i><i style="--h:66%;--i:2"></i><i style="--h:71%;--i:3"></i><i style="--h:76%;--i:4"></i><i style="--h:84%;--i:5"></i>
+                    </div>
+                    <div class="bars-x"><span>21FA</span><span>22FA</span><span>23FA</span><span>24FA</span><span>25FA</span><span>26FA</span></div>
+                  </div>
+                  <div class="chart">
+                    <div class="chart__t"><b>Persistence</b> · fall to spring</div>
+                    <div class="line">
+                      <svg viewBox="0 0 300 120" preserveAspectRatio="none">
+                        <path class="area" d="M0,80 L60,74 L120,78 L180,60 L240,48 L300,34 L300,120 L0,120 Z"/>
+                        <path d="M0,80 L60,74 L120,78 L180,60 L240,48 L300,34"/>
+                        <circle cx="300" cy="34" r="4"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="why-stat">
-            <span class="value">10+</span>
-            <span class="label">Enterprise dashboards shipped</span>
+          <div class="device__base"></div>
+          <div class="device__foot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Services (black) ═══ -->
+    <section class="tile tile--dark" id="services">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>What we do</p>
+          <h2 class="t-display split">Three practices. One outcome.</h2>
+          <p class="t-lead muted" data-reveal style="--d:200ms">Institutions that act on their data.</p>
+          <p class="t-body muted" data-reveal style="--d:300ms;margin-top:16px">Most higher-ed analytics work fails at the seams — the SQL doesn't match the dashboard, the dashboard doesn't match the meeting, the meeting doesn't change anything. We work end-to-end so the seams disappear.</p>
+        </div>
+        <div class="grid grid--3" data-stagger>
+          <article class="card card--surface">
+            <span class="scope">Dashboards</span>
+            <h3>Executive-ready BI</h3>
+            <p>Power BI dashboards that survive contact with cabinet meetings. Built from your real data warehouse, not slide decks. Versioned, documented, and handed off cleanly.</p>
+            <ul>
+              <li>Enrollment, retention &amp; FTIC cohort dashboards</li>
+              <li>IPEDS-aligned reporting surfaces</li>
+              <li>People analytics &amp; HR dashboards</li>
+              <li>Row-level security &amp; FERPA-safe design</li>
+            </ul>
+          </article>
+          <article class="card card--surface">
+            <span class="scope">SQL &amp; data</span>
+            <h3>Data engineering</h3>
+            <p>The pipeline behind the dashboard. PostgreSQL models, semantic layers, and documented query libraries your IR team can actually maintain after we leave.</p>
+            <ul>
+              <li>SIS data modeling (Colleague, Banner, Jenzabar, PowerCampus)</li>
+              <li>Argos-to-Power BI report migration</li>
+              <li>Cohort &amp; longitudinal query frameworks</li>
+              <li>Reusable view libraries in Git; ETL &amp; Power Query refactoring</li>
+            </ul>
+          </article>
+          <article class="card card--surface">
+            <span class="scope">Development</span>
+            <h3>Custom analytics tools</h3>
+            <p>When a dashboard isn't enough. Internal web tools, data apps, and AI-augmented workflows tailored to how your institution actually operates.</p>
+            <ul>
+              <li>Internal data tools &amp; lightweight web apps</li>
+              <li>Claude / LLM-powered analyst workflows</li>
+              <li>Embedded analytics &amp; portal integrations</li>
+              <li>Automation of recurring compliance reports</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Process (parchment) ═══ -->
+    <section class="tile tile--parchment" id="process">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>How we work</p>
+          <h2 class="t-display split">Four phases, shaped around your academic calendar.</h2>
+          <p class="t-lead" data-reveal style="--d:200ms">Higher ed runs on terms, not sprints.</p>
+          <p class="t-body muted" data-reveal style="--d:300ms;margin-top:16px">Our process respects census dates, board cycles, and reporting deadlines — and produces artifacts your team owns at the end.</p>
+        </div>
+        <div class="process" data-stagger>
+          <div><div class="process__num">01</div><h3>Discover</h3><p>Stakeholder interviews, data inventory, and a clear scoping doc. We map what exists, what's broken, and what the board actually wants to see.</p></div>
+          <div><div class="process__num">02</div><h3>Model</h3><p>SQL models in Git, semantic layer documented, FERPA review baked in. Every metric defined once, used everywhere.</p></div>
+          <div><div class="process__num">03</div><h3>Build</h3><p>Dashboards, tools, or both — iterated weekly with your IR team in the loop. No black-box deliverables.</p></div>
+          <div><div class="process__num">04</div><h3>Hand off</h3><p>Documentation, training, and a 30-day support runway. Your team owns it. We're a phone call away when you need us.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Engagement (white) ═══ -->
+    <section class="tile tile--canvas" id="engagement">
+      <div class="wrap wrap--grid">
+        <div class="tile-head">
+          <p class="eyebrow" data-reveal>Engagement models</p>
+          <h2 class="t-display split">Three ways to work together.</h2>
+          <p class="t-lead" data-reveal style="--d:200ms">Fixed-scope or monthly retainer. No surprises.</p>
+        </div>
+        <div class="grid grid--3" data-stagger>
+          <article class="card">
+            <span class="scope">Project</span>
+            <h3>Fixed-scope build</h3>
+            <p>A defined deliverable with a clear start and end. Best for one specific dashboard, data model, report migration, or internal tool.</p>
+            <ul><li>2–6 week timeline</li><li>Fixed-fee pricing</li><li>Full handoff documentation</li><li>30-day support window</li></ul>
+            <div class="card__actions"><a class="link link--sm" href="#contact">Scope a project</a></div>
+          </article>
+          <article class="card card--featured">
+            <span class="scope">Retainer</span>
+            <h3>Embedded analyst</h3>
+            <p>Ongoing partnership where we act as fractional analytics leadership — supporting your IR office across a term or a full year. This is how we work with Southwestern Adventist University today.</p>
+            <ul><li>Monthly retainer</li><li>Standing weekly cadence</li><li>Multiple dashboards &amp; ad-hoc requests</li><li>IPEDS season surge capacity</li></ul>
+            <div class="card__actions"><a class="btn btn--sm" href="#contact">Talk about a retainer</a></div>
+          </article>
+          <article class="card">
+            <span class="scope">Advisory</span>
+            <h3>Strategic review</h3>
+            <p>Audit, recommend, advise. For institutions standing up an analytics function or rethinking the one they have.</p>
+            <ul><li>Data architecture review</li><li>Tooling &amp; vendor evaluation</li><li>Hiring &amp; team structure guidance</li><li>Written roadmap deliverable</li></ul>
+            <div class="card__actions"><a class="link link--sm" href="#contact">Request a review</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Why higher ed (dark tile) ═══ -->
+    <section class="tile tile--tile1" id="why">
+      <div class="wrap wrap--grid">
+        <div class="why">
+          <div>
+            <p class="eyebrow" data-reveal>Why higher ed only</p>
+            <h2 class="t-display split">A consultancy that already knows your data model.</h2>
+            <p data-reveal style="--d:200ms">Most analytics consultancies treat higher education as a vertical to tack on. We do the opposite. Every engagement we take is for a college, university, or higher-ed adjacent organization — because the difference between a generic BI shop and one that already knows what FTIC, FFTE, and IPEDS Part E mean is measured in months of wasted ramp-up.</p>
+            <p data-reveal style="--d:300ms">The practice is led by Davenee James — Enterprise Analytics Specialist at the University of Central Florida and former IR analyst at Southwestern Adventist University, where the Argos-to-Power BI migration, the Colleague ODS reporting layer, and five annual IPEDS surveys were built from the inside.</p>
           </div>
-          <div class="why-stat">
-            <span class="value">15+</span>
-            <span class="label">Departments served</span>
-          </div>
-          <div class="why-stat">
-            <span class="value">300+</span>
-            <span class="label">Database tables modeled</span>
+          <div class="stats" data-stagger>
+            <div class="stat"><div class="stat__v"><span data-count="3" data-suffix="+">0+</span></div><div class="stat__l">Years inside university IR</div></div>
+            <div class="stat"><div class="stat__v"><span data-count="22" data-suffix="+">0+</span></div><div class="stat__l">Argos reports migrated to Power BI</div></div>
+            <div class="stat"><div class="stat__v"><span data-count="15" data-suffix="+">0+</span></div><div class="stat__l">Departments governed</div></div>
+            <div class="stat"><div class="stat__v"><span data-count="300" data-suffix="+">0+</span></div><div class="stat__l">Database tables modeled</div></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ═══════════════════════════════════════════════════
-       CTA / CONTACT
-  ════════════════════════════════════════════════════ -->
-  <section class="cta-section" id="contact">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <div>
-          <span class="cta-tag">Let's talk</span>
-          <h2 class="cta-heading">Bring clarity to your<br/><span>institutional data.</span></h2>
-          <p class="cta-body">
-            Whether you're standing up your first dashboard or rethinking an entire reporting
-            stack — start with a free 30-minute discovery call. We'll tell you honestly whether
-            we're the right fit.
-          </p>
-          <div class="cta-services">
-            <span class="cta-service">Power BI</span>
-            <span class="cta-service">PostgreSQL</span>
-            <span class="cta-service">IPEDS</span>
-            <span class="cta-service">Institutional Research</span>
-            <span class="cta-service">People Analytics</span>
-            <span class="cta-service">Custom Tooling</span>
+    <!-- ═══ CTA (black) ═══ -->
+    <section class="tile tile--dark product" id="contact">
+      <div class="wrap">
+        <div class="tile-head" style="margin-bottom:0">
+          <p class="eyebrow" data-reveal>Let's talk</p>
+          <h2 class="t-hero split">Bring clarity to your institutional data.</h2>
+          <p class="t-lead muted" data-reveal style="--d:200ms">Start with a free 30-minute discovery call. We'll tell you honestly whether we're the right fit.</p>
+          <div class="cta-row" data-reveal style="--d:320ms">
+            <a class="btn btn--lg" href="mailto:daveneejames@gmail.com?subject=Consulting%20Inquiry%20%E2%80%94%20Higher%20Ed%20Analytics">Email us</a>
+            <a class="link" href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">Connect on LinkedIn</a>
           </div>
-        </div>
-        <div class="cta-actions">
-          <h4>Start a conversation</h4>
-          <p>Tell us about your institution and what you're trying to solve. We respond within one business day.</p>
-          <a href="mailto:daveneejames@gmail.com?subject=Consulting%20Inquiry%20%E2%80%94%20Higher%20Ed%20Analytics" class="btn btn-white">Email us</a>
-          <a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
-          <div class="cta-availability">
-            <span class="cta-dot"></span>Accepting new engagements for Fall 2026
+          <p class="t-caption muted" data-reveal style="--d:400ms;margin-top:20px">Tell us about your institution and what you're trying to solve. We respond within one business day.</p>
+          <div class="services" data-stagger>
+            <span class="tag">Power BI</span><span class="tag">PostgreSQL</span><span class="tag">Microsoft Fabric</span><span class="tag">Argos migration</span><span class="tag">IPEDS</span><span class="tag">Institutional research</span><span class="tag">People analytics</span><span class="tag">Custom tooling</span>
           </div>
+          <div class="availability" data-reveal><i></i>Accepting new engagements</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <span class="footer-copy">© <span id="year"></span> Davenee James Consulting. All rights reserved.</span>
-      <div class="footer-links">
-        <a href="/">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#engagement">Engagement</a>
-        <a href="#contact">Contact</a>
-        <a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- ═══ Footer (parchment) ═══ -->
+  <footer class="footer">
+    <div class="wrap wrap--grid">
+      <div class="footer__cols">
+        <div><h4>Consulting</h4><ul><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#engagement">Engagement models</a></li><li><a href="#why">Why higher ed</a></li><li><a href="#contact">Book a discovery call</a></li></ul></div>
+        <div><h4>Portfolio</h4><ul><li><a href="../#dashboards">Dashboards</a></li><li><a href="../#sql">SQL</a></li><li><a href="../#queryu">Query-U</a></li><li><a href="../#experience">Experience</a></li><li><a href="../#skills">Skills</a></li></ul></div>
+        <div><h4>Connect</h4><ul><li><a href="mailto:daveneejames@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li></ul></div>
       </div>
-      <a href="#top" class="back-to-top">Back to top ↑</a>
+      <div class="footer__legal">
+        <span>© <span data-year>2026</span> Davenee James Consulting. Orlando, FL.</span>
+        <span><a href="#top">Back to top ↑</a></span>
+      </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const header = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) header.classList.add('scrolled');
-      else header.classList.remove('scrolled');
-    });
-
-    window.addEventListener('load', () => {
-      ['hero-badge','hero-h1','hero-desc','hero-actions','hero-meta'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add('visible');
-      });
-    });
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
-    document.querySelectorAll('.reveal, .stagger-children, .section-header').forEach(el => {
-      revealObserver.observe(el);
-    });
-  </script>
+  <script src="../assets/site.js" defer></script>
 </body>
 </html>
