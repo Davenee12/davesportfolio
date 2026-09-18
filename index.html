@@ -3,207 +3,299 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Davenee James | Enterprise Analytics for Higher Education</title>
-  <meta name="description" content="Davenee James — Enterprise Analytics Specialist at the University of Central Florida and higher-ed analytics consultant. Power BI, PostgreSQL, IPEDS, and executive dashboards." />
-  <meta property="og:title" content="Davenee James | Enterprise Analytics for Higher Education" />
-  <meta property="og:description" content="Power BI dashboards, PostgreSQL pipelines, and IPEDS reporting for colleges and universities." />
+  <title>Davenee James — Enterprise Analytics for Higher Education</title>
+  <meta name="description" content="Davenee James is an Enterprise Analytics Specialist at the University of Central Florida and a higher-ed analytics consultant. Power BI, PostgreSQL, IPEDS, and executive dashboards." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf9f6" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0e0c" />
+  <link rel="canonical" href="https://davenee12.github.io/davesportfolio/" />
+
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#000000" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <meta property="og:url" content="https://davenee12.github.io/davesportfolio/" />
+  <meta property="og:title" content="Davenee James — Enterprise Analytics for Higher Education" />
+  <meta property="og:description" content="Power BI dashboards, PostgreSQL pipelines, and IPEDS reporting for colleges and universities." />
+  <meta property="og:image" content="https://davenee12.github.io/davesportfolio/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Davenee James — Enterprise Analytics for Higher Education" />
+  <meta name="twitter:description" content="Power BI dashboards, PostgreSQL pipelines, and IPEDS reporting for colleges and universities." />
+  <meta name="twitter:image" content="https://davenee12.github.io/davesportfolio/assets/og.png" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/site.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}document.documentElement.classList.add('js');})();</script>
 </head>
 <body>
 
-  <!-- ═══ Global nav ═══ -->
-  <header class="gnav">
-    <div class="gnav__inner">
-      <a href="#top" class="gnav__logo" aria-label="Davenee James — home"><span class="gnav__mark">DJ</span><span>Davenee James</span></a>
-      <ul class="gnav__links">
-        <li><a href="#top" aria-current="page">Portfolio</a></li>
-        <li><a href="#dashboards">Dashboards</a></li>
-        <li><a href="#sql">SQL</a></li>
-        <li><a href="#queryu">Query-U</a></li>
+  <!-- ═══ Icon sprite (inline SVG, one stroke style) ═══ -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><path d="M6 3v12"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7"/><path d="M12 2 20 7H4z"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8M16 13H8M16 17H8"/></symbol>
+  </svg>
+
+  <!-- ═══ Navigation ═══ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#top" class="brand" aria-label="Davenee James, home"><span class="brand__mark">DJ</span><span>Davenee James</span></a>
+      <ul class="nav__links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
         <li><a href="consulting/">Consulting</a></li>
-        <li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="gnav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+      <div class="nav__actions">
+        <button class="theme-btn" type="button" aria-label="Switch to dark mode" title="Dark mode">
+          <svg class="icon theme-btn__moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon theme-btn__sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="btn btn--sm nav__cta" href="#contact">Get in touch</a>
+        <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
     </div>
   </header>
-  <nav class="gnav__menu" id="mobileMenu" aria-label="Mobile">
+  <nav class="menu" id="menu" aria-label="Mobile">
     <ul>
-      <li><a href="#dashboards">Dashboards</a></li>
-      <li><a href="#sql">SQL</a></li>
-      <li><a href="#pipeline">Pipeline</a></li>
-      <li><a href="#queryu">Query-U</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="consulting/">Consulting</a></li>
       <li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
-
-
-  <!-- ═══ Sub nav ═══ -->
-  <div class="snav">
-    <div class="snav__inner">
-      <a class="snav__title" href="#top">Portfolio <small>Davenee James</small></a>
-      <ul class="snav__links">
-        <li><a href="#dashboards">Dashboards</a></li>
-        <li><a href="#sql">SQL</a></li>
-        <li><a href="#pipeline">Pipeline</a></li>
-        <li><a href="#workflow">Workflow</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li class="snav__cta"><a class="btn btn--sm" href="#hire">Work with me</a></li>
-      </ul>
+    <div class="menu__foot">
+      <a class="btn" href="#contact">Get in touch</a>
+      <p class="label">Orlando, FL · Open for consulting</p>
     </div>
-  </div>
+  </nav>
 
   <main id="top">
 
-    <!-- ═══ Hero (white) ═══ -->
-    <section class="hero tile--canvas">
-      <div class="wrap hero__text">
-        <img class="hero__avatar" src="https://i.imgur.com/1veEFe5.jpeg" alt="Davenee James" data-reveal="scale" width="76" height="76">
-        <p class="hero__eyebrow" data-reveal style="--d:80ms"><strong>Davenee James</strong> · Enterprise Analytics Specialist II, University of Central Florida</p>
-        <h1 class="t-hero split">Institutional data, made decisive.</h1>
-        <p class="hero__lead t-lead" data-reveal style="--d:320ms">Power BI, PostgreSQL, and federal reporting for higher education — built inside the institution, designed for the boardroom.</p>
-        <div class="hero__cta cta-row" data-reveal style="--d:440ms">
-          <a class="btn" href="#dashboards">See the dashboards</a>
-          <a class="link" href="#hire">Open for consulting</a>
-        </div>
-      </div>
-
-      <div class="hero__render" data-reveal="scale" style="--d:520ms">
-        <div class="device" aria-hidden="true">
-          <div class="device__lid">
-            <div class="device__screen">
-              <div class="dash">
-                <div class="dash__bar">
-                  <div class="dash__title">FTIC Retention &amp; Graduation <span>Fall 2026 census</span></div>
-                  <div class="dash__pills"><span class="dash__pill dash__pill--on">All cohorts</span><span class="dash__pill">Gender</span><span class="dash__pill">Race / Ethnicity</span></div>
-                </div>
-                <div class="dash__kpis">
-                  <div class="kpi"><div class="kpi__l">Fall-to-fall retention</div><div class="kpi__v"><span data-count="78.4" data-suffix="%">0%</span></div><div class="kpi__d">+2.1 pts YoY</div></div>
-                  <div class="kpi"><div class="kpi__l">FTIC headcount</div><div class="kpi__v"><span data-count="3214">0</span></div><div class="kpi__d">+4.8% YoY</div></div>
-                  <div class="kpi"><div class="kpi__l">6-year graduation</div><div class="kpi__v"><span data-count="61.2" data-suffix="%">0%</span></div><div class="kpi__d">+1.4 pts YoY</div></div>
-                  <div class="kpi"><div class="kpi__l">Credit hours (FFTE)</div><div class="kpi__v"><span data-count="46810">0</span></div><div class="kpi__d">+3.2% YoY</div></div>
-                </div>
-                <div class="dash__charts">
-                  <div class="chart">
-                    <div class="chart__t"><b>Retention by cohort</b> · 1-year vs 2-year</div>
-                    <div class="bars">
-                      <i style="--h:62%;--i:0"></i><i style="--h:55%;--i:1"></i>
-                      <i style="--h:70%;--i:2"></i><i style="--h:60%;--i:3"></i>
-                      <i style="--h:74%;--i:4"></i><i style="--h:64%;--i:5"></i>
-                      <i style="--h:80%;--i:6"></i><i style="--h:69%;--i:7"></i>
-                      <i style="--h:86%;--i:8"></i><i style="--h:72%;--i:9"></i>
-                    </div>
-                    <div class="bars-x"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span></div>
-                  </div>
-                  <div class="chart">
-                    <div class="chart__t"><b>Enrollment trend</b> · headcount</div>
-                    <div class="line">
-                      <svg viewBox="0 0 300 120" preserveAspectRatio="none">
-                        <path class="area" d="M0,92 L50,84 L100,88 L150,66 L200,58 L250,40 L300,28 L300,120 L0,120 Z"/>
-                        <path d="M0,92 L50,84 L100,88 L150,66 L200,58 L250,40 L300,28"/>
-                        <circle cx="300" cy="28" r="4"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- ═══ Hero ═══ -->
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero__grid">
+          <div>
+            <div class="hero__kicker reveal">
+              <img class="hero__avatar" src="https://i.imgur.com/1veEFe5.jpeg" alt="" width="44" height="44">
+              <p class="label"><b>Davenee James</b>Enterprise Analytics Specialist II · University of Central Florida</p>
+            </div>
+            <h1 class="h-hero reveal" style="--d:60ms">Institutional data, made <em>decisive.</em></h1>
+            <p class="hero__lead lead reveal" style="--d:120ms">Power BI, PostgreSQL, and federal reporting for higher education. Built inside the institution, designed for the boardroom.</p>
+            <div class="hero__cta cta-row reveal" style="--d:180ms">
+              <a class="btn" href="#work">See the work</a>
+              <a class="link" href="#contact">Open for consulting <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
-          <div class="device__base"></div>
-          <div class="device__foot"></div>
+          <div class="frame reveal" style="--d:240ms">
+            <div class="frame__screen">
+              <img src="https://i.imgur.com/H0ZCDsO.jpeg" alt="FTIC Retention and Graduation dashboard in Power BI: cohort retention rates, headcount, and graduation trends" width="1280" height="720" fetchpriority="high">
+            </div>
+            <div class="frame__cap">
+              <p class="label"><b>Live</b>FTIC Retention &amp; Graduation · Power BI</p>
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiNWYwZjQ5MGMtNjQ3Mi00YWViLTk2ZWUtNDM4YTZlNWQ5ZDRmIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=2a1bb021fcb7fbe62e5e" target="_blank" rel="noopener">Open report <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <dl class="stats reveal" style="--d:300ms">
+          <div class="stat"><dt class="stat__v">22<small>+</small></dt><dd class="stat__l">Argos reports migrated to Power BI</dd></div>
+          <div class="stat"><dt class="stat__v">300<small>+</small></dt><dd class="stat__l">Colleague ODS tables modeled</dd></div>
+          <div class="stat"><dt class="stat__v">15<small>+</small></dt><dd class="stat__l">Departments under BI governance</dd></div>
+          <div class="stat"><dt class="stat__v">5</dt><dd class="stat__l">IPEDS surveys authored end to end</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ═══ 01 · Work ═══ -->
+    <section class="section section--ruled" id="work">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label reveal"><b>01</b>Work</p>
+          <div>
+            <h2 class="h-display reveal">Five live dashboards. One side project.</h2>
+            <p class="lead reveal" style="--d:60ms">Production Power BI reports built from PostgreSQL views on the Colleague ODS, plus a SQL learning platform I built on the side. Preview a screenshot or open the live report.</p>
+          </div>
+        </div>
+
+        <div class="work-grid">
+          <article class="card card--link reveal" data-title="Admissions" data-meta="Live Power BI · Admissions funnel" data-img="https://i.imgur.com/oPSbGSf.jpeg" data-link="https://app.powerbi.com/view?r=eyJrIjoiZWM4NjE3YzUtYjFkMC00YWRhLWI5YjgtZGQ4NWE4YWVmMTE0IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=550a06fec2304cf2c866">
+            <div class="card__media"><img loading="lazy" src="https://i.imgur.com/oPSbGSf.jpeg" alt="Admissions dashboard preview" width="640" height="400"></div>
+            <p class="card__meta"><span class="dot" aria-hidden="true"></span>Live · Admissions</p>
+            <h3>Admissions funnel</h3>
+            <p>Inquiry to enrolled: application volume, conversion rates, and yield by term, program, and demographic segment.</p>
+            <div class="card__actions">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiZWM4NjE3YzUtYjFkMC00YWRhLWI5YjgtZGQ4NWE4YWVmMTE0IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=550a06fec2304cf2c866" target="_blank" rel="noopener">Open report <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <button class="link link--quiet" type="button" data-preview>Preview</button>
+            </div>
+          </article>
+
+          <article class="card card--link reveal" style="--d:60ms" data-title="Student Enrollment" data-meta="Live Power BI · Enrollment trends" data-img="https://i.imgur.com/At6JQGz.jpeg" data-link="https://app.powerbi.com/view?r=eyJrIjoiZjUwOTIxODUtN2JiZC00MjY4LTkxODYtZDk0NDg3YTE0YWRhIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=d52863f95ceafde2f21b">
+            <div class="card__media"><img loading="lazy" src="https://i.imgur.com/At6JQGz.jpeg" alt="Student Enrollment dashboard preview" width="640" height="400"></div>
+            <p class="card__meta"><span class="dot" aria-hidden="true"></span>Live · Enrollment</p>
+            <h3>Student enrollment</h3>
+            <p>Census snapshot and historical trends: headcount, credit hours, and term-over-term comparisons across academic levels.</p>
+            <div class="card__actions">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiZjUwOTIxODUtN2JiZC00MjY4LTkxODYtZDk0NDg3YTE0YWRhIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=d52863f95ceafde2f21b" target="_blank" rel="noopener">Open report <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <button class="link link--quiet" type="button" data-preview>Preview</button>
+            </div>
+          </article>
+
+          <article class="card card--link reveal" style="--d:120ms" data-title="FTIC Retention &amp; Graduation" data-meta="Live Power BI · Retention · IPEDS" data-img="https://i.imgur.com/H0ZCDsO.jpeg" data-link="https://app.powerbi.com/view?r=eyJrIjoiNWYwZjQ5MGMtNjQ3Mi00YWViLTk2ZWUtNDM4YTZlNWQ5ZDRmIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=2a1bb021fcb7fbe62e5e">
+            <div class="card__media"><img loading="lazy" src="https://i.imgur.com/H0ZCDsO.jpeg" alt="FTIC Retention and Graduation dashboard preview" width="640" height="400"></div>
+            <p class="card__meta"><span class="dot" aria-hidden="true"></span>Live · Retention · IPEDS</p>
+            <h3>FTIC retention &amp; graduation</h3>
+            <p>End-to-end cohort tracking from PostgreSQL views: 1- to 4-year retention and 4- to 6-year graduation with IPEDS demographic breakdowns.</p>
+            <div class="card__actions">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiNWYwZjQ5MGMtNjQ3Mi00YWViLTk2ZWUtNDM4YTZlNWQ5ZDRmIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=2a1bb021fcb7fbe62e5e" target="_blank" rel="noopener">Open report <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <button class="link link--quiet" type="button" data-preview>Preview</button>
+            </div>
+          </article>
+
+          <article class="card card--link reveal" style="--d:180ms" data-title="Transfer Retention &amp; Graduation" data-meta="Live Power BI · Transfer cohorts" data-img="https://i.imgur.com/nOPP8U1.jpeg" data-link="https://app.powerbi.com/view?r=eyJrIjoiMDhlODQ3N2QtMDg0OS00NTIyLWE0N2QtNzRhNmJiYWUyM2Y2IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=c7c1bdca804e92fb095a">
+            <div class="card__media"><img loading="lazy" src="https://i.imgur.com/nOPP8U1.jpeg" alt="Transfer Retention and Graduation dashboard preview" width="640" height="400"></div>
+            <p class="card__meta"><span class="dot" aria-hidden="true"></span>Live · Transfer</p>
+            <h3>Transfer retention &amp; graduation</h3>
+            <p>Retention patterns and graduation outcomes for transfer cohorts, powered by custom SQL on the same cohort framework.</p>
+            <div class="card__actions">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiMDhlODQ3N2QtMDg0OS00NTIyLWE0N2QtNzRhNmJiYWUyM2Y2IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=c7c1bdca804e92fb095a" target="_blank" rel="noopener">Open report <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <button class="link link--quiet" type="button" data-preview>Preview</button>
+            </div>
+          </article>
+
+          <article class="card card--link reveal" style="--d:240ms" data-title="Staff Demographics" data-meta="Live Power BI · People analytics" data-img="https://i.imgur.com/ZEs6riH.jpeg" data-link="https://app.powerbi.com/view?r=eyJrIjoiZTFkZTZlYzgtNTZkZS00MWEzLThjZTAtOTZhN2ZjNTQ5NjdkIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=dd73a8fef780406b2ebf">
+            <div class="card__media"><img loading="lazy" src="https://i.imgur.com/ZEs6riH.jpeg" alt="Staff Demographics dashboard preview" width="640" height="400"></div>
+            <p class="card__meta"><span class="dot" aria-hidden="true"></span>Live · People</p>
+            <h3>Staff demographics</h3>
+            <p>Workforce composition, representation, and trends across departments, roles, and demographic dimensions.</p>
+            <div class="card__actions">
+              <a class="link" href="https://app.powerbi.com/view?r=eyJrIjoiZTFkZTZlYzgtNTZkZS00MWEzLThjZTAtOTZhN2ZjNTQ5NjdkIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&amp;pageName=dd73a8fef780406b2ebf" target="_blank" rel="noopener">Open report <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <button class="link link--quiet" type="button" data-preview>Preview</button>
+            </div>
+          </article>
+
+          <article class="card card--link reveal" style="--d:300ms">
+            <div class="snippet" aria-hidden="true">
+<pre><span class="cm">-- Challenge 14 · Top majors by enrollment</span>
+<span class="kw">SELECT</span> major, <span class="fn">COUNT</span>(*) <span class="kw">AS</span> students
+<span class="kw">FROM</span> enrollments
+<span class="kw">GROUP BY</span> major
+<span class="kw">ORDER BY</span> students <span class="kw">DESC</span>
+<span class="kw">LIMIT</span> <span class="num">5</span>;</pre>
+              <div class="snippet__result"><span class="ok">✓ Passed</span><span class="dim">5 rows · 12 ms · +50 XP</span></div>
+            </div>
+            <p class="card__meta">Side project · query-u.com</p>
+            <h3>Query-U</h3>
+            <p>A SQL learning platform graded by results, not syntax. You write PostgreSQL against a realistic university dataset and any query that returns the right rows passes. 65 challenges, 30 free.</p>
+            <div class="card__actions">
+              <a class="link" href="https://query-u.com" target="_blank" rel="noopener">Try a free challenge <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Numbers (black) ═══ -->
-    <section class="tile tile--dark">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <h2 class="t-display split">Built inside the institution.</h2>
-          <p class="t-lead muted" data-reveal style="--d:200ms">Three years in institutional research, now at enterprise scale.</p>
-        </div>
-        <div class="stats" data-stagger>
-          <div class="stat"><div class="stat__v"><span data-count="22" data-suffix="+">0+</span></div><div class="stat__l">Argos reports migrated to Power BI</div></div>
-          <div class="stat"><div class="stat__v"><span data-count="300" data-suffix="+">0+</span></div><div class="stat__l">Colleague ODS tables modeled</div></div>
-          <div class="stat"><div class="stat__v"><span data-count="15" data-suffix="+">0+</span></div><div class="stat__l">Departments under BI governance</div></div>
-          <div class="stat"><div class="stat__v"><span data-count="5">0</span></div><div class="stat__l">IPEDS surveys authored end to end</div></div>
-        </div>
-        <div class="ticker" aria-hidden="true">
-          <div class="ticker__track">
-            <span>Power BI</span><span>PostgreSQL</span><span>DAX</span><span>Power Query</span><span>Microsoft Fabric</span><span>Ellucian Colleague</span><span>Argos</span><span>IPEDS</span><span>SACSCOC</span><span>Workday</span><span>Huron</span><span>Git &amp; GitHub</span><span>Claude</span><span>TMDL</span><span>Star schema</span>
-            <span>Power BI</span><span>PostgreSQL</span><span>DAX</span><span>Power Query</span><span>Microsoft Fabric</span><span>Ellucian Colleague</span><span>Argos</span><span>IPEDS</span><span>SACSCOC</span><span>Workday</span><span>Huron</span><span>Git &amp; GitHub</span><span>Claude</span><span>TMDL</span><span>Star schema</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Dashboards (parchment) ═══ -->
-    <section class="tile tile--parchment" id="dashboards">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Portfolio</p>
-          <h2 class="t-display split">Dashboards.</h2>
-          <p class="t-lead" data-reveal style="--d:200ms">Live Power BI reports, from raw SIS data to executive insight.</p>
-        </div>
-        <div class="controls" data-reveal style="--d:120ms">
-          <label class="search"><span class="sr-only">Search dashboards</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
-            <input type="search" id="dashSearch" placeholder="Search dashboards" autocomplete="off">
-          </label>
-          <div class="chips" id="dashChips">
-            <button class="chip" data-filter="all" aria-pressed="true">All</button>
-            <button class="chip" data-filter="Retention" aria-pressed="false">Retention</button>
-            <button class="chip" data-filter="Enrollment" aria-pressed="false">Enrollment</button>
-            <button class="chip" data-filter="Admissions" aria-pressed="false">Admissions</button>
-            <button class="chip" data-filter="HR" aria-pressed="false">People</button>
-          </div>
-        </div>
-        <div class="dash-grid" id="dashGrid"></div>
-      </div>
-    </section>
-
-    <!-- ═══ SQL (dark tile) ═══ -->
-    <section class="tile tile--tile1" id="sql">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Technical deep dive</p>
-          <h2 class="t-display split">Production SQL.</h2>
-          <p class="t-lead muted" data-reveal style="--d:200ms">The views behind the dashboards — CTE by CTE.</p>
-          <div class="cta-row chips" data-tabs="#sqlPanels" data-reveal style="--d:300ms">
-            <button class="chip" data-tab="retention" aria-pressed="true">Cohort retention</button>
-            <button class="chip" data-tab="employees" aria-pressed="false">Employee roster</button>
+    <!-- ═══ 02 · How I work ═══ -->
+    <section class="section section--tint" id="process">
+      <div class="wrap">
+        <div class="section__head section__head--tight">
+          <p class="label reveal"><b>02</b>How I work</p>
+          <div>
+            <h2 class="h-display reveal">From source system to boardroom.</h2>
+            <p class="lead reveal" style="--d:60ms">Every dashboard starts in a database and ends in an executive meeting. I own the whole path: the SQL, the model, the report, and the version history behind them.</p>
           </div>
         </div>
 
-        <div id="sqlPanels">
-          <!-- Retention -->
-          <div class="panel active" id="panel-retention">
-            <div class="showcase">
-              <div class="showcase__copy" data-reveal="left">
-                <h3 class="t-title">FTIC cohort retention</h3>
-                <p>Tracking First-Time-in-College retention is critical for accreditation and strategic planning. This view follows federal cohort groups across subsequent fall terms and produces 1-, 3-, and 4-year retention flags that feed the executive dashboard directly.</p>
-                <p>Cohort definition first, returns second, derived flags last. Active-credit verification and enrollment status checks are applied at each fall checkpoint so the numbers survive an audit.</p>
-                <div class="mini-stats" data-stagger>
-                  <div class="mini-stat"><div class="mini-stat__v" data-count="4">0</div><div class="mini-stat__l">Cohort years</div></div>
-                  <div class="mini-stat"><div class="mini-stat__v" data-count="8">0</div><div class="mini-stat__l">Cohort groups</div></div>
-                  <div class="mini-stat"><div class="mini-stat__v" data-count="3">0</div><div class="mini-stat__l">Retention points</div></div>
-                </div>
-                <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">CTEs</span><span class="tag">CASE logic</span><span class="tag">Power BI</span><span class="tag">IPEDS</span></div>
+        <div class="tabs reveal" role="tablist" aria-label="How I work" data-tabs>
+          <button class="tab" role="tab" type="button" id="tab-pipeline" aria-controls="panel-pipeline" aria-selected="true">Pipeline<small>5 stages</small></button>
+          <button class="tab" role="tab" type="button" id="tab-retention" aria-controls="panel-retention" aria-selected="false">Cohort retention<small>Production SQL</small></button>
+          <button class="tab" role="tab" type="button" id="tab-roster" aria-controls="panel-roster" aria-selected="false">Employee roster<small>Production SQL</small></button>
+          <button class="tab" role="tab" type="button" id="tab-versioning" aria-controls="panel-versioning" aria-selected="false">Versioning &amp; AI<small>Workflow</small></button>
+        </div>
+
+        <!-- Pipeline -->
+        <div class="panel is-active" id="panel-pipeline" role="tabpanel" aria-labelledby="tab-pipeline">
+          <ol class="steps">
+            <li class="step reveal">
+              <span class="step__n">01</span>
+              <div>
+                <h3>Source system</h3>
+                <p>Student, HR, and finance data lives in the ERP: Ellucian Colleague exposed through PostgreSQL views, or Workday and Huron feeding Microsoft Fabric. The first job is knowing where the truth actually lives.</p>
+                <div class="chips"><span class="chip">Colleague ODS</span><span class="chip">Workday</span><span class="chip">Huron</span></div>
               </div>
-              <div class="code" data-type data-reveal="right">
-                <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>vw_cohort_retention_analysis.sql</span><span class="code__lang">PostgreSQL</span></div>
-<pre><span class="cm">-- FTIC Cohort Retention Analysis View</span>
+            </li>
+            <li class="step reveal">
+              <span class="step__n">02</span>
+              <div>
+                <h3>SQL engineering</h3>
+                <p>Business rules become governed views: cohort logic, census snapshots, status filters, title standardization, race and ethnicity classification. One CTE, one job, readable by the next analyst.</p>
+                <div class="chips"><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Views</span></div>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step__n">03</span>
+              <div>
+                <h3>Power Query</h3>
+                <p>Power Query connects to the warehouse, applies final shaping, and structures the load so the semantic model stays a clean star schema instead of a pile of flat tables.</p>
+                <div class="chips"><span class="chip">M language</span><span class="chip">Import &amp; DirectQuery</span></div>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step__n">04</span>
+              <div>
+                <h3>Semantic model &amp; DAX</h3>
+                <p>DAX measures calculate retention rates, headcount, FFTE, demographic shares, and year-over-year deltas that hold up across every slicer. Definitions live once, in the model, under version control.</p>
+                <div class="chips"><span class="chip">Star schema</span><span class="chip">Time intelligence</span><span class="chip">TMDL</span></div>
+              </div>
+            </li>
+            <li class="step reveal">
+              <span class="step__n">05</span>
+              <div>
+                <h3>Executive dashboard</h3>
+                <p>Executive-facing reports with drill-through, cross-filtering, and scheduled refresh, so leadership opens a page that is already current and already answers the follow-up question.</p>
+                <div class="chips"><span class="chip">Power BI</span><span class="chip">Drill-through</span><span class="chip">Scheduled refresh</span></div>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Cohort retention SQL -->
+        <div class="panel" id="panel-retention" role="tabpanel" aria-labelledby="tab-retention">
+          <div class="split">
+            <div class="split__copy prose">
+              <h3 class="h-title">FTIC cohort retention</h3>
+              <p>Tracking First-Time-in-College retention is critical for accreditation and strategic planning. This view follows federal cohort groups across subsequent fall terms and produces 1-, 3-, and 4-year retention flags that feed the executive dashboard directly.</p>
+              <p>Cohort definition first, returns second, derived flags last. Active-credit verification and enrollment status checks are applied at each fall checkpoint so the numbers survive an audit.</p>
+              <dl class="facts">
+                <div><dt>4</dt><dd>Cohort years</dd></div>
+                <div><dt>8</dt><dd>Cohort groups</dd></div>
+                <div><dt>3</dt><dd>Retention points</dd></div>
+              </dl>
+              <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">CTEs</span><span class="chip">IPEDS</span></div>
+            </div>
+            <div class="code code--collapsible">
+              <div class="code__head"><span class="code__title">vw_cohort_retention_analysis.sql</span><span class="code__lang">PostgreSQL</span></div>
+<pre><code><span class="cm">-- FTIC Cohort Retention Analysis View</span>
 <span class="cm">-- Tracks student retention across 4 years by federal cohort</span>
 
 <span class="kw">WITH</span> cohort_base <span class="kw">AS</span> (
@@ -274,28 +366,28 @@ returns_by_term <span class="kw">AS</span> (
   <span class="kw">ON</span> r24.sttr_student = c.studentid <span class="kw">AND</span> r24.sttr_term = <span class="str">'2024FA'</span>
 <span class="kw">LEFT JOIN</span> returns_by_term r25
   <span class="kw">ON</span> r25.sttr_student = c.studentid <span class="kw">AND</span> r25.sttr_term = <span class="str">'2025FA'</span>
-<span class="kw">ORDER BY</span> c.cohortterm, c.lastname, c.firstname;</pre>
-              </div>
+<span class="kw">ORDER BY</span> c.cohortterm, c.lastname, c.firstname;</code></pre>
             </div>
           </div>
+        </div>
 
-          <!-- Employees -->
-          <div class="panel" id="panel-employees">
-            <div class="showcase">
-              <div class="showcase__copy" data-reveal="left">
-                <h3 class="t-title">Current employee roster</h3>
-                <p>A unified HR view pulling demographics, compensation, and organizational data from multiple source tables. It powers the Staff Demographics dashboard and supports workforce planning.</p>
-                <p>Multi-level CTEs retrieve salary with fallback logic, extensive CASE statements standardize more than 80 position-title variations, and window functions handle deduplication.</p>
-                <div class="mini-stats" data-stagger>
-                  <div class="mini-stat"><div class="mini-stat__v" data-count="80" data-suffix="+">0+</div><div class="mini-stat__l">Title mappings</div></div>
-                  <div class="mini-stat"><div class="mini-stat__v" data-count="6">0</div><div class="mini-stat__l">CTEs</div></div>
-                  <div class="mini-stat"><div class="mini-stat__v" data-count="21">0</div><div class="mini-stat__l">Output columns</div></div>
-                </div>
-                <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">Window functions</span><span class="tag">Regex</span><span class="tag">COALESCE</span><span class="tag">HR analytics</span></div>
-              </div>
-              <div class="code" data-type data-reveal="right">
-                <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>vw_current_employees.sql</span><span class="code__lang">PostgreSQL</span></div>
-<pre><span class="cm">-- Current Employees Roster View</span>
+        <!-- Employee roster SQL -->
+        <div class="panel" id="panel-roster" role="tabpanel" aria-labelledby="tab-roster">
+          <div class="split">
+            <div class="split__copy prose">
+              <h3 class="h-title">Current employee roster</h3>
+              <p>A unified HR view pulling demographics, compensation, and organizational data from multiple source tables. It powers the Staff Demographics dashboard and supports workforce planning.</p>
+              <p>Multi-level CTEs retrieve salary with fallback logic, CASE statements standardize more than 80 position-title variations, and window functions handle deduplication.</p>
+              <dl class="facts">
+                <div><dt>80+</dt><dd>Title mappings</dd></div>
+                <div><dt>6</dt><dd>CTEs</dd></div>
+                <div><dt>21</dt><dd>Output columns</dd></div>
+              </dl>
+              <div class="chips"><span class="chip">Window functions</span><span class="chip">Regex</span><span class="chip">HR analytics</span></div>
+            </div>
+            <div class="code code--collapsible">
+              <div class="code__head"><span class="code__title">vw_current_employees.sql</span><span class="code__lang">PostgreSQL</span></div>
+<pre><code><span class="cm">-- Current Employees Roster View</span>
 <span class="cm">-- Comprehensive HR data with salary, demographics, and org structure</span>
 
 <span class="kw">WITH</span> base <span class="kw">AS</span> (
@@ -379,324 +471,212 @@ ranked_data <span class="kw">AS</span> (
 
 <span class="kw">SELECT</span> * <span class="kw">FROM</span> ranked_data
 <span class="kw">WHERE</span> rn = <span class="num">1</span>
-<span class="kw">ORDER BY</span> last_name, first_name;</pre>
-              </div>
+<span class="kw">ORDER BY</span> last_name, first_name;</code></pre>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ═══ Pipeline story (white) ═══ -->
-    <section class="tile tile--canvas" id="pipeline">
-      <div class="wrap wrap--grid">
-        <div class="story">
-          <div class="story__stage">
-            <p class="eyebrow" data-reveal>How I work</p>
-            <h2 class="t-display split">From source system to boardroom.</h2>
-            <p data-reveal style="--d:200ms">Every dashboard starts in a database and ends in an executive meeting. I own the whole journey — scroll to follow one report through the pipeline.</p>
-            <div class="stage" data-reveal="scale" style="--d:300ms" aria-hidden="true">
-              <div class="stage__panel on">
-                <div class="stage__art"><div class="art-table"><i></i><i></i><i></i><i></i><i></i></div></div>
-                <div class="stage__num">01</div><div class="stage__label">Colleague · Workday · Huron</div>
-              </div>
-              <div class="stage__panel">
-                <div class="stage__art"><div class="art-code"><i style="--w:70%"></i><i style="--w:92%"></i><i style="--w:58%"></i><i style="--w:84%"></i><i style="--w:46%"></i></div></div>
-                <div class="stage__num">02</div><div class="stage__label">Governed PostgreSQL views</div>
-              </div>
-              <div class="stage__panel">
-                <div class="stage__art"><div class="art-flow"><b>ODS</b><s></s><b class="on">M</b><s></s><b>Model</b></div></div>
-                <div class="stage__num">03</div><div class="stage__label">Power Query shaping</div>
-              </div>
-              <div class="stage__panel">
-                <div class="stage__art"><div class="art-star"><svg viewBox="0 0 220 160"><line x1="27" y1="17" x2="110" y2="80"/><line x1="193" y1="17" x2="110" y2="80"/><line x1="27" y1="143" x2="110" y2="80"/><line x1="193" y1="143" x2="110" y2="80"/></svg><b>Term</b><b>Student</b><b>Program</b><b>Cohort</b><b class="c">Fact</b></div></div>
-                <div class="stage__num">04</div><div class="stage__label">Star schema &amp; DAX</div>
-              </div>
-              <div class="stage__panel">
-                <div class="stage__art"><div class="art-bars"><i style="--h:45%;--i:0"></i><i style="--h:62%;--i:1"></i><i style="--h:58%;--i:2"></i><i style="--h:78%;--i:3"></i><i style="--h:70%;--i:4"></i><i style="--h:92%;--i:5"></i></div></div>
-                <div class="stage__num">05</div><div class="stage__label">Executive dashboard</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="steps">
-            <div class="step on">
-              <div class="step__num">STEP 01</div>
-              <h3>Source system</h3>
-              <div class="tags"><span class="tag">Colleague ODS</span><span class="tag">Workday</span><span class="tag">Huron</span><span class="tag">PostgreSQL</span></div>
-              <p>Student, HR, and finance data lives in the ERP — Ellucian Colleague exposed through PostgreSQL views, or Workday and Huron feeding Microsoft Fabric. The first job is knowing where the truth actually lives.</p>
-            </div>
-            <div class="step">
-              <div class="step__num">STEP 02</div>
-              <h3>SQL engineering</h3>
-              <div class="tags"><span class="tag">CTEs</span><span class="tag">Views</span><span class="tag">CASE</span><span class="tag">Window functions</span></div>
-              <p>Business rules become governed views: cohort logic, census snapshots, status filters, title standardization, race/ethnicity classification. One CTE, one job — readable by the next analyst.</p>
-            </div>
-            <div class="step">
-              <div class="step__num">STEP 03</div>
-              <h3>Power Query</h3>
-              <div class="tags"><span class="tag">M language</span><span class="tag">Import &amp; DirectQuery</span></div>
-              <p>Power Query connects to the warehouse, applies final shaping, and structures the load so the semantic model stays a clean star schema instead of a pile of flat tables.</p>
-            </div>
-            <div class="step">
-              <div class="step__num">STEP 04</div>
-              <h3>Semantic model &amp; DAX</h3>
-              <div class="tags"><span class="tag">Star schema</span><span class="tag">Measures</span><span class="tag">Time intelligence</span><span class="tag">TMDL</span></div>
-              <p>DAX measures calculate retention rates, headcount, FFTE, demographic shares, and year-over-year deltas that hold up across every slicer. Definitions live once, in the model, under version control.</p>
-            </div>
-            <div class="step">
-              <div class="step__num">STEP 05</div>
-              <h3>Executive dashboard</h3>
-              <div class="tags"><span class="tag">Power BI</span><span class="tag">Drill-through</span><span class="tag">Scheduled refresh</span></div>
-              <p>Executive-facing reports with drill-through, cross-filtering, and scheduled refresh — so leadership opens a page that is already current and already answers the follow-up question.</p>
-              <div class="use-cases" style="margin-top:18px"><span class="tag">FTIC cohort retention</span><span class="tag">Transfer outcomes</span><span class="tag">Staff demographics &amp; salary</span><span class="tag">Enrollment census</span><span class="tag">IPEDS submissions</span><span class="tag">Admissions funnel</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Query-U (black product tile) ═══ -->
-    <section class="tile tile--dark product" id="queryu">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Side project · query-u.com</p>
-          <h2 class="t-display split">Query-U.</h2>
-          <p class="t-lead muted" data-reveal style="--d:200ms">A SQL learning platform graded by results, not syntax.</p>
-          <div class="cta-row" data-reveal style="--d:320ms">
-            <a class="btn" href="https://query-u.com" target="_blank" rel="noopener">Try a free challenge</a>
-            <a class="link" href="https://query-u.com" target="_blank" rel="noopener">Visit query-u.com</a>
-          </div>
-        </div>
-        <div class="product__render" data-reveal="scale">
-          <div class="code" aria-hidden="true">
-            <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>Challenge 14 · Top majors by enrollment</span><span class="code__lang">PostgreSQL</span></div>
-<pre><span class="cm">-- Return the 5 majors with the most students</span>
-<span class="kw">SELECT</span> major, <span class="fn">COUNT</span>(*) <span class="kw">AS</span> students
-<span class="kw">FROM</span> enrollments
-<span class="kw">GROUP BY</span> major
-<span class="kw">ORDER BY</span> students <span class="kw">DESC</span>
-<span class="kw">LIMIT</span> <span class="num">5</span>;</pre>
-            <div class="code__result"><span class="ok">✓ Passed</span><span class="dim">5 rows · 12 ms · +50 XP</span></div>
-          </div>
-        </div>
-        <p class="t-body muted" data-reveal style="max-width:640px;margin:32px auto 0">You write PostgreSQL against a realistic university dataset — students, courses, enrollments, grades, financial aid — and queries are graded by the rows they return. Any valid SQL that produces the right result passes, and your style stays your own. The first 30 challenges are free; Pro unlocks all 65, plus streaks, badges, AI hints, and speed bonuses.</p>
-        <div class="product__stats" data-stagger>
-          <div class="stat"><div class="stat__v"><span data-count="65">0</span></div><div class="stat__l">Challenges</div></div>
-          <div class="stat"><div class="stat__v"><span data-count="30">0</span></div><div class="stat__l">Free to start</div></div>
-          <div class="stat"><div class="stat__v"><span data-count="5">0</span></div><div class="stat__l">Realistic tables</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Experience (parchment) ═══ -->
-    <section class="tile tile--parchment" id="experience">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Experience</p>
-          <h2 class="t-display split">Two institutions. One data model.</h2>
-          <p class="t-lead" data-reveal style="--d:200ms">Enterprise analytics at UCF by day. Consulting for the university that trained me.</p>
-        </div>
-        <div class="xp">
-          <article class="card" data-reveal="left">
-            <span class="xp__badge">Current · since July 2026</span>
-            <h3 class="xp__role">Enterprise Analytics Specialist II</h3>
-            <div class="xp__org">University of Central Florida</div>
-            <div class="xp__meta">Analytics &amp; Integrated Planning, Office of the Provost · Orlando, FL</div>
-            <ul>
-              <li>Transitioning legacy paginated reporting from AURORA and PARIS into modern Power BI dashboards — leading wireframing and design sessions with functional stakeholders.</li>
-              <li>Turning source-of-truth systems (Huron, Workday) into governed star-schema semantic models in Microsoft Fabric, version-controlled in Git and reviewed by pull request.</li>
-              <li>Delivering recurring and ad-hoc analyses for university leadership, and training end users on the reporting they own.</li>
-            </ul>
-          </article>
-          <div class="xp__side">
-            <article class="card" data-reveal="right">
-              <span class="xp__badge">Consulting client · 2024–present</span>
-              <h3 class="xp__role">Analytics Consultant, formerly Data Analyst &amp; BI Developer</h3>
-              <div class="xp__org">Southwestern Adventist University</div>
-              <div class="xp__meta">Office of Institutional Research &amp; Effectiveness · Keene, TX</div>
-              <ul>
-                <li>Led migration of 22+ production Registrar reports from Ellucian Argos to governed Power BI semantic models.</li>
-                <li>Built the PostgreSQL reporting layer on the Colleague ODS: admissions funnel, census/FFTE, retention and graduation cohorts, financial aid, faculty workload.</li>
-                <li>Authored IPEDS submissions (Fall Enrollment, Graduation Rates, ACTS, Human Resources, 12-Month Enrollment) and resolved a critical submission that averted a federal penalty.</li>
-                <li>Continuing as an outside consultant on IR analytics after joining UCF.</li>
+        <!-- Versioning & AI -->
+        <div class="panel" id="panel-versioning" role="tabpanel" aria-labelledby="tab-versioning">
+          <div class="split">
+            <div class="split__copy prose">
+              <h3 class="h-title">Institutional memory, version-controlled.</h3>
+              <p>Every SQL query, IPEDS submission, and dashboard definition lives in a private GitHub repo, paired with Claude as a FERPA-safe analyst. Claude sees the <strong>schema</strong>, never the rows. Each query is reviewed, committed, and reusable next year, for the next analyst, at the next audit.</p>
+              <ul class="feature-list">
+                <li><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><div><h4>FERPA-safe AI pairing</h4><p>Claude reviews table and column names, never student rows. Only the schema leaves the warehouse.</p></div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-branch"/></svg><div><h4>Version-controlled SQL</h4><p>Branches for experiments, pull requests for review, history for audits. Nothing is a one-off in a notebook.</p></div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg><div><h4>Decisions written down</h4><p>Metric definitions and edge cases captured in markdown next to the code, so the next analyst onboards in days.</p></div></li>
+                <li><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg><div><h4>Reproducible reporting</h4><p>IPEDS submissions and dashboards trace back to a commit. Re-run last year's numbers exactly and defend every figure.</p></div></li>
               </ul>
-            </article>
-            <article class="card" data-reveal="right" style="--d:120ms">
-              <h3 class="xp__role">Education &amp; certification</h3>
-              <ul>
-                <li>Bachelor of Arts — Southwestern Adventist University, 2024</li>
-                <li>Microsoft Certified: Power BI Data Analyst Associate (PL-300) — in progress</li>
-              </ul>
-              <div class="card__actions"><a class="link link--sm" href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Full résumé (PDF)</a></div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══ Workflow (dark tile) ═══ -->
-    <section class="tile tile--tile1" id="workflow">
-      <div class="wrap wrap--grid">
-        <div class="workflow">
-          <div class="workflow__copy">
-            <p class="eyebrow" data-reveal>How I work in 2026</p>
-            <h2 class="t-display split">Institutional memory, version-controlled.</h2>
-            <p data-reveal style="--d:200ms">Every SQL query, IPEDS submission, and dashboard definition lives in a private GitHub repo — paired with Claude as a FERPA-safe analyst. Claude sees the <strong>schema</strong>, never the rows. Each query is reviewed, committed, and reusable next year, next analyst, next audit.</p>
-          </div>
-          <div class="code" data-type data-reveal="right">
-            <div class="code__head"><span class="code__title"><span class="code__dots"><i></i><i></i><i></i></span>ir-warehouse · git log</span><span class="code__lang">main</span></div>
-<pre><span class="sha">a3f1c20</span> <span class="branch">(main)</span> Add FTIC fall-to-fall retention CTE
+            </div>
+            <div class="code">
+              <div class="code__head"><span class="code__title">ir-warehouse · git log</span><span class="code__lang">main</span></div>
+<pre><code><span class="sha">a3f1c20</span> <span class="branch">(main)</span> Add FTIC fall-to-fall retention CTE
 <span class="sha">8b2e4d9</span> Refactor IPEDS race/ethnicity rollup view
 <span class="sha">1c9a07f</span> Document headcount vs. FTE definitions
 <span class="dim">───────────────────────────────────────────</span>
 <span class="add">+ schema/students.sql</span>      <span class="dim">(columns only)</span>
 <span class="add">+ queries/retention.sql</span>    <span class="dim">claude-paired</span>
-<span class="add">+ docs/decisions.md</span>        <span class="dim">why, not what</span></pre>
-          </div>
-        </div>
-        <div class="grid grid--4" data-stagger>
-          <div class="card"><div class="card__icon">🔒</div><h4>FERPA-safe AI pairing</h4><p>Claude reviews table and column names — never student rows. Sensitive data stays inside the warehouse; only the schema travels to the model.</p></div>
-          <div class="card"><div class="card__icon">🌿</div><h4>Version-controlled SQL</h4><p>Every query lives in Git. Branches for experiments, PRs for review, history for audits. Nothing is a one-off in a notebook again.</p></div>
-          <div class="card"><div class="card__icon">🧠</div><h4>Institutional memory</h4><p>Metric definitions, edge cases, and “why we did it this way” captured in markdown next to the code. The next analyst onboards in days.</p></div>
-          <div class="card"><div class="card__icon">🔁</div><h4>Reproducible reporting</h4><p>IPEDS submissions and executive dashboards trace back to a commit SHA. Re-run last year's numbers exactly. Defend every figure.</p></div>
-        </div>
-        <div class="pull" data-reveal><span style="font-size:20px">💡</span><span><strong>The result:</strong> faster turnarounds, fewer “where did this number come from?” emails, and a knowledge base that compounds instead of evaporating.</span></div>
-      </div>
-    </section>
-
-    <!-- ═══ Skills (white) ═══ -->
-    <section class="tile tile--canvas" id="skills">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Capabilities</p>
-          <h2 class="t-display split">Skills &amp; tools.</h2>
-          <p class="t-lead" data-reveal style="--d:200ms">Full-stack analytics — from the ERP to the executive summary.</p>
-        </div>
-        <div class="skills">
-          <div data-reveal="left">
-            <div class="skill-cat">
-              <div class="skill-cat__l">Business intelligence</div>
-              <div class="skill"><div class="skill__meta"><span>Power BI Desktop &amp; Service</span><span>Expert</span></div><div class="skill__track"><div class="skill__fill" data-width="95"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>DAX (measures &amp; calculated columns)</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="88"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Power Query / M</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="82"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Star-schema data modeling</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="86"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Microsoft Fabric (Warehouse, semantic models, TMDL)</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="76"></div></div></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat__l">Data engineering &amp; query</div>
-              <div class="skill"><div class="skill__meta"><span>PostgreSQL / SQL Server</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="90"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>CTEs, window functions, regex</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="87"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Ellucian Colleague ODS</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="84"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Ellucian Argos (parameter-driven DataBlocks)</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="82"></div></div></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat__l">Reporting &amp; compliance</div>
-              <div class="skill"><div class="skill__meta"><span>IPEDS federal reporting</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="86"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>SACSCOC accreditation reporting</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="76"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Excel (Power Pivot, XLOOKUP, pivots)</span><span>Expert</span></div><div class="skill__track"><div class="skill__fill" data-width="93"></div></div></div>
-            </div>
-            <div class="skill-cat">
-              <div class="skill-cat__l">Tools &amp; platforms</div>
-              <div class="skill"><div class="skill__meta"><span>Git &amp; GitHub (PRs, code review, protected branches)</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="88"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Claude / AI-paired analytics</span><span>Advanced</span></div><div class="skill__track"><div class="skill__fill" data-width="90"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Power Automate, SharePoint, Smartsheet</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="78"></div></div></div>
-              <div class="skill"><div class="skill__meta"><span>Tableau</span><span>Proficient</span></div><div class="skill__track"><div class="skill__fill" data-width="72"></div></div></div>
-            </div>
-          </div>
-          <div>
-            <div class="skill-cat__l" data-reveal>Domain specialties</div>
-            <div class="specialties" data-stagger>
-              <div class="card card--flat"><div class="card__icon">🎓</div><h4>Institutional research</h4><p>Enrollment census, cohort analysis, accreditation data, IPEDS compliance.</p></div>
-              <div class="card card--flat"><div class="card__icon">📊</div><h4>Student success</h4><p>Retention and persistence, graduation rates, FTIC and transfer cohort benchmarking.</p></div>
-              <div class="card card--flat"><div class="card__icon">👥</div><h4>People analytics</h4><p>Workforce demographics, compensation modeling, retention and attrition.</p></div>
-              <div class="card card--flat"><div class="card__icon">🔗</div><h4>Data integration</h4><p>SIS-to-BI pipelines, multi-system joins, scheduled refresh architecture.</p></div>
-              <div class="card card--flat"><div class="card__icon">📐</div><h4>Dashboard UX</h4><p>Executive-ready layouts, drill-through design, cross-filter logic, custom JSON themes.</p></div>
-              <div class="card card--flat"><div class="card__icon">📋</div><h4>Federal compliance</h4><p>IPEDS, Title IV eligibility, race/ethnicity classification standards.</p></div>
-              <div class="card card--flat"><div class="card__icon">🏛️</div><h4>Data governance</h4><p>Naming standards, metric definitions, workspace governance, lineage and data quality.</p></div>
-              <div class="card card--flat"><div class="card__icon">🤖</div><h4>AI-augmented analytics</h4><p>Claude-paired SQL development with schema-only context and Git-versioned queries.</p></div>
+<span class="add">+ docs/decisions.md</span>        <span class="dim">why, not what</span></code></pre>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Consulting CTA (black) ═══ -->
-    <section class="tile tile--dark product" id="hire">
+    <!-- ═══ 03 · Experience ═══ -->
+    <section class="section" id="experience">
       <div class="wrap">
-        <div class="tile-head" style="margin-bottom:0">
-          <p class="eyebrow" data-reveal>Consulting</p>
-          <h2 class="t-hero split">Open for consulting.</h2>
-          <p class="t-lead muted" data-reveal style="--d:200ms">Currently partnering with Southwestern Adventist University on institutional research analytics — and taking on new higher-ed engagements.</p>
-          <div class="cta-row" data-reveal style="--d:320ms">
-            <a class="btn btn--lg" href="mailto:daveneejames@gmail.com?subject=Consulting%20Inquiry%20%E2%80%94%20Higher%20Ed%20Analytics">Start a conversation</a>
-            <a class="link" href="consulting/">See services &amp; engagement models</a>
+        <div class="section__head">
+          <p class="label reveal"><b>03</b>Experience</p>
+          <div>
+            <h2 class="h-display reveal">Two institutions. One data model.</h2>
+            <p class="lead reveal" style="--d:60ms">Enterprise analytics at UCF by day. Consulting for the university that trained me.</p>
           </div>
-          <div class="services" data-stagger>
-            <span class="tag">Power BI</span><span class="tag">PostgreSQL</span><span class="tag">Microsoft Fabric</span><span class="tag">Argos → Power BI migration</span><span class="tag">IPEDS</span><span class="tag">Institutional research</span><span class="tag">People analytics</span><span class="tag">Custom tooling</span>
-          </div>
-          <div class="availability" data-reveal><i></i>Accepting new engagements</div>
+        </div>
+
+        <div class="ledger">
+          <article class="entry reveal">
+            <div class="entry__when"><b>Current</b>Jul 2026 – present<br>Orlando, FL</div>
+            <div>
+              <h3 class="entry__role">Enterprise Analytics Specialist II</h3>
+              <div class="entry__org">University of Central Florida</div>
+              <div class="entry__meta">Analytics &amp; Integrated Planning, Office of the Provost</div>
+              <ul>
+                <li>Transitioning legacy paginated reporting from AURORA and PARIS into modern Power BI dashboards, leading wireframing and design sessions with functional stakeholders.</li>
+                <li>Turning source-of-truth systems (Huron, Workday) into governed star-schema semantic models in Microsoft Fabric, version-controlled in Git and reviewed by pull request.</li>
+                <li>Delivering recurring and ad-hoc analyses for university leadership, and training end users on the reporting they own.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="entry reveal">
+            <div class="entry__when"><b>Consulting client</b>2024 – present<br>Keene, TX</div>
+            <div>
+              <h3 class="entry__role">Analytics Consultant, formerly Data Analyst &amp; BI Developer</h3>
+              <div class="entry__org">Southwestern Adventist University</div>
+              <div class="entry__meta">Office of Institutional Research &amp; Effectiveness</div>
+              <ul>
+                <li>Led migration of 22+ production Registrar reports from Ellucian Argos to governed Power BI semantic models.</li>
+                <li>Built the PostgreSQL reporting layer on the Colleague ODS: admissions funnel, census and FFTE, retention and graduation cohorts, financial aid, faculty workload.</li>
+                <li>Authored IPEDS submissions (Fall Enrollment, Graduation Rates, ACTS, Human Resources, 12-Month Enrollment) and resolved a critical submission that averted a federal penalty.</li>
+                <li>Continuing as an outside consultant on IR analytics after joining UCF.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="entry reveal">
+            <div class="entry__when"><b>Education</b>2024</div>
+            <div>
+              <h3 class="entry__role">Bachelor of Arts</h3>
+              <div class="entry__org">Southwestern Adventist University</div>
+              <ul>
+                <li>Microsoft Certified: Power BI Data Analyst Associate (PL-300), in progress.</li>
+              </ul>
+              <div class="cta-row">
+                <a class="link" href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Full résumé (PDF) <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Contact (white) ═══ -->
-    <section class="tile tile--canvas" id="contact">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Get in touch</p>
-          <h2 class="t-display split">Say hello.</h2>
+    <!-- ═══ 04 · Skills ═══ -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label reveal"><b>04</b>Skills</p>
+          <div>
+            <h2 class="h-display reveal">Full-stack analytics, from the ERP to the executive summary.</h2>
+            <p class="lead reveal" style="--d:60ms">Grouped by how I use them, not by a percentage. Everything in the first two columns has shipped to production.</p>
+          </div>
         </div>
-        <div class="grid grid--3" data-stagger>
-          <div class="card card--flat"><div class="card__icon">✉️</div><h4>Email</h4><p>Best for project inquiries, dashboard requests, and collaboration.</p><div class="card__actions"><a class="link link--sm" href="mailto:daveneejames@gmail.com">daveneejames@gmail.com</a></div></div>
-          <div class="card card--flat"><div class="card__icon">💼</div><h4>LinkedIn</h4><p>Connect for updates, portfolio posts, and analytics content.</p><div class="card__actions"><a class="link link--sm" href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">View profile</a></div></div>
-          <div class="card card--flat"><div class="card__icon">📄</div><h4>Résumé</h4><p>Full experience, skills, and project background.</p><div class="card__actions"><a class="link link--sm" href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Download PDF</a></div></div>
+
+        <div class="skills">
+          <div class="reveal">
+            <h3><span>A</span>Daily drivers</h3>
+            <ul>
+              <li>Power BI Desktop &amp; Service</li>
+              <li>PostgreSQL &amp; SQL Server</li>
+              <li>DAX measures &amp; calculated columns</li>
+              <li>Excel: Power Pivot, XLOOKUP, pivots</li>
+              <li>Git &amp; GitHub: PRs, review, protected branches</li>
+              <li>Claude-paired SQL development</li>
+            </ul>
+          </div>
+          <div class="reveal" style="--d:60ms">
+            <h3><span>B</span>Production experience</h3>
+            <ul>
+              <li>Power Query / M</li>
+              <li>Star-schema data modeling</li>
+              <li>CTEs, window functions, regex</li>
+              <li>Microsoft Fabric: Warehouse, semantic models, TMDL</li>
+              <li>Ellucian Colleague ODS</li>
+              <li>Ellucian Argos DataBlocks</li>
+              <li>IPEDS federal reporting</li>
+            </ul>
+          </div>
+          <div class="reveal" style="--d:120ms">
+            <h3><span>C</span>Working knowledge</h3>
+            <ul>
+              <li>SACSCOC accreditation reporting</li>
+              <li>Power Automate, SharePoint, Smartsheet</li>
+              <li>Tableau</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="domains">
+          <div class="domain reveal"><svg class="icon" aria-hidden="true"><use href="#i-landmark"/></svg><h4>Institutional research</h4><p>Enrollment census, cohort analysis, accreditation data, IPEDS compliance.</p></div>
+          <div class="domain reveal" style="--d:40ms"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg><h4>Student success</h4><p>Retention and persistence, graduation rates, FTIC and transfer cohort benchmarking.</p></div>
+          <div class="domain reveal" style="--d:80ms"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg><h4>People analytics</h4><p>Workforce demographics, compensation modeling, retention and attrition.</p></div>
+          <div class="domain reveal" style="--d:120ms"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg><h4>Data integration</h4><p>SIS-to-BI pipelines, multi-system joins, scheduled refresh architecture.</p></div>
+          <div class="domain reveal"><svg class="icon" aria-hidden="true"><use href="#i-layout"/></svg><h4>Dashboard UX</h4><p>Executive-ready layouts, drill-through design, cross-filter logic, custom JSON themes.</p></div>
+          <div class="domain reveal" style="--d:40ms"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg><h4>Federal compliance</h4><p>IPEDS, Title IV eligibility, race and ethnicity classification standards.</p></div>
+          <div class="domain reveal" style="--d:80ms"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><h4>Data governance</h4><p>Naming standards, metric definitions, workspace governance, lineage and data quality.</p></div>
+          <div class="domain reveal" style="--d:120ms"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg><h4>AI-augmented analytics</h4><p>Claude-paired SQL development with schema-only context and Git-versioned queries.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 05 · Contact ═══ -->
+    <section class="section band" id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div>
+            <p class="label reveal"><b>05</b>Contact</p>
+            <h2 class="h-display reveal">Let's talk about your institution's data.</h2>
+            <p class="lead contact__lead reveal" style="--d:60ms">Project inquiries, dashboard requests, collaboration, or a role. I reply within one business day.</p>
+            <div class="cta-row reveal" style="--d:120ms">
+              <a class="btn" href="mailto:daveneejames@gmail.com?subject=Hello%20from%20your%20portfolio"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"/></svg>Email me</a>
+              <a class="link" href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              <a class="link" href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé (PDF) <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="aside reveal" style="--d:180ms">
+            <h3>Consulting for higher ed</h3>
+            <p>Currently partnering with Southwestern Adventist University on institutional research analytics, and taking on new engagements: Power BI, PostgreSQL, Microsoft Fabric, Argos-to-Power BI migration, and IPEDS.</p>
+            <span class="status"><i aria-hidden="true"></i>Accepting new engagements</span>
+            <br>
+            <a class="link" href="consulting/">Services &amp; engagement models <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ═══ Footer (parchment) ═══ -->
+  <!-- ═══ Footer ═══ -->
   <footer class="footer">
-    <div class="wrap wrap--grid">
-      <div class="footer__cols">
-        <div><h4>Portfolio</h4><ul><li><a href="#dashboards">Dashboards</a></li><li><a href="#sql">SQL</a></li><li><a href="#pipeline">Pipeline</a></li><li><a href="#queryu">Query-U</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li></ul></div>
-        <div><h4>Consulting</h4><ul><li><a href="consulting/#services">Services</a></li><li><a href="consulting/#process">Process</a></li><li><a href="consulting/#engagement">Engagement models</a></li><li><a href="consulting/#contact">Book a discovery call</a></li></ul></div>
-        <div><h4>Connect</h4><ul><li><a href="mailto:daveneejames@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://query-u.com" target="_blank" rel="noopener">query-u.com</a></li><li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li></ul></div>
-      </div>
-      <div class="footer__legal">
-        <span>© <span data-year>2026</span> Davenee James. Orlando, FL.</span>
-        <span>Built with PostgreSQL, Power BI, and a lot of CTEs. <a href="#top">Back to top ↑</a></span>
-      </div>
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Davenee James · Orlando, FL</span>
+      <ul>
+        <li><a href="consulting/">Consulting</a></li>
+        <li><a href="https://query-u.com" target="_blank" rel="noopener">Query-U</a></li>
+        <li><a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
     </div>
   </footer>
 
-  <!-- ═══ Modal ═══ -->
+  <!-- ═══ Dashboard preview modal ═══ -->
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
     <div class="modal__panel">
       <div class="modal__head">
         <div><div class="modal__title" id="modalTitle">Dashboard</div><div class="modal__meta" id="modalMeta">Preview</div></div>
-        <button class="icon-btn" id="modalClose" aria-label="Close preview"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
+        <button class="icon-btn" id="modalClose" type="button" aria-label="Close preview"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
       </div>
       <div class="modal__body">
         <div class="modal__img"><img id="modalImg" alt="" /></div>
         <div class="modal__actions">
           <a class="btn" id="modalOpen" href="#" target="_blank" rel="noopener">Open in Power BI</a>
-          <button class="link" id="modalCopy" type="button">Copy link</button>
+          <button class="link link--quiet" id="modalCopy" type="button">Copy link</button>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    window.DASHBOARDS = [
-      { title: "Admissions", desc: "Admissions funnel from inquiry to enrolled — application volume, conversion rates, and yield by term, program, and demographic segment.", img: "https://i.imgur.com/oPSbGSf.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiZWM4NjE3YzUtYjFkMC00YWRhLWI5YjgtZGQ4NWE4YWVmMTE0IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=550a06fec2304cf2c866", tags: ["Admissions", "Funnel"] },
-      { title: "Student Enrollment", desc: "Enrollment snapshot and historical trends — headcount, credit hours, and term-over-term comparisons across academic levels.", img: "https://i.imgur.com/At6JQGz.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiZjUwOTIxODUtN2JiZC00MjY4LTkxODYtZDk0NDg3YTE0YWRhIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=d52863f95ceafde2f21b", tags: ["Enrollment", "Trends"] },
-      { title: "FTIC Retention & Graduation", desc: "End-to-end cohort tracking built from PostgreSQL views. 1–4 year retention and 4–6 year graduation rates for FTIC students with demographic breakdowns for IPEDS.", img: "https://i.imgur.com/H0ZCDsO.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiNWYwZjQ5MGMtNjQ3Mi00YWViLTk2ZWUtNDM4YTZlNWQ5ZDRmIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=2a1bb021fcb7fbe62e5e", tags: ["Retention", "IPEDS"] },
-      { title: "Transfer Retention & Graduation", desc: "Transfer student analytics powered by custom SQL. Monitors retention patterns and graduation outcomes for transfer cohorts.", img: "https://i.imgur.com/nOPP8U1.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiMDhlODQ3N2QtMDg0OS00NTIyLWE0N2QtNzRhNmJiYWUyM2Y2IiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=c7c1bdca804e92fb095a", tags: ["Retention", "Transfer", "Graduation"] },
-      { title: "Staff Demographics", desc: "Workforce composition, representation, and trends across departments, roles, and demographic dimensions.", img: "https://i.imgur.com/ZEs6riH.jpeg", link: "https://app.powerbi.com/view?r=eyJrIjoiZTFkZTZlYzgtNTZkZS00MWEzLThjZTAtOTZhN2ZjNTQ5NjdkIiwidCI6IjRlOTE3NDQ4LWQ3ZmEtNDQ3ZC1hYjE5LTAzNzBiNGIyZGE5ZiIsImMiOjN9&pageName=dd73a8fef780406b2ebf", tags: ["HR", "Demographics"] }
-    ];
-  </script>
   <script src="assets/site.js" defer></script>
 </body>
 </html>

@@ -3,133 +3,126 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Davenee James Consulting | Higher Education Analytics, Dashboards &amp; Development</title>
-  <meta name="description" content="Analytics consulting for colleges and universities — Power BI dashboards, PostgreSQL data engineering, Argos-to-Power BI migration, and custom analytics tooling. Led by Davenee James." />
-  <meta property="og:title" content="Davenee James Consulting | Higher Education Analytics" />
-  <meta property="og:description" content="Power BI, PostgreSQL, and IPEDS-aware analytics consulting for higher education." />
+  <title>Davenee James Consulting — Higher Education Analytics</title>
+  <meta name="description" content="Analytics consulting for colleges and universities: Power BI dashboards, PostgreSQL data engineering, Argos-to-Power BI migration, and custom analytics tooling. Led by Davenee James." />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf9f6" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f0e0c" />
+  <link rel="canonical" href="https://davenee12.github.io/davesportfolio/consulting/" />
+
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#000000" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/site.css">
-  <script>document.documentElement.classList.add('js');</script>
+  <meta property="og:url" content="https://davenee12.github.io/davesportfolio/consulting/" />
+  <meta property="og:title" content="Davenee James Consulting — Higher Education Analytics" />
+  <meta property="og:description" content="Power BI, PostgreSQL, and IPEDS-aware analytics consulting for higher education." />
+  <meta property="og:image" content="https://davenee12.github.io/davesportfolio/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Davenee James Consulting — Higher Education Analytics" />
+  <meta name="twitter:description" content="Power BI, PostgreSQL, and IPEDS-aware analytics consulting for higher education." />
+  <meta name="twitter:image" content="https://davenee12.github.io/davesportfolio/assets/og.png" />
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="preload" href="../assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}}catch(e){}document.documentElement.classList.add('js');})();</script>
 </head>
 <body>
 
-  <!-- ═══ Global nav ═══ -->
-  <header class="gnav">
-    <div class="gnav__inner">
-      <a href="../" class="gnav__logo" aria-label="Davenee James — portfolio"><span class="gnav__mark">DJ</span><span>Davenee James</span></a>
-      <ul class="gnav__links">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  </svg>
+
+  <!-- ═══ Navigation ═══ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="../" class="brand" aria-label="Davenee James, portfolio home"><span class="brand__mark">DJ</span><span>Davenee James <small>Consulting</small></span></a>
+      <ul class="nav__links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#engagement">Engagement</a></li>
+        <li><a href="#why">Why higher ed</a></li>
         <li><a href="../">Portfolio</a></li>
-        <li><a href="../#dashboards">Dashboards</a></li>
-        <li><a href="../#sql">SQL</a></li>
-        <li><a href="../#queryu">Query-U</a></li>
-        <li><a href="../#experience">Experience</a></li>
-        <li><a href="./" aria-current="page">Consulting</a></li>
-        <li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="gnav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+      <div class="nav__actions">
+        <button class="theme-btn" type="button" aria-label="Switch to dark mode" title="Dark mode">
+          <svg class="icon theme-btn__moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon theme-btn__sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <a class="btn btn--sm nav__cta" href="#contact">Book a call</a>
+        <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
     </div>
   </header>
-  <nav class="gnav__menu" id="mobileMenu" aria-label="Mobile">
+  <nav class="menu" id="menu" aria-label="Mobile">
     <ul>
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#engagement">Engagement</a></li>
       <li><a href="#why">Why higher ed</a></li>
-      <li><a href="#contact">Book a call</a></li>
       <li><a href="../">Portfolio</a></li>
       <li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
     </ul>
-  </nav>
-
-
-  <!-- ═══ Sub nav ═══ -->
-  <div class="snav">
-    <div class="snav__inner">
-      <a class="snav__title" href="#top">Consulting <small>Higher education analytics</small></a>
-      <ul class="snav__links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
-        <li><a href="#engagement">Engagement</a></li>
-        <li><a href="#why">Why higher ed</a></li>
-        <li class="snav__cta"><a class="btn btn--sm" href="#contact">Book a call</a></li>
-      </ul>
+    <div class="menu__foot">
+      <a class="btn" href="#contact">Book a discovery call</a>
+      <p class="label">Higher education only · Accepting new engagements</p>
     </div>
-  </div>
+  </nav>
 
   <main id="top">
 
-    <!-- ═══ Hero (white) ═══ -->
-    <section class="hero hero--consulting tile--canvas">
-      <div class="wrap hero__text">
-        <p class="hero__eyebrow" data-reveal><strong>Davenee James Consulting</strong> · Now accepting new engagements</p>
-        <h1 class="t-hero split">Analytics built for higher education.</h1>
-        <p class="hero__lead t-lead" data-reveal style="--d:320ms">Power BI dashboards, PostgreSQL pipelines, and custom analytics tooling — designed by an analyst who has lived inside the system. FERPA-safe by design, IPEDS-aware from day one.</p>
-        <div class="hero__cta cta-row" data-reveal style="--d:440ms">
-          <a class="btn" href="#contact">Start a project</a>
-          <a class="link" href="#services">See services</a>
-        </div>
-      </div>
-
-      <div class="hero__render" data-reveal="scale" style="--d:520ms">
-        <div class="device" aria-hidden="true">
-          <div class="device__lid">
-            <div class="device__screen">
-              <div class="dash">
-                <div class="dash__bar">
-                  <div class="dash__title">Enrollment Census <span>Fall 2026 · day 10</span></div>
-                  <div class="dash__pills"><span class="dash__pill dash__pill--on">University</span><span class="dash__pill">By college</span><span class="dash__pill">By level</span></div>
-                </div>
-                <div class="dash__kpis">
-                  <div class="kpi"><div class="kpi__l">Headcount</div><div class="kpi__v"><span data-count="9842">0</span></div><div class="kpi__d">+3.1% YoY</div></div>
-                  <div class="kpi"><div class="kpi__l">FFTE</div><div class="kpi__v"><span data-count="8115">0</span></div><div class="kpi__d">+2.6% YoY</div></div>
-                  <div class="kpi"><div class="kpi__l">New FTIC</div><div class="kpi__v"><span data-count="1637">0</span></div><div class="kpi__d">+5.4% YoY</div></div>
-                  <div class="kpi"><div class="kpi__l">Net tuition impact</div><div class="kpi__v"><span data-count="2.4" data-prefix="$" data-suffix="M">$0M</span></div><div class="kpi__d">retention-driven</div></div>
-                </div>
-                <div class="dash__charts">
-                  <div class="chart">
-                    <div class="chart__t"><b>Headcount by term</b> · fall census</div>
-                    <div class="bars">
-                      <i style="--h:58%;--i:0"></i><i style="--h:62%;--i:1"></i><i style="--h:66%;--i:2"></i><i style="--h:71%;--i:3"></i><i style="--h:76%;--i:4"></i><i style="--h:84%;--i:5"></i>
-                    </div>
-                    <div class="bars-x"><span>21FA</span><span>22FA</span><span>23FA</span><span>24FA</span><span>25FA</span><span>26FA</span></div>
-                  </div>
-                  <div class="chart">
-                    <div class="chart__t"><b>Persistence</b> · fall to spring</div>
-                    <div class="line">
-                      <svg viewBox="0 0 300 120" preserveAspectRatio="none">
-                        <path class="area" d="M0,80 L60,74 L120,78 L180,60 L240,48 L300,34 L300,120 L0,120 Z"/>
-                        <path d="M0,80 L60,74 L120,78 L180,60 L240,48 L300,34"/>
-                        <circle cx="300" cy="34" r="4"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- ═══ Hero ═══ -->
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero__grid">
+          <div>
+            <div class="hero__kicker reveal">
+              <p class="label"><b>Davenee James Consulting</b>Now accepting new engagements</p>
+            </div>
+            <h1 class="h-hero reveal" style="--d:60ms">Analytics built for <em>higher education.</em></h1>
+            <p class="hero__lead lead reveal" style="--d:120ms">Power BI dashboards, PostgreSQL pipelines, and custom analytics tooling, designed by an analyst who has lived inside the system. FERPA-safe by design, IPEDS-aware from day one.</p>
+            <div class="hero__cta cta-row reveal" style="--d:180ms">
+              <a class="btn" href="#contact">Start a project</a>
+              <a class="link" href="#services">See services <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
-          <div class="device__base"></div>
-          <div class="device__foot"></div>
+          <div class="frame reveal" style="--d:240ms">
+            <div class="frame__screen">
+              <img src="https://i.imgur.com/At6JQGz.jpeg" alt="Student Enrollment dashboard in Power BI, an example of delivered work" width="1280" height="720" fetchpriority="high">
+            </div>
+            <div class="frame__cap">
+              <p class="label"><b>Delivered</b>Student Enrollment · Power BI</p>
+              <a class="link" href="../#work">See all work <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
         </div>
+
+        <dl class="stats reveal" style="--d:300ms">
+          <div class="stat"><dt class="stat__v">3<small>+</small></dt><dd class="stat__l">Years inside university IR</dd></div>
+          <div class="stat"><dt class="stat__v">22<small>+</small></dt><dd class="stat__l">Argos reports migrated to Power BI</dd></div>
+          <div class="stat"><dt class="stat__v">5</dt><dd class="stat__l">Annual IPEDS surveys authored</dd></div>
+          <div class="stat"><dt class="stat__v">1</dt><dd class="stat__l">Business day to hear back</dd></div>
+        </dl>
       </div>
     </section>
 
-    <!-- ═══ Services (black) ═══ -->
-    <section class="tile tile--dark" id="services">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>What we do</p>
-          <h2 class="t-display split">Three practices. One outcome.</h2>
-          <p class="t-lead muted" data-reveal style="--d:200ms">Institutions that act on their data.</p>
-          <p class="t-body muted" data-reveal style="--d:300ms;margin-top:16px">Most higher-ed analytics work fails at the seams — the SQL doesn't match the dashboard, the dashboard doesn't match the meeting, the meeting doesn't change anything. We work end-to-end so the seams disappear.</p>
+    <!-- ═══ 01 · Services ═══ -->
+    <section class="section section--ruled" id="services">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label reveal"><b>01</b>Services</p>
+          <div>
+            <h2 class="h-display reveal">Three practices. One outcome: institutions that act on their data.</h2>
+            <p class="lead reveal" style="--d:60ms">Most higher-ed analytics work fails at the seams. The SQL doesn't match the dashboard, the dashboard doesn't match the meeting, the meeting doesn't change anything. We work end to end so the seams disappear.</p>
+          </div>
         </div>
-        <div class="grid grid--3" data-stagger>
-          <article class="card card--surface">
-            <span class="scope">Dashboards</span>
+        <div class="services">
+          <article class="service reveal">
+            <p class="label">Dashboards</p>
             <h3>Executive-ready BI</h3>
             <p>Power BI dashboards that survive contact with cabinet meetings. Built from your real data warehouse, not slide decks. Versioned, documented, and handed off cleanly.</p>
             <ul>
@@ -139,24 +132,24 @@
               <li>Row-level security &amp; FERPA-safe design</li>
             </ul>
           </article>
-          <article class="card card--surface">
-            <span class="scope">SQL &amp; data</span>
+          <article class="service reveal" style="--d:60ms">
+            <p class="label">SQL &amp; data</p>
             <h3>Data engineering</h3>
-            <p>The pipeline behind the dashboard. PostgreSQL models, semantic layers, and documented query libraries your IR team can actually maintain after we leave.</p>
+            <p>The pipeline behind the dashboard. PostgreSQL models, semantic layers, and documented query libraries your IR team can maintain after we leave.</p>
             <ul>
-              <li>SIS data modeling (Colleague, Banner, Jenzabar, PowerCampus)</li>
+              <li>SIS data modeling: Colleague, Banner, Jenzabar, PowerCampus</li>
               <li>Argos-to-Power BI report migration</li>
               <li>Cohort &amp; longitudinal query frameworks</li>
               <li>Reusable view libraries in Git; ETL &amp; Power Query refactoring</li>
             </ul>
           </article>
-          <article class="card card--surface">
-            <span class="scope">Development</span>
+          <article class="service reveal" style="--d:120ms">
+            <p class="label">Development</p>
             <h3>Custom analytics tools</h3>
             <p>When a dashboard isn't enough. Internal web tools, data apps, and AI-augmented workflows tailored to how your institution actually operates.</p>
             <ul>
               <li>Internal data tools &amp; lightweight web apps</li>
-              <li>Claude / LLM-powered analyst workflows</li>
+              <li>Claude and LLM-powered analyst workflows</li>
               <li>Embedded analytics &amp; portal integrations</li>
               <li>Automation of recurring compliance reports</li>
             </ul>
@@ -165,111 +158,118 @@
       </div>
     </section>
 
-    <!-- ═══ Process (parchment) ═══ -->
-    <section class="tile tile--parchment" id="process">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>How we work</p>
-          <h2 class="t-display split">Four phases, shaped around your academic calendar.</h2>
-          <p class="t-lead" data-reveal style="--d:200ms">Higher ed runs on terms, not sprints.</p>
-          <p class="t-body muted" data-reveal style="--d:300ms;margin-top:16px">Our process respects census dates, board cycles, and reporting deadlines — and produces artifacts your team owns at the end.</p>
+    <!-- ═══ 02 · Process ═══ -->
+    <section class="section section--tint" id="process">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label reveal"><b>02</b>Process</p>
+          <div>
+            <h2 class="h-display reveal">Four phases, shaped around your academic calendar.</h2>
+            <p class="lead reveal" style="--d:60ms">Higher ed runs on terms, not sprints. The process respects census dates, board cycles, and reporting deadlines, and produces artifacts your team owns at the end.</p>
+          </div>
         </div>
-        <div class="process" data-stagger>
-          <div><div class="process__num">01</div><h3>Discover</h3><p>Stakeholder interviews, data inventory, and a clear scoping doc. We map what exists, what's broken, and what the board actually wants to see.</p></div>
-          <div><div class="process__num">02</div><h3>Model</h3><p>SQL models in Git, semantic layer documented, FERPA review baked in. Every metric defined once, used everywhere.</p></div>
-          <div><div class="process__num">03</div><h3>Build</h3><p>Dashboards, tools, or both — iterated weekly with your IR team in the loop. No black-box deliverables.</p></div>
-          <div><div class="process__num">04</div><h3>Hand off</h3><p>Documentation, training, and a 30-day support runway. Your team owns it. We're a phone call away when you need us.</p></div>
+        <div class="process">
+          <div class="reveal"><div class="process__n">01</div><h3>Discover</h3><p>Stakeholder interviews, data inventory, and a clear scoping doc. We map what exists, what's broken, and what the board actually wants to see.</p></div>
+          <div class="reveal" style="--d:60ms"><div class="process__n">02</div><h3>Model</h3><p>SQL models in Git, semantic layer documented, FERPA review baked in. Every metric defined once, used everywhere.</p></div>
+          <div class="reveal" style="--d:120ms"><div class="process__n">03</div><h3>Build</h3><p>Dashboards, tools, or both, iterated weekly with your IR team in the loop. No black-box deliverables.</p></div>
+          <div class="reveal" style="--d:180ms"><div class="process__n">04</div><h3>Hand off</h3><p>Documentation, training, and a 30-day support runway. Your team owns it. We're a phone call away when you need us.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Engagement (white) ═══ -->
-    <section class="tile tile--canvas" id="engagement">
-      <div class="wrap wrap--grid">
-        <div class="tile-head">
-          <p class="eyebrow" data-reveal>Engagement models</p>
-          <h2 class="t-display split">Three ways to work together.</h2>
-          <p class="t-lead" data-reveal style="--d:200ms">Fixed-scope or monthly retainer. No surprises.</p>
+    <!-- ═══ 03 · Engagement ═══ -->
+    <section class="section" id="engagement">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label reveal"><b>03</b>Engagement</p>
+          <div>
+            <h2 class="h-display reveal">Three ways to work together.</h2>
+            <p class="lead reveal" style="--d:60ms">Fixed-scope or monthly retainer. No surprises.</p>
+          </div>
         </div>
-        <div class="grid grid--3" data-stagger>
-          <article class="card">
-            <span class="scope">Project</span>
+        <div class="grid-3">
+          <article class="card reveal">
+            <p class="card__meta">Project</p>
             <h3>Fixed-scope build</h3>
             <p>A defined deliverable with a clear start and end. Best for one specific dashboard, data model, report migration, or internal tool.</p>
-            <ul><li>2–6 week timeline</li><li>Fixed-fee pricing</li><li>Full handoff documentation</li><li>30-day support window</li></ul>
-            <div class="card__actions"><a class="link link--sm" href="#contact">Scope a project</a></div>
+            <ul><li>2 to 6 week timeline</li><li>Fixed-fee pricing</li><li>Full handoff documentation</li><li>30-day support window</li></ul>
+            <div class="card__actions"><a class="link" href="#contact">Scope a project <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           </article>
-          <article class="card card--featured">
-            <span class="scope">Retainer</span>
+          <article class="card card--featured reveal" style="--d:60ms">
+            <p class="card__meta">Retainer · most common</p>
             <h3>Embedded analyst</h3>
-            <p>Ongoing partnership where we act as fractional analytics leadership — supporting your IR office across a term or a full year. This is how we work with Southwestern Adventist University today.</p>
+            <p>Ongoing partnership where we act as fractional analytics leadership, supporting your IR office across a term or a full year. This is how we work with Southwestern Adventist University today.</p>
             <ul><li>Monthly retainer</li><li>Standing weekly cadence</li><li>Multiple dashboards &amp; ad-hoc requests</li><li>IPEDS season surge capacity</li></ul>
             <div class="card__actions"><a class="btn btn--sm" href="#contact">Talk about a retainer</a></div>
           </article>
-          <article class="card">
-            <span class="scope">Advisory</span>
+          <article class="card reveal" style="--d:120ms">
+            <p class="card__meta">Advisory</p>
             <h3>Strategic review</h3>
             <p>Audit, recommend, advise. For institutions standing up an analytics function or rethinking the one they have.</p>
             <ul><li>Data architecture review</li><li>Tooling &amp; vendor evaluation</li><li>Hiring &amp; team structure guidance</li><li>Written roadmap deliverable</li></ul>
-            <div class="card__actions"><a class="link link--sm" href="#contact">Request a review</a></div>
+            <div class="card__actions"><a class="link" href="#contact">Request a review <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Why higher ed (dark tile) ═══ -->
-    <section class="tile tile--tile1" id="why">
-      <div class="wrap wrap--grid">
-        <div class="why">
+    <!-- ═══ 04 · Why higher ed ═══ -->
+    <section class="section section--tint" id="why">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label reveal"><b>04</b>Why higher ed only</p>
           <div>
-            <p class="eyebrow" data-reveal>Why higher ed only</p>
-            <h2 class="t-display split">A consultancy that already knows your data model.</h2>
-            <p data-reveal style="--d:200ms">Most analytics consultancies treat higher education as a vertical to tack on. We do the opposite. Every engagement we take is for a college, university, or higher-ed adjacent organization — because the difference between a generic BI shop and one that already knows what FTIC, FFTE, and IPEDS Part E mean is measured in months of wasted ramp-up.</p>
-            <p data-reveal style="--d:300ms">The practice is led by Davenee James — Enterprise Analytics Specialist at the University of Central Florida and former IR analyst at Southwestern Adventist University, where the Argos-to-Power BI migration, the Colleague ODS reporting layer, and five annual IPEDS surveys were built from the inside.</p>
+            <h2 class="h-display reveal">A consultancy that already knows your data model.</h2>
           </div>
-          <div class="stats" data-stagger>
-            <div class="stat"><div class="stat__v"><span data-count="3" data-suffix="+">0+</span></div><div class="stat__l">Years inside university IR</div></div>
-            <div class="stat"><div class="stat__v"><span data-count="22" data-suffix="+">0+</span></div><div class="stat__l">Argos reports migrated to Power BI</div></div>
-            <div class="stat"><div class="stat__v"><span data-count="15" data-suffix="+">0+</span></div><div class="stat__l">Departments governed</div></div>
-            <div class="stat"><div class="stat__v"><span data-count="300" data-suffix="+">0+</span></div><div class="stat__l">Database tables modeled</div></div>
+        </div>
+        <div class="split">
+          <div class="split__copy prose reveal">
+            <p>Most analytics consultancies treat higher education as a vertical to tack on. We do the opposite. Every engagement we take is for a college, university, or higher-ed adjacent organization, because the difference between a generic BI shop and one that already knows what FTIC, FFTE, and IPEDS Part E mean is measured in months of wasted ramp-up.</p>
+            <p>The practice is led by Davenee James, Enterprise Analytics Specialist at the University of Central Florida and former IR analyst at Southwestern Adventist University, where the Argos-to-Power BI migration, the Colleague ODS reporting layer, and five annual IPEDS surveys were built from the inside.</p>
           </div>
+          <dl class="stats stats--grid reveal" style="--d:60ms">
+            <div class="stat"><dt class="stat__v">3<small>+</small></dt><dd class="stat__l">Years inside university IR</dd></div>
+            <div class="stat"><dt class="stat__v">22<small>+</small></dt><dd class="stat__l">Argos reports migrated to Power BI</dd></div>
+            <div class="stat"><dt class="stat__v">15<small>+</small></dt><dd class="stat__l">Departments governed</dd></div>
+            <div class="stat"><dt class="stat__v">300<small>+</small></dt><dd class="stat__l">Database tables modeled</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- ═══ CTA (black) ═══ -->
-    <section class="tile tile--dark product" id="contact">
+    <!-- ═══ 05 · Contact ═══ -->
+    <section class="section band" id="contact">
       <div class="wrap">
-        <div class="tile-head" style="margin-bottom:0">
-          <p class="eyebrow" data-reveal>Let's talk</p>
-          <h2 class="t-hero split">Bring clarity to your institutional data.</h2>
-          <p class="t-lead muted" data-reveal style="--d:200ms">Start with a free 30-minute discovery call. We'll tell you honestly whether we're the right fit.</p>
-          <div class="cta-row" data-reveal style="--d:320ms">
-            <a class="btn btn--lg" href="mailto:daveneejames@gmail.com?subject=Consulting%20Inquiry%20%E2%80%94%20Higher%20Ed%20Analytics">Email us</a>
-            <a class="link" href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <div class="contact">
+          <div>
+            <p class="label reveal"><b>05</b>Let's talk</p>
+            <h2 class="h-display reveal">Bring clarity to your institutional data.</h2>
+            <p class="lead contact__lead reveal" style="--d:60ms">Start with a free 30-minute discovery call. We'll tell you honestly whether we're the right fit, and we respond within one business day.</p>
+            <div class="cta-row reveal" style="--d:120ms">
+              <a class="btn" href="mailto:daveneejames@gmail.com?subject=Consulting%20Inquiry%20%E2%80%94%20Higher%20Ed%20Analytics"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"/></svg>Email us</a>
+              <a class="link" href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">Connect on LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
           </div>
-          <p class="t-caption muted" data-reveal style="--d:400ms;margin-top:20px">Tell us about your institution and what you're trying to solve. We respond within one business day.</p>
-          <div class="services" data-stagger>
-            <span class="tag">Power BI</span><span class="tag">PostgreSQL</span><span class="tag">Microsoft Fabric</span><span class="tag">Argos migration</span><span class="tag">IPEDS</span><span class="tag">Institutional research</span><span class="tag">People analytics</span><span class="tag">Custom tooling</span>
+          <div class="aside reveal" style="--d:180ms">
+            <h3>What to include</h3>
+            <p>Your institution, your SIS (Colleague, Banner, Jenzabar, PowerCampus), and the question leadership keeps asking that the current reports can't answer.</p>
+            <span class="status"><i aria-hidden="true"></i>Accepting new engagements</span>
           </div>
-          <div class="availability" data-reveal><i></i>Accepting new engagements</div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ═══ Footer (parchment) ═══ -->
   <footer class="footer">
-    <div class="wrap wrap--grid">
-      <div class="footer__cols">
-        <div><h4>Consulting</h4><ul><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#engagement">Engagement models</a></li><li><a href="#why">Why higher ed</a></li><li><a href="#contact">Book a discovery call</a></li></ul></div>
-        <div><h4>Portfolio</h4><ul><li><a href="../#dashboards">Dashboards</a></li><li><a href="../#sql">SQL</a></li><li><a href="../#queryu">Query-U</a></li><li><a href="../#experience">Experience</a></li><li><a href="../#skills">Skills</a></li></ul></div>
-        <div><h4>Connect</h4><ul><li><a href="mailto:daveneejames@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li></ul></div>
-      </div>
-      <div class="footer__legal">
-        <span>© <span data-year>2026</span> Davenee James Consulting. Orlando, FL.</span>
-        <span><a href="#top">Back to top ↑</a></span>
-      </div>
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Davenee James Consulting · Orlando, FL</span>
+      <ul>
+        <li><a href="../">Portfolio</a></li>
+        <li><a href="../#work">Dashboards</a></li>
+        <li><a href="https://www.linkedin.com/in/davenee-james-848171228/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="../Resume_Davenee_James.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        <li><a href="#top">Back to top</a></li>
+      </ul>
     </div>
   </footer>
 
